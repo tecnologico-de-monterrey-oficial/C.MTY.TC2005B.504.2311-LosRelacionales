@@ -19,6 +19,7 @@ function App() {
           <Route path="/" element={<Acceder_cuenta />} />
         </Routes>
       </BrowserRouter>
+      <h1>Los Relacionales</h1>
     </div>
   )
 }

@@ -3,7 +3,7 @@ import './NavigationBar.css';
 
 function NavigationBar() {
     return (
-        <Navbar className="NavBar" variant="dark">
+        <Navbar className="">
         <Container>
           <Navbar.Brand as={Link} to='/'>
           <img
