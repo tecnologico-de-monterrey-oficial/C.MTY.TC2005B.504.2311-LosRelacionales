@@ -1,0 +1,10 @@
+/* * {
+    border: 1px dotted red;
+} */
+
+.columnContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+  
