@@ -23,5 +23,28 @@
     color: #4F5D75;
     opacity: 1;
 }
-
+ 
+  
+  .Footer {
+    background-color: #EFE3CB;
+    padding: 20px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  }
+  
+  .Footer-links {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+  
+  .Footer-links a {
+    margin: 0 10px;
+    color: #333;
+    text-decoration: none;
+  }
+  
+  
 
