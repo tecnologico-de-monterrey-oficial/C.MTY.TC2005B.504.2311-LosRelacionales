@@ -5,8 +5,8 @@ import Contacto from './components/Contacto'
 import Inicio from './components/Inicio'
 import Acceder_cuenta from './components/Acceder_cuenta'
 import './App.css'
-import navegacion from './components/Navegacion';
-import SobreNosotros from './components/SobreNosotros';
+//import navegacion from './components/Navegacion';
+//import SobreNosotros from './components/SobreNosotros';
 
 function App() {
 
@@ -19,13 +19,7 @@ function App() {
           <Route path="/" element={<Testimonios />} />
           <Route path="/" element={<Contacto />} />
           <Route path="/" element={<Acceder_cuenta />} />
-          <footer >
-            <Route path="/" element={<Navegacion />} />
-            <Route path="/" element={<SobreNosotros />} />
-            <Route path="/" element={<Contacto />} />
-          </footer>
         </Routes>
-
       </BrowserRouter>
       <h1>Los Relacionales</h1>
     </div>
