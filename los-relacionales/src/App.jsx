@@ -5,8 +5,8 @@ import Contacto from './components/Contacto'
 import Inicio from './components/Inicio'
 import Acceder_cuenta from './components/Acceder_cuenta'
 import './App.css'
-//import navegacion from './components/Navegacion';
-//import SobreNosotros from './components/SobreNosotros';
+//import Footer from './components/footer';
+
 
 function App() {
 
@@ -21,6 +21,7 @@ function App() {
           <Route path="/" element={<Acceder_cuenta />} />
         </Routes>
       </BrowserRouter>
+  
       <h1>Los Relacionales</h1>
     </div>
   )
