@@ -1,3 +1,4 @@
+
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import NavigationBar from './components/NavigationBar'
 import Testimonios from './components/Testimonios'
@@ -6,7 +7,6 @@ import Inicio from './components/Inicio'
 import Acceder_cuenta from './components/Acceder_cuenta'
 import './App.css'
 //import Footer from './components/footer';
-
 
 function App() {
 

@@ -1,0 +1,73 @@
+.testimonios {
+    background-color: #EFE3CB;
+    margin: 2rem;
+}
+
+h1 {
+    color: black;
+    text-align: center;
+}
+
+.col-mes {
+    padding: 2rem;
+}
+
+.mensajes {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.item {
+    background-color: #fff;
+    padding: 1rem;
+    margin-bottom: 2rem;
+    border-radius: 0.2rem;
+    transition: width 0.5s ease;
+    /*box-shadow: 0 0 5px rgba(0,0,0,0.5);*/
+}
+
+.item:hover {
+    box-shadow: 0 0 5px rgba(0,0,0,0.5);
+}
+
+.item p {
+    margin: 0rem;
+}
+
+.col-img {
+    padding: 1rem;
+}
+
+.frame {
+    background-color: #fff;
+    width: 100%;
+    height: 100%;
+    padding-left: 2rem;
+    padding-top: 2rem;
+    padding-right: 2rem;
+    padding-bottom: 1rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.img-container {
+    padding-bottom: 1rem;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+.info {
+    text-align: center;
+}
+
+.info p {
+    color: #808080;
+}
