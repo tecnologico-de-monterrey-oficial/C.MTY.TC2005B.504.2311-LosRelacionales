@@ -1,4 +1,7 @@
 
+import { useState } from 'react'
+import Banner from './components/Banner.jsx'
+
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import NavigationBar from './components/NavigationBar'
 import Testimonios from './components/Testimonios'

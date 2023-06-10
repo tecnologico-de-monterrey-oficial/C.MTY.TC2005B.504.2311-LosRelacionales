@@ -1,0 +1,44 @@
+.text{
+    justify-content: left;
+    align-items: left;
+    text-align: left;
+    color: black;
+    margin-right: 50rem;
+    font-family: 'Roboto', sans-serif;
+    margin-top: 3rem;
+    padding-left: 5%; 
+    float: left;
+}
+
+.image2{
+  float: right;
+  margin-top: -21rem;
+  margin-right: 20rem;
+}
+
+.image1{
+  float: right;
+  margin-top: -12rem;
+  margin-right: 7rem;
+}
+
+.banner{
+  margin-top: 4rem;
+  background-color: white;
+  height: 27.5rem;
+}
+
+.buttons{
+  background-color: #EFE3CB;
+  border: none;
+  border-radius: 12px;
+  padding: 15px 32px;
+  text-align: center;
+  font-weight: 600;
+}
+.buttons:hover{
+  background-color: #F5D7B5;
+}
+.buttons:active{
+  background-color: #ffcf98;
+}
