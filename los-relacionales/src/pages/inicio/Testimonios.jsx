@@ -7,7 +7,7 @@ import Image from 'react-bootstrap/Image'
 export default function Testimonios() {
     return (
         <div className='testimonios'>
-            <h1>Testimonios</h1>
+            <h3>Testimonios</h3>
             <Container fluid>
                 <Row>
                     <Col className='col-mes' sm={12} md={6}>
@@ -43,8 +43,8 @@ export default function Testimonios() {
                                 <Image src="/assets/harold1.jpg" />
                             </div>
                             <div className='info'>
-                                <h5>Haroldo Pérez</h5>
-                                <p>Ingeniero eléctrico y padre de 4 hijos</p>
+                                <h5 style={{ textAlign: 'center' }}>Haroldo Pérez</h5>
+                                <p style={{fontSize: '1rem', textAlign: 'center'}}>Ingeniero eléctrico y padre de 4 hijos</p>
                             </div>
                         </div>
                     </Col>

@@ -1,11 +1,7 @@
 .testimonios {
     background-color: #EFE3CB;
-    margin: 2rem;
-}
-
-h1 {
-    color: black;
-    text-align: center;
+    margin: 5rem;
+    padding: 2rem;
 }
 
 .col-mes {
