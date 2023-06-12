@@ -19,7 +19,7 @@ function Banner() {
             </p>
             <div className='btns'>
               <Button>Registro</Button>
-              <Button>Acceder a mi cuenta</Button>
+              <Button>Ir a mi perfil</Button>
             </div>
           </Col>
           <Col className='imgs' lg={6} md={12}>
