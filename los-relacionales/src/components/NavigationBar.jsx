@@ -23,18 +23,23 @@ function NavigationBar() {
             <Link className="Link" to="/">
               Inicio
             </Link>
-            <Link className="Link" to="/">
+            <Link className="Link" to="/Testimonios">
               Testimonios
             </Link>
-            <Link className="Link" to="/">
+            <Link className="Link" to="/Contacto">
               Contacto
             </Link>
-            <Link className="Link" to="/">
+            <Link className="Link" to="/Acceder_cuenta">
               Acceder a mi cuenta
+            </Link>
+            <Link className="Link" to="/MiPerfil">
+              Mi Perfil
             </Link>
           </Nav>
         </Container>
       </Navbar>
+      <Footer />
+      
     </div>
   );
 }

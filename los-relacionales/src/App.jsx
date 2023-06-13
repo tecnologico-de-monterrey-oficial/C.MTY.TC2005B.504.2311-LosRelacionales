@@ -6,23 +6,23 @@ import Inicio from './components/Inicio'
 import Acceder_cuenta from './components/Acceder_cuenta'
 import './App.css'
 //import Footer from './components/footer';
+import MiPerfil from './components/MiPerfil';
 
 
 function App() {
-
   return (
     <div className="App">
       <BrowserRouter>
         <NavigationBar />
         <Routes>
           <Route path="/" element={<Inicio/>} />
-          <Route path="/" element={<Testimonios />} />
-          <Route path="/" element={<Contacto />} />
-          <Route path="/" element={<Acceder_cuenta />} />
+          <Route path="/Testimonios" element={<Testimonios />} />
+          <Route path="/Contacto" element={<Contacto />} />
+          <Route path="/Acceder_cuenta" element={<Acceder_cuenta />} />
+          <Route path="/MiPerfil" element={<MiPerfil />} />
         </Routes>
       </BrowserRouter>
-  
-      <h1>Los Relacionales</h1>
+      
     </div>
   )
 }

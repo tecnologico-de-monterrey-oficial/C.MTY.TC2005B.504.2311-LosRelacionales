@@ -2,6 +2,7 @@ function MiPerfil(){
 
     return(
         <div>
+            <div>
             <h1>Mi Perfil</h1>
             <img 
              alt=""
@@ -25,6 +26,11 @@ function MiPerfil(){
         <Button variant="secondary" size="lg">
         Dimensión aafectiva
         </Button>
+        
+
+            </div>
+        <h1>Dimension Funcional</h1>
+        
         </div>
     );
 }
