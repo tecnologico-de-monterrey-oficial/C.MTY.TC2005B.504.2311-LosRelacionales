@@ -7,7 +7,7 @@ function Footer() {
         <div className="footer">
             <Container>
                 <div className="footer-logo">
-                    <img alt="Logo" src="/assets/logo.png" style={{ height: '30px', width: 'auto' }} />
+                    <img alt="Logo" src="/assets/logo.png" style={{ height: '100px', width: 'auto' }} />
                 </div>
                 <div className="footer-links">
                     {/*<Link to="/navegacion">Navegación</Link>

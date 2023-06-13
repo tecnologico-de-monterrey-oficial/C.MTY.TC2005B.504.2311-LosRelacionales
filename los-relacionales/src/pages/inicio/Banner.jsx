@@ -10,9 +10,9 @@ function Banner() {
       <Container fluid >
         <Row>
           <Col className='text' lg={6} md={12}>
-            <h1>Abuelitos ABP</h1>
+            <h1>Vida Plena</h1>
             <h2>&quot;Los abuelitos somos fuente de sabiduría&quot;</h2>
-            <p style={{ marginTop: '1rem' }}>¡Bienvenido a Abuelitos ABP! <br /><br />
+            <p style={{ marginTop: '1rem' }}>¡Bienvenido a Vida Plena! <br /><br />
               En esta página te guiaremos en cada proceso para evaluar los distintos aspectos de tu salud.
               Te daremos recomendaciones para seguir teniendo una salud y vida plena. <br /><br />
               Si deseas continuar, oprime el botón de abajo para registrarte.

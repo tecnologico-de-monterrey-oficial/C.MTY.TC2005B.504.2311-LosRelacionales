@@ -2,6 +2,8 @@ import './App.css'
 import 'bootstrap/dist/css/bootstrap.css';
 import NavigationBar from './components/NavigationBar'
 import Inicio from './pages/inicio/Inicio'
+import PAMs from './pages/pams/PAMs';
+import PAM from './pages/pam/PAM';
 import Footer from './components/Footer'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
@@ -13,6 +15,8 @@ function App() {
           <NavigationBar />
           <Routes>
             <Route path="/" element={<Inicio />} />
+            <Route path="/pams" element={<PAMs />} />
+            <Route path="/pam" element={<PAM />} />
           </Routes>
         </BrowserRouter>
       </div>

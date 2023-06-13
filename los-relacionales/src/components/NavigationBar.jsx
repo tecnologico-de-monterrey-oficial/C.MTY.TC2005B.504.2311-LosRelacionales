@@ -10,10 +10,12 @@ function NavigationBar() {
       <Navbar variant="dark">
         <Container>
           <Navbar.Brand as={Link} to="/">
-            <img alt="Logo" src="/assets/logo.png" style={{ height:'30px', width: 'auto', margin: '10px' }} />
+            <img alt="Logo" src="/assets/logo.png" style={{ height:'100px', width: 'auto', margin: '10px' }} />
           </Navbar.Brand>
           <Nav className="me-auto">
             <Nav.Link as={Link} to="/">Inicio</Nav.Link>
+            <Nav.Link as={Link} to="/pams">Personas Adultas Mayores</Nav.Link>
+            <Nav.Link as={Link} to="/pam">PAM</Nav.Link>
           </Nav>
         </Container>
       </Navbar>
