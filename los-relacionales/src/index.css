@@ -23,6 +23,17 @@ p {
     text-align: left;
 }
 
+b {
+    font-family: 'Lato';
+    font-weight: bolder;
+    font-size: 1.4rem;
+}
+
+a {
+    font-family: 'Lato';
+    font-size: 1.4rem;
+}
+
 @media (max-width: 534px) {
     p {
         font-size: 1.2rem;

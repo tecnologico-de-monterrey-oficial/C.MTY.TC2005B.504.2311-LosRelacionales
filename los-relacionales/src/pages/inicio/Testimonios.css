@@ -1,7 +1,20 @@
 .testimonios {
     background-color: #EFE3CB;
     margin: 5rem;
+    margin-bottom: 3rem;
     padding: 2rem;
+}
+
+@media (max-width: 992px) {
+    .testimonios {
+        margin: 2.5rem;
+        margin-top: 0rem;
+        padding: 1rem;
+    }
+
+    .outer-container {
+        margin-top: 0rem;
+    }
 }
 
 .col-mes {
@@ -14,19 +27,27 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-top: 0rem;
 }
 
 .item {
     background-color: #fff;
     padding: 1rem;
-    margin-bottom: 2rem;
     border-radius: 0.2rem;
     transition: width 0.5s ease;
     /*box-shadow: 0 0 5px rgba(0,0,0,0.5);*/
 }
 
+.row .quotation {
+    height: 3rem;
+    width: auto;
+
+    position: relative;
+    top: 1rem;
+}
+
 .item:hover {
-    box-shadow: 0 0 5px rgba(0,0,0,0.5);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }
 
 .item p {
@@ -55,9 +76,8 @@
     padding-bottom: 1rem;
 }
 
-img {
+.col-img img {
     width: 100%;
-    height: auto;
 }
 
 .info {
