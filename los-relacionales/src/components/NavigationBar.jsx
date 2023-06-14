@@ -1,32 +1,40 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
 import './NavigationBar.css';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import Footer from './footer';
+import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { useEffect, useState } from 'react';
 
 function NavigationBar() {
+  const { user } = useSelector((state) => state.auth);
+  const [isLogged, setIsLogged] = useState(false);
+
+  useEffect(() => {
+    if (user) {
+      setIsLogged(true);
+    }
+  }, [user]);
+
   return (
     <div>
-      <Navbar className="NavBar" variant="dark">
+      <Navbar variant="dark" collapseOnSelect expand="lg">
         <Container>
           <Navbar.Brand as={Link} to="/">
-            <img
-              alt=""
-              src="/logo.png"
-              height="30"
-              className="d-inline-block align-top"
-            />
+            <img alt="Logo" src="/assets/logo.png" style={{ height: '100px', width: 'auto', margin: '10px' }} />
           </Navbar.Brand>
-          <Nav className="me-auto">
-            <Link className="Link" to="/">
-              Inicio
-            </Link>
-            <Link className="Link" to="/MiPerfil">
-              Mi Perfil
-            </Link>
-          </Nav>
+          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+          <Navbar.Collapse id="responsive-navbar-nav">
+            <Nav className="me-auto">
+              <Nav.Link as={Link} to="/">Inicio</Nav.Link>
+              <Nav.Link as={Link} to="/pams">Personas Adultas Mayores</Nav.Link>
+              <Nav.Link as={Link} to="/pam">PAM</Nav.Link>
+              {isLogged &&
+                <Nav.Link as={Link} to="/profile">Mi perfil</Nav.Link>
+              }
+            <Nav.Link as={Link} to="/MiPerfil">Mi Perfil</Nav.Link>
+            </Nav>
+          </Navbar.Collapse>
         </Container>
       </Navbar>
       

@@ -1,34 +1,71 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import NavigationBar from './components/NavigationBar'
-import Inicio from './components/Inicio'
 import './App.css'
+import 'bootstrap/dist/css/bootstrap.css';
+import NavigationBar from './components/NavigationBar'
+import Inicio from './pages/inicio/Inicio'
+import PAMs from './pages/pams/PAMs';
+import PAM from './pages/pam/PAM';
+import Login from './pages/login/Login';
+import Profile from './pages/profile/Profile';
+import Footer from './components/Footer'
+import Protected from './components/Protected';
 import MiPerfil from './components/MiPerfil';
 import DimensionFuncional from './components/DimensionFuncional';
 import DimensionAfectiva from './components/DimensionAfectiva';
 import DimensionDFisico from './components/DimensionDFisico';
 import PruebaGijon from './components/PruebaGijon';
 import PruebaGijon2 from './components/PruebaGijon2';
-import { Link } from 'react-router-dom';
-
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { useEffect, useState } from 'react';
 
 function App() {
+  const { user } = useSelector((state) => state.auth);
+  const [isLogged, setIsLogged] = useState(false);
+
+  useEffect(() => {
+    if (user) {
+      setIsLogged(true);
+    }
+  }, [user]);
+
   return (
     <div className="App">
-      <BrowserRouter>
-        <NavigationBar />
-        <Routes>
-          <Route path="/" element={<Inicio/>} />
+      <div>
+        <BrowserRouter>
+          <NavigationBar />
+          <Routes>
+            <Route path="/" element={<Inicio />} />
+            <Route
+              path="/pams"
+              element={
+                <Protected
+                  isLoggedIn={isLogged}>
+                  <PAMs />
+                </Protected>
+              }
+            />
+            <Route path="/pam" element={<PAM />} />
+            <Route path="/login" element={<Login />} />
+            <Route
+              path="/profile"
+              element={
+                <Protected
+                  isLoggedIn={isLogged}>
+                  <Profile />
+                </Protected>
+              }
+            />
           <Route path="/MiPerfil" element={<MiPerfil />} />
           <Route path="/DimensionFuncional" element={<DimensionFuncional/>} />
           <Route path="/DimensionAfectiva" element={<DimensionAfectiva/>} />
           <Route path="/DimensionDFisico" element={<DimensionDFisico/>} />
           <Route path="/PruebaGijon" element={<PruebaGijon/>} />
           <Route path="/PruebaGijon2" element={<PruebaGijon2/>} />
-        </Routes>
-      </BrowserRouter>
-
-      
-    </div>
+          </Routes>
+        </BrowserRouter>
+      </div>
+      <Footer />
+    </div >
   )
 }
 

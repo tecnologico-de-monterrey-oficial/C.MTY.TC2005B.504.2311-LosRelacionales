@@ -1,0 +1,86 @@
+.container-fluid {
+  margin-top: 2rem;
+}
+
+.text {
+  color: black;
+  padding-left: 8%;
+  padding-right: 5%;
+
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.btns {
+  margin-top: 1rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 1505px) {
+  .btns {
+    flex-direction: column;
+    gap: 2rem;
+  }
+}
+
+.btn {
+  color: black;
+  background-color: #EFE3CB;
+  font-size: 1.4rem;
+  font-weight: 500;
+
+  padding: 1rem;
+  padding-left: 4rem;
+  padding-right: 4rem;
+
+  border: none;
+  border-radius: 8px;
+}
+
+.btn:hover {
+  color: black;
+  background-color: #F5D7B5;
+}
+
+.btn:active {
+  color: black;
+  background-color: #ffcf98;
+}
+
+.imgs {
+  display: flex;
+  justify-content: center;
+}
+
+.image1 {
+  width: 50%;
+}
+
+.image2 {
+  width: 50%;
+  position: relative;
+  left: -15%;
+  top: 10rem;
+}
+
+@media (max-width: 992px) {
+  .imgs {
+    padding-left: 15%;
+  }
+}
+
+@media (max-width: 1510px) {
+  .image1 {
+    width: 60%;
+    padding-top: 10%;
+  }
+
+  .image2 {
+    width: 60%;
+    left: 25%;
+    top: -5rem;
+  }
+}

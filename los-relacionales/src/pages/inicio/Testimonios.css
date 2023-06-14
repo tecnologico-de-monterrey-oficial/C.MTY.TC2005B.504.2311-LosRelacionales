@@ -1,0 +1,89 @@
+.testimonios {
+    background-color: #EFE3CB;
+    margin: 5rem;
+    margin-bottom: 3rem;
+    padding: 2rem;
+}
+
+@media (max-width: 992px) {
+    .testimonios {
+        margin: 2.5rem;
+        margin-top: 0rem;
+        padding: 1rem;
+    }
+
+    .outer-container {
+        margin-top: 0rem;
+    }
+}
+
+.col-mes {
+    padding: 2rem;
+}
+
+.mensajes {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0rem;
+}
+
+.item {
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 0.2rem;
+    transition: width 0.5s ease;
+    /*box-shadow: 0 0 5px rgba(0,0,0,0.5);*/
+}
+
+.row .quotation {
+    height: 3rem;
+    width: auto;
+
+    position: relative;
+    top: 1rem;
+}
+
+.item:hover {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.item p {
+    margin: 0rem;
+}
+
+.col-img {
+    padding: 1rem;
+}
+
+.frame {
+    background-color: #fff;
+    width: 100%;
+    height: 100%;
+    padding-left: 2rem;
+    padding-top: 2rem;
+    padding-right: 2rem;
+    padding-bottom: 1rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.img-container {
+    padding-bottom: 1rem;
+}
+
+.col-img img {
+    width: 100%;
+}
+
+.info {
+    text-align: center;
+}
+
+.info p {
+    color: #808080;
+}

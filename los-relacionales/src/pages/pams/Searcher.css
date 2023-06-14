@@ -1,0 +1,26 @@
+.searcher {
+    background-color: #EFE3CB;
+    margin: 4rem;
+    padding: 2rem;
+    border-radius: 8px;
+}
+
+h3 {
+    text-align: left;
+}
+
+.table {
+    margin-top: 2rem;
+}
+
+.table .first {
+    border-top-left-radius: 4px;
+}
+
+.table .last {
+    border-top-right-radius: 4px;
+}
+
+.table th{
+    background-color: #F3F6F9;
+}
