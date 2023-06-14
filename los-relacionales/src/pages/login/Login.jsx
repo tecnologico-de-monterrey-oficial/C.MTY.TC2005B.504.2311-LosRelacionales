@@ -1,8 +1,9 @@
-import { useDispatch, useSelector } from "react-redux";
+import './Login.css';
+import { useSelector, useDispatch } from 'react-redux'
 import { signUpWithGoogle } from "../../store";
 import { Button, Image } from "react-bootstrap";
 import { Navigate } from "react-router-dom";
-// import btnGoogleSignIn from "/assets/logo.png";
+import btnGoogleSignIn from "/assets/btn_google_signin.png";
 
 export default function Login() {
     const user = useSelector((state) => state.auth.user);
@@ -23,8 +24,9 @@ export default function Login() {
                     <Button
                         variant="light"
                         size="lg"
-                        onClick={handleSignUpWithGoogle}>
-                        <Image className="btnGoogleSignin" src='/assets/logo.png' alt="Sign in with Google" />
+                        onClick={handleSignUpWithGoogle}
+                        style={{padding: '0px'}}>
+                        <Image className="btnGoogleSignin" src={btnGoogleSignIn} alt="Sign in with Google" />
                     </Button>
                 </div>
             )}

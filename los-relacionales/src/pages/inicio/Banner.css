@@ -53,7 +53,6 @@
 .imgs {
   display: flex;
   justify-content: center;
-  align-items: center;
 }
 
 .image1 {

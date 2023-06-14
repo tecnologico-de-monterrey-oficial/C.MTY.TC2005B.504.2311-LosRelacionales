@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/query';
-
+// TODO import PAMs and Persons Slices
 import {
     authReducer,
     setUser,
@@ -15,7 +15,9 @@ const store = configureStore({
         auth: authReducer,
     },
     middleware: (getDefaultMiddleware) => {
-        return getDefaultMiddleware()
+        return getDefaultMiddleware(
+            { serializableCheck: false }
+        )
     },
 });
 
@@ -30,9 +32,9 @@ export {
     setRole,
 };
 
-export { useFetchPamsQuery, useAddPamMutation, useEditPamMutation, useDeletePamMutation } from "./apis/pamsApi";
-export {
-    useFetchPersonsQuery, useFetchPersonByIdQuery, useFetchPersonsByRoleIdQuery, useFetchPersonByEmailQuery,
-    useAddPersonMutation, useEditPersonMutation, useDeletePersonMutation
-} from "./apis/personsApi";
+// export { useFetchPamsQuery, useAddPamMutation, useEditPamMutation, useDeletePamMutation } from "./apis/pamsApi";
+// export {
+//     useFetchPersonsQuery, useFetchPersonByIdQuery, useFetchPersonsByRoleIdQuery, useFetchPersonByEmailQuery,
+//     useAddPersonMutation, useEditPersonMutation, useDeletePersonMutation
+// } from "./apis/personsApi";
 export { signUpWithGoogle } from "./thunks/authThunk";
