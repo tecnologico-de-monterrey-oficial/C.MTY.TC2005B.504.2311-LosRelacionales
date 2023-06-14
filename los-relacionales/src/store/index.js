@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/query';
-
+// TODO import PAMs and Persons Slices
 import {
     authReducer,
     setUser,
@@ -15,7 +15,9 @@ const store = configureStore({
         auth: authReducer,
     },
     middleware: (getDefaultMiddleware) => {
-        return getDefaultMiddleware()
+        return getDefaultMiddleware(
+            { serializableCheck: false }
+        )
     },
 });
 
@@ -30,13 +32,38 @@ export {
     setRole,
 };
 
-export { useFetchPamsQuery, useAddPamMutation, useEditPamMutation, useDeletePamMutation } from "./apis/pamsApi";
+export { 
+    useFetchPamsQuery, useFetchPamsByIdQuery, useFetchPamsByGroupQuery, useFetchPamsByDoctorQuery, 
+    useAddPamMutation, useEditPamMutation, useDeletePamMutation 
+} from "./apis/pamsApi";
 
 export {
     useFetchPersonsQuery, useFetchPersonByIdQuery, useFetchPersonsByRoleIdQuery, useFetchPersonByEmailQuery,
     useAddPersonMutation, useEditPersonMutation, useDeletePersonMutation, useFetchPersonByNameQuery,
     useFetchPersonByGenderId
 } from "./apis/personsApi";
+
+export { 
+    useFetchTestResultByIdQuery, useFetchColorFromResultIdQuery, useFetchDescriptionFromResultIdQuery, 
+    useAddTestResultMutation, useEditTestResultMutation, useDeleteTestResultMutation
+} from "./apis/pamTestResultsApi";
+
+export {
+    useFetchTestWeightByIdQuery, useAddTestWeightMutation, useEditTestWeightMutation, useDeleteTestWeightMutation
+} from "./apis/testWeightsApi";
+
+export {
+    useFetchRolesQuery, useFetchRoleByIdQuery, useAddRoleMutation, useEditRoleMutation, useDeleteRoleMutation
+} from "./apis/rolesApi";
+
+export {
+    useFetchGendersQuery, useFetchGenderByIdQuery, useAddGenderMutation, useEditGenderMutation, useDeleteGenderMutation
+} from "./apis/gendersApi";
+
+export {
+    useFetchRecommsQuery, useFetchRecommByIdQuery, useFetchRecommByTestResultIdQuery, useAddRecommMutation, useEditRecommMutation, useDeleteRecommMutation
+} from "./apis/recommendationsApi";
+
 
 export { useFetchAnswerByIdQuery, useFetchAnswerByQuestionIdQuery,
     useAddAnswerMutation, useEditAnswerMutation, useDeleteAnswerMutation } from "./apis/answerApi";

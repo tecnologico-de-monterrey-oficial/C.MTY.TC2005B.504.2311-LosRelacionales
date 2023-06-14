@@ -1,0 +1,12 @@
+.Signin {
+    
+    display: flex;
+    justify-content: center;
+}
+
+.btnGoogleSignin {
+    padding: 0;
+    cursor: pointer;
+    height: 50px;
+    width: auto;
+}
