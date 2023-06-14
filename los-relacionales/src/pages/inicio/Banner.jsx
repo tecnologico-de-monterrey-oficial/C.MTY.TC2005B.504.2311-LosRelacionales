@@ -3,6 +3,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/esm/Row';
 import Col from 'react-bootstrap/esm/Col';
 import Button from 'react-bootstrap/esm/Button';
+import { Link } from 'react-router-dom';
 
 function Banner() {
   return (
@@ -18,8 +19,9 @@ function Banner() {
               Si deseas continuar, oprime el botón de abajo para registrarte.
             </p>
             <div className='btns'>
-              <Button>Registro</Button>
-              <Button>Ir a mi perfil</Button>
+              <Button>
+                <Link to="/login">Iniciar sesión</Link>
+              </Button>
             </div>
           </Col>
           <Col className='imgs' lg={6} md={12}>

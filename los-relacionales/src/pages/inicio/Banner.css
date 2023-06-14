@@ -14,11 +14,9 @@
 
 .btns {
   margin-top: 1rem;
-
+  width: 100%;
   display: flex;
-  justify-content: space-between;
-  padding-left: 5%;
-  padding-right: 5%;
+  justify-content: center;
 }
 
 @media (max-width: 1505px) {
