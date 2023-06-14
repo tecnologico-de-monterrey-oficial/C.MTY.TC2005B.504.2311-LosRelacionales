@@ -1,0 +1,55 @@
+.container {
+    text-align: center;
+  }
+  
+  .perfil {
+    display: flex;
+    align-items: center;
+  }
+  
+.perfil_contenido {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .imagen_perfil {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  .imagen_prueba {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  .dimensiones {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .dimensiones h2 {
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+  
+  .dimensiones button {
+    width: 230px;
+    height: 25px;
+  margin-bottom: 10px;
+  background-color: #efe3cb;
+  border: none; 
+  }
+  
+  .tipo_dimension {
+    margin-top: 20px;
+    text-align: left;
+  }
+  .imagen_perfil_text {
+    font-size: 14px;
+    margin: 0;
+    text-align: center;
+  }

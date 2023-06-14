@@ -36,6 +36,8 @@ function NavigationBar() {
           </Navbar.Collapse>
         </Container>
       </Navbar>
+      
+      
     </div>
   );
 }

@@ -8,6 +8,11 @@ import Login from './pages/login/Login';
 import Profile from './pages/profile/Profile';
 import Footer from './components/Footer'
 import Protected from './components/Protected';
+import DimensionFuncional from './pages/dimensiones/DimensionFuncional';
+import DimensionAfectiva from './pages/dimensiones/DimensionAfectiva';
+import DimensionDFisico from './pages/dimensiones/DimensionDFisico';
+import PruebaGijon from './pages/pruebas/PruebaGijon';
+import PruebaGijon2 from './pages/pruebas/PruebaGijon2';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
@@ -49,6 +54,11 @@ function App() {
                 </Protected>
               }
             />
+          <Route path="/DimensionFuncional" element={<DimensionFuncional/>} />
+          <Route path="/DimensionAfectiva" element={<DimensionAfectiva/>} />
+          <Route path="/DimensionDFisico" element={<DimensionDFisico/>} />
+          <Route path="/PruebaGijon" element={<PruebaGijon/>} />
+          <Route path="/PruebaGijon2" element={<PruebaGijon2/>} />
           </Routes>
         </BrowserRouter>
       </div>
