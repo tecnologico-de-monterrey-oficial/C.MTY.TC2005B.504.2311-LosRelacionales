@@ -1,6 +1,6 @@
+import '../profile/Profile.css';
 import React from 'react';
 import Button from 'react-bootstrap/Button';
-import './MiPerfil.css';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 
 

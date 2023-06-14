@@ -32,7 +32,6 @@ function NavigationBar() {
               {isLogged &&
                 <Nav.Link as={Link} to="/profile">Mi perfil</Nav.Link>
               }
-            <Nav.Link as={Link} to="/MiPerfil">Mi Perfil</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>
