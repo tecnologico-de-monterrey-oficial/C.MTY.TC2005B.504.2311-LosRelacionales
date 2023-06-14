@@ -78,6 +78,6 @@ const pamsApi = createApi({
 });
 
 export const { 
-    useFetchTestResultById, useFetchColorFromResultId, useFetchDescriptionFromResultId, useAddTestResult, useEditTestResult, useDeleteTestResult 
+    useFetchTestResultById, useFetchColorFromResultId, useFetchDescriptionFromResultId, useAddTestResultMutation, useEditTestResultMutation, useDeleteTestResultMutation 
 } = pamTestResultsApi;
 export { pamTestResultsApi };
