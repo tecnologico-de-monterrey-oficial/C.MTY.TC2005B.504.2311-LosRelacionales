@@ -55,7 +55,7 @@ function MiPerfil() {
             height="200"
             className="imagen_prueba"
           />
-          <p>El test de GDS es un test de valoración afectiva que se utiliza para evaluar la situacion afectiva de una persona mayor.</p>
+          <p>El test de GDS es un test de valoración afectiva que se utiliza para evaluar la situacion de una persona mayor.</p>
 
     </div>
   );
