@@ -58,4 +58,8 @@ export {
     useFetchGendersQuery, useFetchGenderByIdQuery, useAddGenderMutation, useEditGenderMutation, useDeleteGenderMutation
 } from "./apis/gendersApi";
 
+export {
+    useFetchRecommsQuery, useFetchRecommByIdQuery, useFetchRecommByTestResultIdQuery, useAddRecommMutation, useEditRecommMutation, useDeleteRecommMutation
+} from "./apis/recommemdationsApi";
+
 export { signUpWithGoogle } from "./thunks/authThunk";
