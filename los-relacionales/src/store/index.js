@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/query';
-
+// TODO import PAMs and Persons Slices
 import {
     authReducer,
     setUser,
@@ -15,7 +15,9 @@ const store = configureStore({
         auth: authReducer,
     },
     middleware: (getDefaultMiddleware) => {
-        return getDefaultMiddleware()
+        return getDefaultMiddleware(
+            { serializableCheck: false }
+        )
     },
 });
 
@@ -29,7 +31,6 @@ export {
     logout,
     setRole,
 };
-
 
 export { 
     useFetchPamsQuery, useFetchPamsByIdQuery, useFetchPamsByGroupQuery, useFetchPamsByDoctorQuery, 
