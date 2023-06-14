@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 const personsApi = createApi({
     reducerPath: 'persons',
     baseQuery: fetchBaseQuery({
-        baseUrl: 'http://localhost:3100/api',
+        baseUrl: 'http://10.14.255.53:3010/',
     }),
     endpoints(builder) {
         return {
@@ -43,6 +43,26 @@ const personsApi = createApi({
                 query: (email) => {
                     return {
                         url: `get-person-by-email/${email}`,
+                        params: {},
+                        method: 'GET',
+                    }
+                }
+            }),
+            fetchPersonByName: builder.query({
+                providesTags: ["Persons"],
+                query: (name) => {
+                    return {
+                        url: `get-persons-by-name/${name}`,
+                        params: {},
+                        method: 'GET',
+                    }
+                }
+            }),
+            fetchPersonByGenderId: builder.query({
+                providesTags: ["Persons"],
+                query: (id) => {
+                    return {
+                        url: `get-persons-by-gender/${id}`,
                         params: {},
                         method: 'GET',
                     }
@@ -109,6 +129,7 @@ const personsApi = createApi({
 
 export const {
     useFetchPersonsQuery, useFetchPersonByIdQuery, useFetchPersonsByRoleIdQuery, useFetchPersonByEmailQuery,
-    useAddPersonMutation, useEditPersonMutation, useDeletePersonMutation
+    useAddPersonMutation, useEditPersonMutation, useDeletePersonMutation, useFetchPersonByNameQuery,
+    useFetchPersonByGenderId
 } = personsApi;
 export default personsApi;

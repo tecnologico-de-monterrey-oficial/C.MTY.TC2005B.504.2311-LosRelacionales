@@ -32,9 +32,35 @@ export {
     setRole,
 };
 
-// export { useFetchPamsQuery, useAddPamMutation, useEditPamMutation, useDeletePamMutation } from "./apis/pamsApi";
-// export {
-//     useFetchPersonsQuery, useFetchPersonByIdQuery, useFetchPersonsByRoleIdQuery, useFetchPersonByEmailQuery,
-//     useAddPersonMutation, useEditPersonMutation, useDeletePersonMutation
-// } from "./apis/personsApi";
+export { 
+    useFetchPamsQuery, useFetchPamsByIdQuery, useFetchPamsByGroupQuery, useFetchPamsByDoctorQuery, 
+    useAddPamMutation, useEditPamMutation, useDeletePamMutation 
+} from "./apis/pamsApi";
+
+export {
+    useFetchPersonsQuery, useFetchPersonByIdQuery, useFetchPersonsByRoleIdQuery, useFetchPersonByEmailQuery,
+    useAddPersonMutation, useEditPersonMutation, useDeletePersonMutation
+} from "./apis/personsApi";
+
+export { 
+    useFetchTestResultByIdQuery, useFetchColorFromResultIdQuery, useFetchDescriptionFromResultIdQuery, 
+    useAddTestResultMutation, useEditTestResultMutation, useDeleteTestResultMutation
+} from "./apis/pamTestResultsApi";
+
+export {
+    useFetchTestWeightByIdQuery, useAddTestWeightMutation, useEditTestWeightMutation, useDeleteTestWeightMutation
+} from "./apis/testWeightsApi";
+
+export {
+    useFetchRolesQuery, useFetchRoleByIdQuery, useAddRoleMutation, useEditRoleMutation, useDeleteRoleMutation
+} from "./apis/rolesApi";
+
+export {
+    useFetchGendersQuery, useFetchGenderByIdQuery, useAddGenderMutation, useEditGenderMutation, useDeleteGenderMutation
+} from "./apis/gendersApi";
+
+export {
+    useFetchRecommsQuery, useFetchRecommByIdQuery, useFetchRecommByTestResultIdQuery, useAddRecommMutation, useEditRecommMutation, useDeleteRecommMutation
+} from "./apis/recommemdationsApi";
+
 export { signUpWithGoogle } from "./thunks/authThunk";
