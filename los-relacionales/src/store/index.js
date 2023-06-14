@@ -1,5 +1,20 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/query';
+import { answerApi } from './apis/answerApi';
+import { dimensionApi } from './apis/dimensionApi';
+import { gendersApi } from './apis/gendersApi';
+import { groupTypeApi } from './apis/groupTypeApi';
+import { healthDataApi } from './apis/healthDataApi';
+import { pamGroupApi } from './apis/pamGroupApi';
+import { pamsApi } from './apis/pamsApi';
+import { pamTestAnswerApi } from './apis/pamTestAnswerApi';
+import { pamTestApi } from './apis/pamTestApi';
+import { questionApi } from './apis/questionApi';
+import { recommendationApi } from './apis/recommendationApi';
+import { roleApi } from './apis/roleApi';
+import { testApi } from './apis/testApi';
+import { testInstructionApi } from './apis/testInstructionApi';
+import { testWeightApi } from './apis/testWeightApi';
 // TODO import PAMs and Persons Slices
 import {
     authReducer,
