@@ -32,7 +32,8 @@ export {
 
 
 export { 
-    useFetchPams, useFetchPamsById, useFetchPamsByGroup, useFetchPamsByDoctor, useAddPam, useEditPam, useDeletePam 
+    useFetchPams, useFetchPamsById, useFetchPamsByGroup, useFetchPamsByDoctor, useAddPamMutation, 
+    useEditPamMutation, useDeletePamMutation
 } from "./apis/pamsApi";
 
 export {
@@ -41,8 +42,13 @@ export {
 } from "./apis/personsApi";
 
 export { 
-    useFetchTestResultById, useFetchColorFromResultId, useFetchDescriptionFromResultId, useAddTestResult, 
-    useEditTestResult, useDeleteTestResult 
+    useFetchTestResultById, useFetchColorFromResultId, useFetchDescriptionFromResultId, useAddTestResultMutation, 
+    useEditTestResultMutation, useDeleteTestResultMutation 
 } from "./apis/pamTestResultsApi";
+
+export {
+    useFetchTestWeightById, useAddTestWeightMutation, useEditTestWeightMutation, useDeleteTestWeightMutation
+} from "./apis/testWeightsApi";
+
 
 export { signUpWithGoogle } from "./thunks/authThunk";
