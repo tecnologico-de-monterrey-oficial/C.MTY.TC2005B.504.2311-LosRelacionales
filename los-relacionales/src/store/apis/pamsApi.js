@@ -92,5 +92,5 @@ const pamsApi = createApi({
     },
 });
 
-export const { useFetchPamsQuery, useAddPamMutation, useEditPamMutation, useDeletePamMutation } = pamsApi;
+export const { useFetchPams, useFetchPamsById, useFetchPamsByGroup, useFetchPamsByDoctor, useAddPam, useEditPam, useDeletePam } = pamsApi;
 export { pamsApi };

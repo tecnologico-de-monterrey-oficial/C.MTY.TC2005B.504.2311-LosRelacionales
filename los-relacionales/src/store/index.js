@@ -30,9 +30,19 @@ export {
     setRole,
 };
 
-export { useFetchPamsQuery, useAddPamMutation, useEditPamMutation, useDeletePamMutation } from "./apis/pamsApi";
+
+export { 
+    useFetchPams, useFetchPamsById, useFetchPamsByGroup, useFetchPamsByDoctor, useAddPam, useEditPam, useDeletePam 
+} from "./apis/pamsApi";
+
 export {
     useFetchPersonsQuery, useFetchPersonByIdQuery, useFetchPersonsByRoleIdQuery, useFetchPersonByEmailQuery,
     useAddPersonMutation, useEditPersonMutation, useDeletePersonMutation
 } from "./apis/personsApi";
+
+export { 
+    useFetchTestResultById, useFetchColorFromResultId, useFetchDescriptionFromResultId, useAddTestResult, 
+    useEditTestResult, useDeleteTestResult 
+} from "./apis/pamTestResultsApi";
+
 export { signUpWithGoogle } from "./thunks/authThunk";

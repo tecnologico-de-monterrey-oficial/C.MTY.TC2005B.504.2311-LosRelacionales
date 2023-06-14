@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 const pamsApi = createApi({
-    reducerPath: 'pams',
+    reducerPath: 'pamTestResults',
     baseQuery: fetchBaseQuery({
         baseUrl: 'http://10.14.255.53:3010',
     }),
@@ -77,5 +77,7 @@ const pamsApi = createApi({
     },
 });
 
-export const { useFetchPamsQuery, useAddPamMutation, useEditPamMutation, useDeletePamMutation } = pamsApi;
-export { pamsApi };
+export const { 
+    useFetchTestResultById, useFetchColorFromResultId, useFetchDescriptionFromResultId, useAddTestResult, useEditTestResult, useDeleteTestResult 
+} = pamTestResultsApi;
+export { pamTestResultsApi };
