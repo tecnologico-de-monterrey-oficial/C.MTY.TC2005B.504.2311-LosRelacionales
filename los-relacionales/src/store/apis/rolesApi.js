@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-const roleApi = createApi({
+const rolesApi = createApi({
     reducerPath: 'roles',
     baseQuery: fetchBaseQuery({
         baseUrl: 'http://10.14.255.53:3010',
@@ -69,5 +69,5 @@ const roleApi = createApi({
 });
 export const {
     useFetchRolesQuery, useFetchRoleByIdQuery, useAddRoleMutation, useEditRoleMutation, useDeleteRoleMutation
-} = roleApi;
-export { roleApi };
+} = rolesApi;
+export { rolesApi };

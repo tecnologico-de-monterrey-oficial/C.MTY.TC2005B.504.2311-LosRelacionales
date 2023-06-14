@@ -54,5 +54,8 @@ export {
     useFetchRolesQuery, useFetchRoleByIdQuery, useAddRoleMutation, useEditRoleMutation, useDeleteRoleMutation
 } from "./apis/rolesApi";
 
+export {
+    useFetchGendersQuery, useFetchGenderByIdQuery, useAddGenderMutation, useEditGenderMutation, useDeleteGenderMutation
+} from "./apis/gendersApi";
 
 export { signUpWithGoogle } from "./thunks/authThunk";
