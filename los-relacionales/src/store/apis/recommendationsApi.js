@@ -16,7 +16,7 @@ const recommendationsApi = createApi({
                         method: 'GET',
                     };
                 },
-            }),                        
+            }),
 
             fetchRecommById: builder.query({
                 providesTags: ["Recomms"],
@@ -50,8 +50,8 @@ const recommendationsApi = createApi({
                     };
                 },
             }),
-            
-    
+
+
             editRecomm: builder.mutation({
                 invalidatesTags: ["Recomms"],
                 query: (recomm) => {
@@ -65,7 +65,7 @@ const recommendationsApi = createApi({
                 },
             }),
 
-        
+
             deleteRecomm: builder.mutation({
                 invalidatesTags: ["Recomms"],
                 query: (id) => {

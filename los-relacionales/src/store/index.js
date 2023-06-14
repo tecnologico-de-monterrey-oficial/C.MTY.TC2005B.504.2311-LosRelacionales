@@ -61,6 +61,6 @@ export {
 
 export {
     useFetchRecommsQuery, useFetchRecommByIdQuery, useFetchRecommByTestResultIdQuery, useAddRecommMutation, useEditRecommMutation, useDeleteRecommMutation
-} from "./apis/recommemdationsApi";
+} from "./apis/recommendationsApi";
 
 export { signUpWithGoogle } from "./thunks/authThunk";
