@@ -7,6 +7,7 @@ import Acceder_cuenta from './components/Acceder_cuenta'
 import './App.css'
 //import Footer from './components/footer';
 import MiPerfil from './components/MiPerfil';
+import Footer from './components/footer';
 
 
 function App() {
@@ -16,12 +17,10 @@ function App() {
         <NavigationBar />
         <Routes>
           <Route path="/" element={<Inicio/>} />
-          <Route path="/Testimonios" element={<Testimonios />} />
-          <Route path="/Contacto" element={<Contacto />} />
-          <Route path="/Acceder_cuenta" element={<Acceder_cuenta />} />
           <Route path="/MiPerfil" element={<MiPerfil />} />
         </Routes>
       </BrowserRouter>
+      
       
     </div>
   )
