@@ -7,6 +7,7 @@ import DimensionFuncional from './components/DimensionFuncional';
 import DimensionAfectiva from './components/DimensionAfectiva';
 import DimensionDFisico from './components/DimensionDFisico';
 import PruebaGijon from './components/PruebaGijon';
+import PruebaGijon2 from './components/PruebaGijon2';
 import { Link } from 'react-router-dom';
 
 
@@ -22,6 +23,7 @@ function App() {
           <Route path="/DimensionAfectiva" element={<DimensionAfectiva/>} />
           <Route path="/DimensionDFisico" element={<DimensionDFisico/>} />
           <Route path="/PruebaGijon" element={<PruebaGijon/>} />
+          <Route path="/PruebaGijon2" element={<PruebaGijon2/>} />
         </Routes>
       </BrowserRouter>
 

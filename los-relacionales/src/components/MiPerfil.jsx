@@ -68,7 +68,10 @@ function MiPerfil() {
             height="200"
             className="imagen_prueba"
           />
+      <br />
       <Link to="/PruebaGijon">Tomar prueba</Link>
+      <br />
+      <Link to="/PruebaGijon2">Tomar prueba2</Link>
       <p>El test de Gijón es un test de valoración funcional que se utiliza para evaluar la capacidad funcional de una persona mayor.</p>
 
     </div>
