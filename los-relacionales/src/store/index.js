@@ -43,11 +43,6 @@ export {
     useFetchPersonByGenderId
 } from "./apis/personsApi";
 
-export { 
-    useFetchTestResultByIdQuery, useFetchColorFromResultIdQuery, useFetchDescriptionFromResultIdQuery, 
-    useAddTestResultMutation, useEditTestResultMutation, useDeleteTestResultMutation
-} from "./apis/pamTestResultsApi";
-
 export {
     useFetchTestWeightByIdQuery, useAddTestWeightMutation, useEditTestWeightMutation, useDeleteTestWeightMutation
 } from "./apis/testWeightsApi";
@@ -91,5 +86,8 @@ export { useFetchTestsQuery, useFetchTestByIdQuery, useFetchTestByDimensionIdQue
 
 export { useFetchTestInstructionsQuery, useFetchTestInstructionByIdQuery,
     useAddTestInstructionMutation, useEditTestInstructionMutation, useDeleteTestInstructionMutation } from "./apis/testInstructionsApi";
+
+export {useFetchpamTestByIdQuery, useFetchpamTestByPamIdQuery,
+    useAddPamTestMutation, useEditPamTestMutation, useDeletePamTestMutation} from "./apis/pamTestApi";
 
 export { signUpWithGoogle } from "./thunks/authThunk";
