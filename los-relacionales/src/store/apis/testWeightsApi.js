@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-const pamsApi = createApi({
+const testWeightApi = createApi({
     reducerPath: 'testWeights',
     baseQuery: fetchBaseQuery({
         baseUrl: 'http://10.14.255.53:3010',
@@ -72,6 +72,6 @@ const pamsApi = createApi({
 });
 
 export const {
-    useFetchTestWeightById, useAddTestWeightMutation, useEditTestWeightMutation, useDeleteTestWeightMutation
+    useFetchTestWeightByIdQuery, useAddTestWeightMutation, useEditTestWeightMutation, useDeleteTestWeightMutation
 } = testWeightApi;
 export { testWeightApi };

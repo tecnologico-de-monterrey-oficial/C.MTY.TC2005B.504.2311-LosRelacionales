@@ -32,8 +32,8 @@ export {
 
 
 export { 
-    useFetchPams, useFetchPamsById, useFetchPamsByGroup, useFetchPamsByDoctor, useAddPamMutation, 
-    useEditPamMutation, useDeletePamMutation
+    useFetchPamsQuery, useFetchPamsByIdQuery, useFetchPamsByGroupQuery, useFetchPamsByDoctorQuery, 
+    useAddPamMutation, useEditPamMutation, useDeletePamMutation 
 } from "./apis/pamsApi";
 
 export {
@@ -42,13 +42,17 @@ export {
 } from "./apis/personsApi";
 
 export { 
-    useFetchTestResultById, useFetchColorFromResultId, useFetchDescriptionFromResultId, useAddTestResultMutation, 
-    useEditTestResultMutation, useDeleteTestResultMutation 
+    useFetchTestResultByIdQuery, useFetchColorFromResultIdQuery, useFetchDescriptionFromResultIdQuery, 
+    useAddTestResultMutation, useEditTestResultMutation, useDeleteTestResultMutation
 } from "./apis/pamTestResultsApi";
 
 export {
-    useFetchTestWeightById, useAddTestWeightMutation, useEditTestWeightMutation, useDeleteTestWeightMutation
+    useFetchTestWeightByIdQuery, useAddTestWeightMutation, useEditTestWeightMutation, useDeleteTestWeightMutation
 } from "./apis/testWeightsApi";
+
+export {
+    useFetchRolesQuery, useFetchRoleByIdQuery, useAddRoleMutation, useEditRoleMutation, useDeleteRoleMutation
+} from "./apis/rolesApi";
 
 
 export { signUpWithGoogle } from "./thunks/authThunk";
