@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-const pamTestResults = createApi({
+const pamTestResultsApi = createApi({
     reducerPath: 'pamTestResults',
     baseQuery: fetchBaseQuery({
         baseUrl: 'http://10.14.255.53:3010',
@@ -34,8 +34,8 @@ const pamTestResults = createApi({
                     };
                 },
             }),
-            
-            
+
+
             addTestResult: builder.mutation({
                 invalidatesTags: ["Results"],
                 query: (testResult) => {
@@ -45,7 +45,7 @@ const pamTestResults = createApi({
                         body: {
                             pam_test_id: testResult.pam_test_id,
                             test_id: testResult.test_id,
-                            test_result: testResult.test_result, 
+                            test_result: testResult.test_result,
                         },
                     };
                 },
@@ -59,7 +59,7 @@ const pamTestResults = createApi({
                         body: {
                             pam_test_id: testResult.pam_test_id,
                             test_id: testResult.test_id,
-                            test_result: testResult.test_result, 
+                            test_result: testResult.test_result,
                         },
                     };
                 },
@@ -77,7 +77,7 @@ const pamTestResults = createApi({
     },
 });
 
-export const { 
-    useFetchTestResultByIdQuery, useFetchColorFromResultIdQuery, useFetchDescriptionFromResultIdQuery, useAddTestResultMutation, useEditTestResultMutation, useDeleteTestResultMutation 
+export const {
+    useFetchTestResultByIdQuery, useFetchColorFromResultIdQuery, useFetchDescriptionFromResultIdQuery, useAddTestResultMutation, useEditTestResultMutation, useDeleteTestResultMutation
 } = pamTestResultsApi;
-export { pamTestResultsApi };
+export default pamTestResultsApi;
