@@ -81,4 +81,4 @@ const pamGroupApi = createApi({
 export const { useFetchPamGroupsQuery, useFetchPamGroupByIdQuery, useFetchPamGroupByParentIdQuery,
     useAddPamGroupMutation, useEditPamGroupMutation, useDeletePamGroupMutation } = pamGroupApi;
 
-export default pamGroupApi;
+export { pamGroupApi };

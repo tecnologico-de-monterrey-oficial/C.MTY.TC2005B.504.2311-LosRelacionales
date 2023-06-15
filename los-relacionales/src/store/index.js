@@ -1,5 +1,35 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/query';
+import { personsApi } from "./apis/personsApi";
+import { pamsApi } from './apis/pamsApi';
+import { pamGroupApi } from './apis/pamGroupApi';
+import {
+    personReducer,
+    changeFirstName,
+    changeLastName,
+    changeGenderId,
+    changeRoleId,
+    changePhone,
+    changeEmail,
+    changeCountry,
+    changeState,
+    changeCity,
+    changeAddress1,
+    changeAddress2,
+    changeZipCode,
+    changeBirthDate,
+    changeDeceasedDate,
+    changeGuardianId,
+    changeDoctorId,
+    changeBelongsToArchdiocese,
+    changePamGroupId,
+    changeDioceseId,
+    changeZoneId,
+    changeDeaneryId,
+    changeParishId,
+    changePerson,
+    resetPerson,
+} from "./slices/personsSlice";
 // TODO import PAMs and Persons Slices
 import {
     authReducer,
@@ -13,11 +43,18 @@ import {
 const store = configureStore({
     reducer: {
         auth: authReducer,
+        person: personReducer,
+        [personsApi.reducerPath]: personsApi.reducer,
+        [pamsApi.reducerPath]: pamsApi.reducer,
+        [pamGroupApi.reducerPath]: pamGroupApi.reducer,
     },
     middleware: (getDefaultMiddleware) => {
-        return getDefaultMiddleware(
-            { serializableCheck: false }
-        )
+        return getDefaultMiddleware({
+            serializableCheck: false
+        })
+            .concat(personsApi.middleware)
+            .concat(pamsApi.middleware)
+            .concat(pamGroupApi.middleware)
     },
 });
 
@@ -30,11 +67,35 @@ export {
     setError,
     logout,
     setRole,
+    changeFirstName,
+    changeLastName,
+    changeGenderId,
+    changeRoleId,
+    changePhone,
+    changeEmail,
+    changeCountry,
+    changeState,
+    changeCity,
+    changeAddress1,
+    changeAddress2,
+    changeZipCode,
+    changeBirthDate,
+    changeDeceasedDate,
+    changeGuardianId,
+    changeDoctorId,
+    changeBelongsToArchdiocese,
+    changePamGroupId,
+    changeDioceseId,
+    changeZoneId,
+    changeDeaneryId,
+    changeParishId,
+    changePerson,
+    resetPerson,
 };
 
-export { 
-    useFetchPamsQuery, useFetchPamsByIdQuery, useFetchPamsByGroupQuery, useFetchPamsByDoctorQuery, 
-    useAddPamMutation, useEditPamMutation, useDeletePamMutation 
+export {
+    useFetchPamsQuery, useFetchPamsByIdQuery, useFetchPamsByGroupQuery, useFetchPamsByDoctorQuery,
+    useFetchPamByPersonIdQuery, useAddPamMutation, useEditPamMutation, useDeletePamMutation
 } from "./apis/pamsApi";
 
 export {
@@ -43,8 +104,8 @@ export {
     useFetchPersonByGenderId
 } from "./apis/personsApi";
 
-export { 
-    useFetchTestResultByIdQuery, useFetchColorFromResultIdQuery, useFetchDescriptionFromResultIdQuery, 
+export {
+    useFetchTestResultByIdQuery, useFetchColorFromResultIdQuery, useFetchDescriptionFromResultIdQuery,
     useAddTestResultMutation, useEditTestResultMutation, useDeleteTestResultMutation
 } from "./apis/pamTestResultsApi";
 
@@ -65,31 +126,49 @@ export {
 } from "./apis/recommendationsApi";
 
 
-export { useFetchAnswerByIdQuery, useFetchAnswerByQuestionIdQuery,
-    useAddAnswerMutation, useEditAnswerMutation, useDeleteAnswerMutation } from "./apis/answerApi";
+export {
+    useFetchAnswerByIdQuery, useFetchAnswerByQuestionIdQuery,
+    useAddAnswerMutation, useEditAnswerMutation, useDeleteAnswerMutation
+} from "./apis/answerApi";
 
-export { useFetchDimensionsQuery, useFetchDimensionByIdQuery,
-    useAddDimensionMutation, useEditDimensionMutation, useDeleteDimensionMutation } from "./apis/dimensionApi";
+export {
+    useFetchDimensionsQuery, useFetchDimensionByIdQuery,
+    useAddDimensionMutation, useEditDimensionMutation, useDeleteDimensionMutation
+} from "./apis/dimensionApi";
 
-export { useFetchGroupTypesQuery, useFetchGroupTypeByIdQuery, useFetchGroupTypeByParentIdQuery,
-    useAddGroupTypeMutation, useEditGroupTypeMutation, useDeleteGroupTypeMutation } from "./apis/groupTypeApi";
+export {
+    useFetchGroupTypesQuery, useFetchGroupTypeByIdQuery, useFetchGroupTypeByParentIdQuery,
+    useAddGroupTypeMutation, useEditGroupTypeMutation, useDeleteGroupTypeMutation
+} from "./apis/groupTypeApi";
 
-    export { useFetchHealthDataByPamIdQuery, useAddHealthDataMutation,
-        useEditHealthDataMutation, useDeleteHealthDataMutation } from "./apis/healthDataApi";
+export {
+    useFetchHealthDataByPamIdQuery, useAddHealthDataMutation,
+    useEditHealthDataMutation, useDeleteHealthDataMutation
+} from "./apis/healthDataApi";
 
-export { useFetchPamGroupsQuery, useFetchPamGroupByIdQuery, useFetchPamGroupByParentIdQuery,
-    useAddPamGroupMutation, useEditPamGroupMutation, useDeletePamGroupMutation } from "./apis/pamGroupApi";
+export {
+    useFetchPamGroupsQuery, useFetchPamGroupByIdQuery, useFetchPamGroupByParentIdQuery,
+    useAddPamGroupMutation, useEditPamGroupMutation, useDeletePamGroupMutation
+} from "./apis/pamGroupApi";
 
-export { useFetchPamTestAnswerByIdQuery, useFetchPamTestAnswerByTestIdQuery,
-    useAddPamTestAnswerMutation, useEditPamTestAnswerMutation, useDeletePamTestAnswerMutation } from "./apis/pamTestAnswerApi";
+export {
+    useFetchPamTestAnswerByIdQuery, useFetchPamTestAnswerByTestIdQuery,
+    useAddPamTestAnswerMutation, useEditPamTestAnswerMutation, useDeletePamTestAnswerMutation
+} from "./apis/pamTestAnswerApi";
 
-    export { useFetchQuestionsQuery, useFetchQuestionByIdQuery, useFetchQuestionByTestIdQuery,
-        useAddQuestionMutation, useEditQuestionMutation, useDeleteQuestionMutation } from "./apis/questionApi";
+export {
+    useFetchQuestionsQuery, useFetchQuestionByIdQuery, useFetchQuestionByTestIdQuery,
+    useAddQuestionMutation, useEditQuestionMutation, useDeleteQuestionMutation
+} from "./apis/questionApi";
 
-export { useFetchTestsQuery, useFetchTestByIdQuery, useFetchTestByDimensionIdQuery,
-    useAddTestMutation, useEditTestMutation, useDeleteTestMutation } from "./apis/testApi";
+export {
+    useFetchTestsQuery, useFetchTestByIdQuery, useFetchTestByDimensionIdQuery,
+    useAddTestMutation, useEditTestMutation, useDeleteTestMutation
+} from "./apis/testApi";
 
-export { useFetchTestInstructionsQuery, useFetchTestInstructionByIdQuery,
-    useAddTestInstructionMutation, useEditTestInstructionMutation, useDeleteTestInstructionMutation } from "./apis/testInstructionsApi";
+export {
+    useFetchTestInstructionsQuery, useFetchTestInstructionByIdQuery,
+    useAddTestInstructionMutation, useEditTestInstructionMutation, useDeleteTestInstructionMutation
+} from "./apis/testInstructionsApi";
 
 export { signUpWithGoogle } from "./thunks/authThunk";

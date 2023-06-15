@@ -3,13 +3,31 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/esm/Row';
 import Col from 'react-bootstrap/esm/Col';
 import Button from 'react-bootstrap/esm/Button';
+import Modal from 'react-bootstrap/Modal';
 import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux'
+import { signUpWithGoogle } from "../../store";
+import Image from 'react-bootstrap/Image';
+import { Navigate } from "react-router-dom";
+import btnGoogleSignIn from "/assets/btn_google_signin.png";
 
 function Banner() {
-  const { user } = useSelector((state) => state.auth);
   const [isLogged, setIsLogged] = useState(false);
+
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  const user = useSelector((state) => state.auth.user);
+  const isLoading = useSelector((state) => state.auth.isLoading);
+  const dispatch = useDispatch();
+
+  const handleSignUpWithGoogle = () => {
+    dispatch(signUpWithGoogle());
+    handleClose();
+  };
 
   useEffect(() => {
     if (user) {
@@ -31,15 +49,38 @@ function Banner() {
             </p>
             <div className='btns'>
               {!isLogged &&
-                <Button>
-                  <Link to="/login">Iniciar sesión</Link>
-                </Button>
+                <Button onClick={handleShow}>Iniciar sesión</Button>
               }
               {isLogged &&
                 <Button>
                   <Link to="/profile">Ir a mi perfil</Link>
                 </Button>
               }
+
+              <Modal show={show} onHide={handleClose}>
+                <Modal.Header closeButton>
+                  <Modal.Title>Inicio de sesión</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                  <div className="Signin">
+                    {isLoading && <p>Loading...</p>}
+                    {user && <Navigate to="/" />}
+                    {!user && (
+                      <div>
+                        <h2 style={{textAlign: 'center'}}>¡Bienvenido!</h2>
+                        <Button
+                          variant="light"
+                          size="lg"
+                          onClick={handleSignUpWithGoogle}
+                          style={{ padding: '0px' }}>
+                          <Image className="btnGoogleSignin" src={btnGoogleSignIn} alt="Sign in with Google" />
+                        </Button>
+                      </div>
+                    )}
+                  </div>
+                </Modal.Body>
+              </Modal>
+
             </div>
           </Col>
           <Col className='imgs' lg={6} md={12}>

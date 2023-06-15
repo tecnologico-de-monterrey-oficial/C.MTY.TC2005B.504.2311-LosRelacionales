@@ -4,7 +4,6 @@ import NavigationBar from './components/NavigationBar'
 import Inicio from './pages/inicio/Inicio'
 import PAMs from './pages/pams/PAMs';
 import PAM from './pages/pam/PAM';
-import Login from './pages/login/Login';
 import Profile from './pages/profile/Profile';
 import Footer from './components/Footer'
 import Protected from './components/Protected';
@@ -44,7 +43,6 @@ function App() {
               }
             />
             <Route path="/pam" element={<PAM />} />
-            <Route path="/login" element={<Login />} />
             <Route
               path="/profile"
               element={

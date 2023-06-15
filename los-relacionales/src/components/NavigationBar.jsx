@@ -5,16 +5,30 @@ import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
+import { useFetchPersonByEmailQuery } from '../store';
 
 function NavigationBar() {
   const { user } = useSelector((state) => state.auth);
   const [isLogged, setIsLogged] = useState(false);
 
+  const [email, setEmail] = useState(null);
+  const [personRole, setPersonRole] = useState(null);
+  const { data: person } = useFetchPersonByEmailQuery(email);
+
   useEffect(() => {
     if (user) {
       setIsLogged(true);
+      setEmail(user.email);
     }
   }, [user]);
+
+  useEffect(() => {
+    if (person) {
+      if (person.person.length > 0) {
+        setPersonRole(person.person[0].role_id);
+      }
+    }
+  }, [person]);
 
   return (
     <div>
@@ -27,8 +41,12 @@ function NavigationBar() {
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
               <Nav.Link as={Link} to="/">Inicio</Nav.Link>
-              <Nav.Link as={Link} to="/pams">Personas Adultas Mayores</Nav.Link>
-              <Nav.Link as={Link} to="/pam">PAM</Nav.Link>
+              {personRole == 2 &&
+                <>
+                  <Nav.Link as={Link} to="/pams">Personas Adultas Mayores</Nav.Link>
+                  <Nav.Link as={Link} to="/pam">PAM</Nav.Link>
+                </>
+              }
               {isLogged &&
                 <Nav.Link as={Link} to="/profile">Mi perfil</Nav.Link>
               }
@@ -36,8 +54,8 @@ function NavigationBar() {
           </Navbar.Collapse>
         </Container>
       </Navbar>
-      
-      
+
+
     </div>
   );
 }

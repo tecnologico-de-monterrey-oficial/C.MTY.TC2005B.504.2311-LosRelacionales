@@ -7,7 +7,7 @@ import Image from 'react-bootstrap/Image'
 export default function Testimonios() {
     return (
         <div className='testimonios'>
-            <h3>Testimonios</h3>
+            <h3 style={{textAlign: 'center'}}>Testimonios</h3>
             <Container className='outer-container' fluid>
                 <Row>
                     <Col className='col-mes' md={12} lg={6}>

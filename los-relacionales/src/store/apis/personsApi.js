@@ -132,4 +132,4 @@ export const {
     useAddPersonMutation, useEditPersonMutation, useDeletePersonMutation, useFetchPersonByNameQuery,
     useFetchPersonByGenderId
 } = personsApi;
-export default personsApi;
+export { personsApi };

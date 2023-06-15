@@ -43,6 +43,15 @@ const pamsApi = createApi({
                     };
                 },
             }),
+            fetchPamByPersonId: builder.query({
+                providesTags: ["Pams"],
+                query: (id) => {
+                    return {
+                        url: `/get-pam-by-person/${id}`,
+                        method: 'GET',
+                    };
+                },
+            }),
             addPam: builder.mutation({
                 invalidatesTags: ["Pams"],
                 query: (pam) => {
@@ -92,7 +101,7 @@ const pamsApi = createApi({
     },
 });
 
-export const { 
-    useFetchPamsQuery, useFetchPamsByIdQuery, useFetchPamsByGroupQuery, useFetchPamsByDoctorQuery, useAddPamMutation, useEditPamMutation, useDeletePamMutation 
+export const {
+    useFetchPamsQuery, useFetchPamsByIdQuery, useFetchPamsByGroupQuery, useFetchPamsByDoctorQuery, useFetchPamByPersonIdQuery, useAddPamMutation, useEditPamMutation, useDeletePamMutation
 } = pamsApi;
 export { pamsApi };
