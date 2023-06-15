@@ -8,12 +8,19 @@ import { Link } from 'react-router-dom';
 import { useSelector } from "react-redux";
 import { useFetchDimensionsQuery } from '../../store';
 import BotonDimension from '../../components/BotonDimension';
+import fotoperfil from '../../assets/fotoperfil.jpg';
 
 function MiPerfil() {
   const user = useSelector((state) => state.auth.user);
 
+  const [currentDimension, setCurrentDimension] = React.useState(null);
   const [dimensionsArray, setDimensionsArray] = React.useState(null);
   const {data: dimensionsData, isFetching: isFetchingDimensions, isError: isErrorDimensions} = useFetchDimensionsQuery();
+ 
+  const handleDimensionClick = (dimension) => {
+    console.log(dimension);
+    setCurrentDimension(dimension);
+  };
 
   useEffect(() => {
     if (dimensionsData) {
@@ -39,7 +46,7 @@ function MiPerfil() {
         <div className="perfil_contenido">
           <img
             alt=""
-            src="/fotoperfil.jpg"
+            src={fotoperfil}
             height="200"
             className="imagen_perfil"
           />
@@ -49,16 +56,18 @@ function MiPerfil() {
           <h2>Mis Dimensiones:</h2>
           {dimensionsArray && !isFetchingDimensions && !isErrorDimensions &&
             (dimensionsArray.map((dimension) => (
-              <BotonDimension id={dimension.dimension_id} />
+              <BotonDimension key={dimension.dimension_id} id={dimension.dimension_id} func={()=> handleDimensionClick(dimension)} />
             )))
           }
         </div>
       </div>
       <div className="tipo_dimension">
-        <h1>Dimension de Riesgo Social</h1>
-        <p>El riesgo social se refiere a las situaciones
+        {currentDimension && currentDimension.dimension && (
+        <h1>{currentDimension.dimension}</h1>
+      )}
+        {/* <p>El riesgo social se refiere a las situaciones
           que pueden afectar negativamente nuestra seguridad
-          y bienestar en la sociedad.</p>
+          y bienestar en la sociedad.</p> */}
       </div>
       <br />
       <ButtonGroup aria-label="Basic example">

@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button';
 import { useFetchDimensionByIdQuery } from '../store';
 
 
-function BotonDimension( { id }) {
+function BotonDimension( { id, func }) {
     const {data: dimensionData, isFetching, isError } = useFetchDimensionByIdQuery(id);
     
     const [dimension, setDimension] = React.useState(null);
@@ -19,7 +19,7 @@ function BotonDimension( { id }) {
     return (
         <div className="botonDimension">
             {!isFetching && dimension && (
-                <Button variant="secondary" size="lg">
+                <Button variant="secondary" size="lg" onClick={() => func(dimension.dimension)}>
                 {dimension.dimension}
                 </Button>
             )}
