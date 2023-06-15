@@ -3,12 +3,12 @@ import Button from 'react-bootstrap/Button';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import DimensionFuncional from '../dimensiones/DimensionFuncional';
 import PruebaGijon from '../pruebas/PruebaGijon';
+import BotonDimension from '../../components/BotonDimension';
 import Form from 'react-bootstrap/Form';
-import React, { useEffect , useState} from 'react';
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from "react-redux";
-import { useFetchPersonByEmailQuery, useFetchPamByPersonIdQuery, useFetchPamGroupByParentIdQuery } from '../../store';
+import { useFetchPersonByEmailQuery, useFetchPamByPersonIdQuery, useFetchPamGroupByParentIdQuery, useFetchDimensionsQuery } from '../../store';
 import {
   changeFirstName,
   changeLastName,
@@ -35,9 +35,6 @@ function Profile() {
   const [person, setPerson] = useState([]);
   const [personID, setPersonID] = useState();
   const [stage, setStage] = useState(0);
-import { useSelector } from "react-redux";
-import { useFetchDimensionsQuery } from '../../store';
-import BotonDimension from '../../components/BotonDimension';
 
   const dispatch = useDispatch();
   const user = useSelector((state) => state.auth.user);
@@ -130,7 +127,7 @@ import BotonDimension from '../../components/BotonDimension';
     dispatch(resetPerson());
   };
 
-  const [dimensionsArray, setDimensionsArray] = React.useState(null);
+  const [dimensionsArray, setDimensionsArray] = useState(null);
   const {data: dimensionsData, isFetching: isFetchingDimensions, isError: isErrorDimensions} = useFetchDimensionsQuery();
 
   useEffect(() => {
@@ -139,8 +136,6 @@ import BotonDimension from '../../components/BotonDimension';
       setDimensionsArray(dimensionsData.dimensions);
     }
   }, [dimensionsData]);
-
-
 
   return (
     <div className='perfil'>
