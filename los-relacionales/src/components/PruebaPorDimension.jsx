@@ -11,13 +11,12 @@ function PruebaPorDimension( { id }) {
 
     useEffect(() => {
         if (testData) {
-            console.log(testData.tests);
             setTestArray(testData.tests);
         }
     }, [testData]);
 
     return (
-        <div className="testsLists">
+        <div className="testsList">
             {!isFetching && testArray && (
                 testArray.map((test) => (
                     <Button variant="secondary" size="lg">
@@ -28,4 +27,4 @@ function PruebaPorDimension( { id }) {
         </div>    
     );
 }
-export default BotonDimension;
+export default PruebaPorDimension;

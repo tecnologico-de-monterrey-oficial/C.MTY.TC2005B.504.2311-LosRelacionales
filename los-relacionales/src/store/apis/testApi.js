@@ -30,7 +30,7 @@ const testApi = createApi({
                 providesTags: ["test"],
                 query: (id) => {
                     return {
-                        url: `get-test-by-dimension/${id}`,
+                        url: `get-tests-by-dimension/${id}`,
                         params: {},
                         method: 'GET',
                     }
