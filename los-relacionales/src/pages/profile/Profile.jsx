@@ -85,7 +85,7 @@ function MiPerfil() {
         <Button onClick={() => handleChangeState("historial")} variant="secondary">Historial</Button>
         <Button onClick={() => handleChangeState("apoyo")} variant="secondary">Apoyo</Button>
       </ButtonGroup>
-      <h2>Test de Gijón</h2>
+      <h2>Titulo temporal</h2>
 
       {/* <img
         alt=""
