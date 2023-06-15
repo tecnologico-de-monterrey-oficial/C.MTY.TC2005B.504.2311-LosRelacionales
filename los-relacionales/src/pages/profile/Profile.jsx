@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 import { useSelector } from "react-redux";
 import { useFetchDimensionsQuery } from '../../store';
 import BotonDimension from '../../components/BotonDimension';
+import PruebaPorDimension from '../../components/PruebaPorDimension';
 import fotoperfil from '../../assets/fotoperfil.jpg';
 
 function MiPerfil() {
@@ -18,13 +19,11 @@ function MiPerfil() {
   const {data: dimensionsData, isFetching: isFetchingDimensions, isError: isErrorDimensions} = useFetchDimensionsQuery();
  
   const handleDimensionClick = (dimension) => {
-    console.log(dimension);
     setCurrentDimension(dimension);
   };
 
   useEffect(() => {
     if (dimensionsData) {
-      console.log(dimensionsData.dimensions);
       setDimensionsArray(dimensionsData.dimensions);
     }
   }, [dimensionsData]);
@@ -77,7 +76,7 @@ function MiPerfil() {
       </ButtonGroup>
       <h2>Test de Gijón</h2>
 
-      <img
+      {/* <img
         alt=""
         src="/cerebro.png"
         height="200"
@@ -87,7 +86,12 @@ function MiPerfil() {
       <Link to="/PruebaGijon">Tomar prueba</Link>
       <br />
       <Link to="/PruebaGijon2">Tomar prueba2</Link>
-      <p>El test de Gijón es un test de valoración funcional que se utiliza para evaluar la capacidad funcional de una persona mayor.</p>
+      <p>El test de Gijón es un test de valoración funcional que se utiliza para evaluar la capacidad funcional de una persona mayor.</p> */}
+
+      { currentDimension && currentDimension.dimension_id && (
+          <PruebaPorDimension id={currentDimension.dimension_id} />
+      )}
+      
 
     </div>
   );
