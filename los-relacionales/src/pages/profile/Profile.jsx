@@ -3,13 +3,24 @@ import Button from 'react-bootstrap/Button';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import DimensionFuncional from '../dimensiones/DimensionFuncional';
 import PruebaGijon from '../pruebas/PruebaGijon';
+import React, { useEffect , useState} from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from "react-redux";
-import { useFetchDimensionByIdQuery } from '../../store';
+import { useFetchDimensionsQuery } from '../../store';
 import BotonDimension from '../../components/BotonDimension';
 
 function MiPerfil() {
   const user = useSelector((state) => state.auth.user);
+
+  const [dimensionsArray, setDimensionsArray] = React.useState(null);
+  const {data: dimensionsData, isFetching: isFetchingDimensions, isError: isErrorDimensions} = useFetchDimensionsQuery();
+
+  useEffect(() => {
+    if (dimensionsData) {
+      console.log(dimensionsData.dimensions);
+      setDimensionsArray(dimensionsData.dimensions);
+    }
+  }, [dimensionsData]);
 
   return (
 
@@ -36,9 +47,11 @@ function MiPerfil() {
         </div>
         <div className="dimensiones">
           <h2>Mis Dimensiones:</h2>
-          <BotonDimension id={1} />
-          <BotonDimension id={2} />
-          <BotonDimension id={3} />
+          {dimensionsArray && !isFetchingDimensions && !isErrorDimensions &&
+            (dimensionsArray.map((dimension) => (
+              <BotonDimension id={dimension.dimension_id} />
+            )))
+          }
         </div>
       </div>
       <div className="tipo_dimension">

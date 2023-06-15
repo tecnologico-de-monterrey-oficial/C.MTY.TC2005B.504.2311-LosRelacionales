@@ -10,11 +10,11 @@ import { pamsApi } from './apis/pamsApi';
 import { pamTestAnswerApi } from './apis/pamTestAnswerApi';
 import { pamTestApi } from './apis/pamTestApi';
 import { questionApi } from './apis/questionApi';
-import { recommendationApi } from './apis/recommendationsApi';
-import { roleApi } from './apis/rolesApi';
+import { recommendationsApi } from './apis/recommendationsApi';
+import { rolesApi } from './apis/rolesApi';
 import { testApi } from './apis/testApi';
-import { testInstructionApi } from './apis/testInstructionsApi';
-import { testWeightApi } from './apis/testWeightsApi';
+import { testInstructionsApi } from './apis/testInstructionsApi';
+import { testWeightsApi } from './apis/testWeightsApi';
 // TODO import PAMs and Persons Slices
 import {
     authReducer,
@@ -38,11 +38,11 @@ const store = configureStore({
         [pamTestAnswerApi.reducerPath]: pamTestAnswerApi.reducer,
         [pamTestApi.reducerPath]: pamTestApi.reducer,
         [questionApi.reducerPath]: questionApi.reducer,
-        [recommendationApi.reducerPath]: recommendationApi.reducer,
-        [roleApi.reducerPath]: roleApi.reducer,
+        [recommendationsApi.reducerPath]: recommendationsApi.reducer,
+        [rolesApi.reducerPath]: rolesApi.reducer,
         [testApi.reducerPath]: testApi.reducer,
-        [testInstructionApi.reducerPath]: testInstructionApi.reducer,
-        [testWeightApi.reducerPath]: testWeightApi.reducer,
+        [testInstructionsApi.reducerPath]: testInstructionsApi.reducer,
+        [testWeightsApi.reducerPath]: testWeightsApi.reducer,
     },
     middleware: (getDefaultMiddleware) => {
         return getDefaultMiddleware(
@@ -57,11 +57,11 @@ const store = configureStore({
         .concat(pamTestAnswerApi.middleware)
         .concat(pamTestApi.middleware)
         .concat(questionApi.middleware)
-        .concat(recommendationApi.middleware)
-        .concat(roleApi.middleware)
+        .concat(recommendationsApi.middleware)
+        .concat(rolesApi.middleware)
         .concat(testApi.middleware)
-        .concat(testInstructionApi.middleware)
-        .concat(testWeightApi.middleware);
+        .concat(testInstructionsApi.middleware)
+        .concat(testWeightsApi.middleware);
     },
 });
 
