@@ -7,20 +7,30 @@ import React, { useEffect , useState} from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from "react-redux";
 import { useFetchDimensionsQuery } from '../../store';
+
 import BotonDimension from '../../components/BotonDimension';
 import PruebaPorDimension from '../../components/PruebaPorDimension';
+import HistorialPorDimension from '../../components/HistorialPorDimension';
+import ApoyoPorDimension from '../../components/ApoyoPorDimension';
+
+
 import fotoperfil from '../../assets/fotoperfil.jpg';
 import cerebro from '../../assets/cerebro.png';
 
 function MiPerfil() {
   const user = useSelector((state) => state.auth.user);
 
+  const [currentState, setCurrentState] = useState(null); // ["pruebas", "historial", "apoyo"
   const [currentDimension, setCurrentDimension] = React.useState(null);
   const [dimensionsArray, setDimensionsArray] = React.useState(null);
   const {data: dimensionsData, isFetching: isFetchingDimensions, isError: isErrorDimensions} = useFetchDimensionsQuery();
  
   const handleDimensionClick = (dimension) => {
     setCurrentDimension(dimension);
+  };
+
+  const handleChangeState = (state) => {
+    setCurrentState(state);
   };
 
   useEffect(() => {
@@ -71,9 +81,9 @@ function MiPerfil() {
       </div>
       <br />
       <ButtonGroup aria-label="Basic example">
-        <Button variant="secondary">Pruebas</Button>
-        <Button variant="secondary">Historial</Button>
-        <Button variant="secondary">Apoyo</Button>
+        <Button onClick={() => handleChangeState("pruebas")} variant="secondary">Pruebas</Button>
+        <Button onClick={() => handleChangeState("historial")} variant="secondary">Historial</Button>
+        <Button onClick={() => handleChangeState("apoyo")} variant="secondary">Apoyo</Button>
       </ButtonGroup>
       <h2>Test de Gijón</h2>
 
@@ -89,8 +99,18 @@ function MiPerfil() {
       <Link to="/PruebaGijon2">Tomar prueba2</Link>
       <p>El test de Gijón es un test de valoración funcional que se utiliza para evaluar la capacidad funcional de una persona mayor.</p> */}
 
-      { currentDimension && currentDimension.dimension_id && (
+
+
+      {currentState == "pruebas" && currentDimension && currentDimension.dimension_id && (
           <PruebaPorDimension id={currentDimension.dimension_id} />
+      )}
+
+      {currentState == "historial" && currentDimension && currentDimension.dimension_id && (
+          <HistorialPorDimension id={currentDimension.dimension_id} />
+      )}
+
+      {currentState == "apoyo" && currentDimension && currentDimension.dimension_id && (
+          <ApoyoPorDimension id={currentDimension.dimension_id} />
       )}
       
 
