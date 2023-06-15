@@ -9,6 +9,7 @@ import { useSelector } from "react-redux";
 import { useFetchDimensionsQuery } from '../../store';
 import BotonDimension from '../../components/BotonDimension';
 import fotoperfil from '../../assets/fotoperfil.jpg';
+import cerebro from '../../assets/cerebro.png';
 
 function MiPerfil() {
   const user = useSelector((state) => state.auth.user);
@@ -24,7 +25,6 @@ function MiPerfil() {
 
   useEffect(() => {
     if (dimensionsData) {
-      console.log(dimensionsData.dimensions);
       setDimensionsArray(dimensionsData.dimensions);
     }
   }, [dimensionsData]);
@@ -79,7 +79,7 @@ function MiPerfil() {
 
       <img
         alt=""
-        src="/cerebro.png"
+        src={cerebro}
         height="200"
         className="imagen_prueba"
       />
