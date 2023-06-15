@@ -28,6 +28,7 @@ import {
 const store = configureStore({
     reducer: {
         auth: authReducer,
+        [dimensionApi.reducerPath]: dimensionApi.reducer,	
     },
     middleware: (getDefaultMiddleware) => {
         return getDefaultMiddleware(

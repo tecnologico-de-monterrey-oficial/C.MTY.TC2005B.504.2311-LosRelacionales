@@ -5,25 +5,22 @@ import { useFetchDimensionByIdQuery } from '../store';
 
 
 function BotonDimension( { id }) {
-    const {data, isFetching, isError } = useFetchDimensionByIdQuery(id);
-    console.log("botonTexto");
-    console.log(id);
+    const {data: dimensionData, isFetching, isError } = useFetchDimensionByIdQuery(id);
     
     const [dimension, setDimension] = React.useState(null);
 
     useEffect(() => {
-        console.log(data);
-        if (data) {
-            console.log(data);
-            setDimension("hola");
+        if (dimensionData) {
+            console.log(dimensionData.dimension[0]);
+            setDimension(dimensionData.dimension[0]);
         }
-    }, [data]);
+    }, [dimensionData]);
 
     return (
         <div className="botonDimension">
-            {!isFetching && (
+            {!isFetching && dimension && (
                 <Button variant="secondary" size="lg">
-                {dimension}
+                {dimension.dimension}
                 </Button>
             )}
         </div>    

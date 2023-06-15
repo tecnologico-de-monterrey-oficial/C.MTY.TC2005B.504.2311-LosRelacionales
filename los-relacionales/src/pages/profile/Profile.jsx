@@ -36,30 +36,9 @@ function MiPerfil() {
         </div>
         <div className="dimensiones">
           <h2>Mis Dimensiones:</h2>
-          <Link to="/DimensionFuncional">
-            <Button variant="secondary" size="lg">
-             .
-            </Button>
-          </Link>
-          <Link to="/MiPerfil">
-            <Button variant="secondary" size="lg">
-              .
-            </Button>
-          </Link>
-          <Button variant="secondary" size="lg">
-            .
-          </Button>
-          <Link to="/DimensionDFisico">
-            <Button variant="secondary" size="lg">
-              .
-            </Button>
-          </Link>
-          <Link to="/DimensionAfectiva">
-            <Button variant="secondary" size="lg">
-              .
-            </Button>
-          </Link>
           <BotonDimension id={1} />
+          <BotonDimension id={2} />
+          <BotonDimension id={3} />
         </div>
       </div>
       <div className="tipo_dimension">
