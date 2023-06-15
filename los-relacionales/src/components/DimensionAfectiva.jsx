@@ -2,6 +2,7 @@ import React from 'react';
 import Button from 'react-bootstrap/Button';
 import './MiPerfil.css';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
+import { Link } from 'react-router-dom';
 
 
 function MiPerfil() {
@@ -21,21 +22,29 @@ function MiPerfil() {
         </div>
         <div className="dimensiones">
           <h2>Mis Dimensiones:</h2>
+          <Link to="/DimensionFuncional">
           <Button variant="secondary" size="lg">
             Dimensión funcional
           </Button>
+          </Link>
+          <Link to="/MiPerfil">
           <Button variant="secondary" size="lg">
             Dimensión de riesgo social
           </Button>
+          </Link>
           <Button variant="secondary" size="lg">
             Dimensión cognitiva
           </Button>
+          <Link to="/DimensionDFisico">
           <Button variant="secondary" size="lg">
             Dimensión de desempeño físico
           </Button>
+          </Link>
+          <Link to="/DimensionAfectiva">
           <Button variant="secondary" size="lg">
             Dimensión afectiva
           </Button>
+          </Link>
         </div>
       </div>
       <div className="dimension_funcional">
