@@ -1,54 +1,50 @@
 import React, { useEffect } from 'react'
 import './HistorialPorDimension.css';
 import Button from 'react-bootstrap/Button';
-import { useFetchTestByDimensionIdQuery } from '../store';
+import { useFetchpamTestByPamIdQuery } from '../store';
 import Table from 'react-bootstrap/Table';
 
 
 function HistorialPorDimension( { id }) {
-    // const {data: testData, isFetching, isError } = useFetchTestByDimensionIdQuery(id);
-    
-    // const [testArray, setTestArray] = React.useState(null);
 
-    // useEffect(() => {
-    //     if (testData) {
-    //         setTestArray(testData.tests);
-    //     }
-    // }, [testData]);
+    const {data: storyData, isFetching, isError } = useFetchpamTestByPamIdQuery(id);
+    
+    const [pamTestArray, setPamTestArray] = React.useState(null);
+
+    useEffect(() => {
+        if (storyData) {
+            setPamTestArray(storyData.pam_tests);
+        }
+    }, [storyData]);
 
     return (
         <div className="historial">
 
             <h2>Historial</h2>
 
-            {/* {!isFetching && testArray && (
-                testArray.map((test) => (
-                    <Button variant="secondary" size="lg">
-                    {test.test_name}
-                    </Button>
-                ))
+            {/* {!isFetching && pamTestArray && (
+
+                <Table striped bordered hover>
+                    <thead>   
+                        <tr>
+                        <th>Prueba</th>
+                        <th>Fecha de Realización</th>
+                        <th>Resultado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        {pamTestArray.map((pam_test) => (
+                            <tr>
+                            <td>{pam_test.test_id}</td>
+                            <td>{pam_test.test_date}</td>
+                            <td>{pam_test.test_result}</td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </Table>
+
             )} */}
-
-
-
-            <Table striped bordered hover>
-                <thead>   
-                    <tr>
-                    <th>#</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Username</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                    <td>1</td>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                    </tr>
-                </tbody>
-            </Table>
 
         </div>    
     );
