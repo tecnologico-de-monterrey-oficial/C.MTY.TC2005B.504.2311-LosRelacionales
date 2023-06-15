@@ -192,6 +192,10 @@ export {
     useAddPamTestAnswerMutation, useEditPamTestAnswerMutation, useDeletePamTestAnswerMutation
 } from "./apis/pamTestAnswerApi";
 
+export {useFetchPamTestByIdQuery, useFetchPamTestByPamIdQuery,
+    useAddPamTestMutation, useEditPamTestMutation, useDeletePamTestMutation
+} from "./apis/pamTestApi";
+
 export {
     useFetchQuestionsQuery, useFetchQuestionByIdQuery, useFetchQuestionByTestIdQuery,
     useAddQuestionMutation, useEditQuestionMutation, useDeleteQuestionMutation

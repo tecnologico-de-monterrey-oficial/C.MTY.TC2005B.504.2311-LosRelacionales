@@ -7,7 +7,7 @@ const pamTestApi = createApi({
     }),
     endpoints(builder) {
         return {
-                fetchpamTestById: builder.query({
+                fetchPamTestById: builder.query({
                     providesTags: ["pamTest"],
                     query: (id) => {
                         return {
@@ -17,7 +17,7 @@ const pamTestApi = createApi({
                         }
                     }
                 }),
-                fetchpamTestByPamId: builder.query({
+                fetchPamTestByPamId: builder.query({
                     providesTags: ["pamTest"],
                     query: (id) => {
                         return {
@@ -70,7 +70,7 @@ const pamTestApi = createApi({
         },
     });
 
-export const {useFetchpamTestByIdQuery, useFetchpamTestByPamIdQuery,
+export const {useFetchPamTestByIdQuery, useFetchPamTestByPamIdQuery,
     useAddPamTestMutation, useEditPamTestMutation, useDeletePamTestMutation} = pamTestApi;
 
     export {pamTestApi};
