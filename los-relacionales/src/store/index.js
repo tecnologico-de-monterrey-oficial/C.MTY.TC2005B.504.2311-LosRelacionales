@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/query';
 // import { answerApi } from './apis/answerApi';
-// import { dimensionApi } from './apis/dimensionApi';
+import { dimensionApi } from './apis/dimensionApi';
 // import { gendersApi } from './apis/gendersApi';
 // import { groupTypeApi } from './apis/groupTypeApi';
 // import { healthDataApi } from './apis/healthDataApi';
@@ -32,7 +32,7 @@ const store = configureStore({
     middleware: (getDefaultMiddleware) => {
         return getDefaultMiddleware(
             { serializableCheck: false }
-        )
+        ).concat(dimensionApi.middleware);
     },
 });
 

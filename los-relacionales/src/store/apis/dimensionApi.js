@@ -20,6 +20,7 @@ const dimensionApi = createApi({
             fetchDimensionById: builder.query({
                 providesTags: ["dimension"],
                 query: (id) => {
+                    console.log("fetchDimensionById", `get-dimension/${id}`);
                     return {
                         url: `get-dimension/${id}`,
                         params: {},
@@ -66,4 +67,4 @@ const dimensionApi = createApi({
 
 export const { useFetchDimensionsQuery, useFetchDimensionByIdQuery,
     useAddDimensionMutation, useEditDimensionMutation, useDeleteDimensionMutation } = dimensionApi;
-export default dimensionApi;
+export { dimensionApi };

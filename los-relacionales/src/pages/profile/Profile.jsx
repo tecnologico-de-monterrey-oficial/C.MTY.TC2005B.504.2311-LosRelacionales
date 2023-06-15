@@ -5,6 +5,8 @@ import DimensionFuncional from '../dimensiones/DimensionFuncional';
 import PruebaGijon from '../pruebas/PruebaGijon';
 import { Link } from 'react-router-dom';
 import { useSelector } from "react-redux";
+import { useFetchDimensionByIdQuery } from '../../store';
+import BotonDimension from '../../components/BotonDimension';
 
 function MiPerfil() {
   const user = useSelector((state) => state.auth.user);
@@ -36,27 +38,28 @@ function MiPerfil() {
           <h2>Mis Dimensiones:</h2>
           <Link to="/DimensionFuncional">
             <Button variant="secondary" size="lg">
-              Dimensión funcional
+             .
             </Button>
           </Link>
           <Link to="/MiPerfil">
             <Button variant="secondary" size="lg">
-              Dimensión de riesgo social
+              .
             </Button>
           </Link>
           <Button variant="secondary" size="lg">
-            Dimensión cognitiva
+            .
           </Button>
           <Link to="/DimensionDFisico">
             <Button variant="secondary" size="lg">
-              Dimensión de desempeño físico
+              .
             </Button>
           </Link>
           <Link to="/DimensionAfectiva">
             <Button variant="secondary" size="lg">
-              Dimensión afectiva
+              .
             </Button>
           </Link>
+          <BotonDimension id={1} />
         </div>
       </div>
       <div className="tipo_dimension">
