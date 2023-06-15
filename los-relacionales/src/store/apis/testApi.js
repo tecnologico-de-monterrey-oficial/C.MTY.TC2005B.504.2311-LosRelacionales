@@ -79,4 +79,4 @@ const testApi = createApi({
 
 export const { useFetchTestsQuery, useFetchTestByIdQuery, useFetchTestByDimensionIdQuery,
     useAddTestMutation, useEditTestMutation, useDeleteTestMutation } = testApi;
-export default testApi;
+export {testApi};

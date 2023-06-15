@@ -73,4 +73,4 @@ const pamTestApi = createApi({
 export const {useFetchpamTestByIdQuery, useFetchpamTestByPamIdQuery,
     useAddPamTestMutation, useEditPamTestMutation, useDeletePamTestMutation} = pamTestApi;
 
-    export default pamTestApi;
+    export {pamTestApi};

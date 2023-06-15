@@ -79,4 +79,4 @@ const groupTypeApi = createApi({
 export const { useFetchGroupTypesQuery, useFetchGroupTypeByIdQuery, useFetchGroupTypeByParentIdQuery,
     useAddGroupTypeMutation, useEditGroupTypeMutation, useDeleteGroupTypeMutation } = groupTypeApi;
 
-export default groupTypeApi;
+export {groupTypeApi};

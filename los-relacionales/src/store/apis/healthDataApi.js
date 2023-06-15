@@ -62,4 +62,4 @@ const healthDataApi = createApi({
 
 export const { useFetchHealthDataByPamIdQuery, useAddHealthDataMutation,
     useEditHealthDataMutation, useDeleteHealthDataMutation } = healthDataApi;
-export default healthDataApi;
+export {healthDataApi};

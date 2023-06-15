@@ -1,20 +1,20 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/query';
-// import { answerApi } from './apis/answerApi';
+import { answerApi } from './apis/answerApi';
 import { dimensionApi } from './apis/dimensionApi';
-// import { gendersApi } from './apis/gendersApi';
-// import { groupTypeApi } from './apis/groupTypeApi';
-// import { healthDataApi } from './apis/healthDataApi';
-// import { pamGroupApi } from './apis/pamGroupApi';
-// import { pamsApi } from './apis/pamsApi';
-// import { pamTestAnswerApi } from './apis/pamTestAnswerApi';
-// import { pamTestApi } from './apis/pamTestApi';
-// import { questionApi } from './apis/questionApi';
-// import { recommendationApi } from './apis/recommendationsApi';
-// import { roleApi } from './apis/rolesApi';
-// import { testApi } from './apis/testApi';
-// import { testInstructionApi } from './apis/testInstructionsApi';
-// import { testWeightApi } from './apis/testWeightsApi';
+import { gendersApi } from './apis/gendersApi';
+import { groupTypeApi } from './apis/groupTypeApi';
+import { healthDataApi } from './apis/healthDataApi';
+import { pamGroupApi } from './apis/pamGroupApi';
+import { pamsApi } from './apis/pamsApi';
+import { pamTestAnswerApi } from './apis/pamTestAnswerApi';
+import { pamTestApi } from './apis/pamTestApi';
+import { questionApi } from './apis/questionApi';
+import { recommendationApi } from './apis/recommendationsApi';
+import { roleApi } from './apis/rolesApi';
+import { testApi } from './apis/testApi';
+import { testInstructionApi } from './apis/testInstructionsApi';
+import { testWeightApi } from './apis/testWeightsApi';
 // TODO import PAMs and Persons Slices
 import {
     authReducer,
@@ -28,12 +28,40 @@ import {
 const store = configureStore({
     reducer: {
         auth: authReducer,
-        [dimensionApi.reducerPath]: dimensionApi.reducer,	
+        [answerApi.reducerPath]: answerApi.reducer,
+        [dimensionApi.reducerPath]: dimensionApi.reducer,
+        [gendersApi.reducerPath]: gendersApi.reducer,
+        [groupTypeApi.reducerPath]: groupTypeApi.reducer,
+        [healthDataApi.reducerPath]: healthDataApi.reducer,
+        [pamGroupApi.reducerPath]: pamGroupApi.reducer,
+        [pamsApi.reducerPath]: pamsApi.reducer,
+        [pamTestAnswerApi.reducerPath]: pamTestAnswerApi.reducer,
+        [pamTestApi.reducerPath]: pamTestApi.reducer,
+        [questionApi.reducerPath]: questionApi.reducer,
+        [recommendationApi.reducerPath]: recommendationApi.reducer,
+        [roleApi.reducerPath]: roleApi.reducer,
+        [testApi.reducerPath]: testApi.reducer,
+        [testInstructionApi.reducerPath]: testInstructionApi.reducer,
+        [testWeightApi.reducerPath]: testWeightApi.reducer,
     },
     middleware: (getDefaultMiddleware) => {
         return getDefaultMiddleware(
             { serializableCheck: false }
-        ).concat(dimensionApi.middleware);
+        ).concat(answerApi.middleware)
+        .concat(dimensionApi.middleware)
+        .concat(gendersApi.middleware)
+        .concat(groupTypeApi.middleware)
+        .concat(healthDataApi.middleware)
+        .concat(pamGroupApi.middleware)
+        .concat(pamsApi.middleware)
+        .concat(pamTestAnswerApi.middleware)
+        .concat(pamTestApi.middleware)
+        .concat(questionApi.middleware)
+        .concat(recommendationApi.middleware)
+        .concat(roleApi.middleware)
+        .concat(testApi.middleware)
+        .concat(testInstructionApi.middleware)
+        .concat(testWeightApi.middleware);
     },
 });
 
