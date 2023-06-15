@@ -10,7 +10,7 @@ import { pamsApi } from './apis/pamsApi';
 import { pamTestAnswerApi } from './apis/pamTestAnswerApi';
 import { pamTestApi } from './apis/pamTestApi';
 import { questionApi } from './apis/questionApi';
-import { recommendationApi } from './apis/recommendationApi';
+import { recommendationApi } from './apis/recommendationsApi';
 import { roleApi } from './apis/roleApi';
 import { testApi } from './apis/testApi';
 import { testInstructionApi } from './apis/testInstructionApi';
