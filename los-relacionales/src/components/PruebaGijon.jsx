@@ -48,20 +48,9 @@ function PruebaGijon() {
     return puntuacion;
   };
 
-  const obtenerResultado = (puntuacion) => {
-    if (puntuacion < 7) {
-      return "verde";
-    } else if (puntuacion >= 8 && puntuacion <= 9) {
-      return "amarillo";
-    } else {
-      return "rojo";
-    }
-  };
-
   const handleSubmit = () => {
     const puntuacion = calcularPuntuacion();
-    const resultado = obtenerResultado(puntuacion);
-    setResultado(resultado);
+    setResultado(puntuacion.toString());
   };
 
   return (
@@ -91,14 +80,13 @@ function PruebaGijon() {
           <option value={1}>1 punto - Mantiene relaciones sociales fuera del domicilio.</option>
           <option value={2}>2 puntos - Solo se relaciona con familia/vecinos/otros, sale de casa.</option>
           <option value={3}>3 puntos - Solo se relaciona con familia, sale de casa.</option>
-          <option value={4}>4 puntos - No sale de su domicilio, recibe familia o visitas (mas de una vez por semana).</option>
+          <option value={4}>4 puntos - No sale de su domicilio, recibe familia o visitas (más de una vez por semana).</option>
           <option value={5}>5 puntos - No sale del domicilio, ni recibe visitas (una vez por semana).</option>
         </select>
       </div>
       <Button variant="secondary" onClick={handleSubmit}>Calcular</Button>
       <div>
-        <p>Resultado: </p>
-        <input type="text" value={resultado} readOnly />
+        <p>Puntaje: {resultado}</p>
       </div>
       <br />
       <Link to="/MiPerfil">Regresar</Link>

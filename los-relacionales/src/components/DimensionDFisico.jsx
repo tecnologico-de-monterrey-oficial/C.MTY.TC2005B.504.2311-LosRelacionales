@@ -65,6 +65,9 @@ function MiPerfil() {
             height="200"
             className="imagen_prueba"
           />
+          <br />
+      <Link to="/PruebaSARCF">Tomar prueba</Link>
+      <br />
           <p>El test de Sarc-F es un test de valoración fisica que se utiliza para evaluar la capacidad de desempeño fisico de una persona mayor.</p>
 
           <h2>Test Riego de Fragilidad</h2> 
@@ -74,6 +77,9 @@ function MiPerfil() {
             height="200"
             className="imagen_prueba"
           />
+          <br />
+      <Link to="/PruebaFrail">Tomar prueba</Link>
+      <br />
           <p>El test de Riesgo de Fragilidad es un test de valoración fisica que se utiliza para evaluar la capacidad de desempeño fisico de una persona mayor.</p>
 
     </div>

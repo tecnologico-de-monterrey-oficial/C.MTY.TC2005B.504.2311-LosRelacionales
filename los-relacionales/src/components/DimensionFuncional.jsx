@@ -66,6 +66,9 @@ function MiPerfil() {
             height="200"
             className="imagen_prueba"
           />
+          <br />
+      <Link to="/PruebaKatz">Tomar prueba</Link>
+      <br />
         <p>El test de Katz es un test de valoración funcional que se utiliza para evaluar la capacidad funcional de una persona mayor.</p>
         <h2>Test de Lawton & Brody</h2> 
       <img
@@ -74,6 +77,9 @@ function MiPerfil() {
             height="200"
             className="imagen_prueba"
           />
+          <br />
+      <Link to="/PruebaLawtonBrody">Tomar prueba</Link>
+      <br />
         <p>El test de Lawton & Brody es un test de valoración funcional que se utiliza para evaluar la capacidad funcional de una persona mayor.</p>
 
     </div>

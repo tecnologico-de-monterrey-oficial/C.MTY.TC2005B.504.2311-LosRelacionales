@@ -7,7 +7,11 @@ import DimensionFuncional from './components/DimensionFuncional';
 import DimensionAfectiva from './components/DimensionAfectiva';
 import DimensionDFisico from './components/DimensionDFisico';
 import PruebaGijon from './components/PruebaGijon';
-import PruebaGijon2 from './components/PruebaGijon2';
+import PruebaKatz from './components/PruebaKatz';
+import PruebaLawtonBrody from './components/PruebaLawtonBrody';
+import PruebaGDS from './components/PruebaGDS';
+import PruebaSARCF from './components/PruebaSARCF';
+import PruebaFrail from './components/PruebaFrail';
 import { Link } from 'react-router-dom';
 
 
@@ -23,7 +27,12 @@ function App() {
           <Route path="/DimensionAfectiva" element={<DimensionAfectiva/>} />
           <Route path="/DimensionDFisico" element={<DimensionDFisico/>} />
           <Route path="/PruebaGijon" element={<PruebaGijon/>} />
-          <Route path="/PruebaGijon2" element={<PruebaGijon2/>} />
+          <Route path="/PruebaKatz" element={<PruebaKatz/>} />
+          <Route path="/PruebaLawtonBrody" element={<PruebaLawtonBrody/>} />
+          <Route path="/PruebaGDS" element={<PruebaGDS/>} />
+          <Route path="/PruebaSARCF" element={<PruebaSARCF/>} />
+          <Route path="/PruebaFrail" element={<PruebaFrail/>} />
+
         </Routes>
       </BrowserRouter>
 
