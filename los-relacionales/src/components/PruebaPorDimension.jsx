@@ -19,7 +19,7 @@ function PruebaPorDimension( { id }) {
         <div className="testsList">
             {!isFetching && testArray && (
                 testArray.map((test) => (
-                    <Button variant="secondary" size="lg">
+                    <Button key={test.test_id} variant="secondary" size="lg">
                     {test.test_name}
                     </Button>
                 ))

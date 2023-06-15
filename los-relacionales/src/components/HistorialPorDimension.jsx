@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import './HistorialPorDimension.css';
 import Button from 'react-bootstrap/Button';
 import { useFetchTestByDimensionIdQuery } from '../store';
+import Table from 'react-bootstrap/Table';
 
 
 function HistorialPorDimension( { id }) {
@@ -27,6 +28,28 @@ function HistorialPorDimension( { id }) {
                     </Button>
                 ))
             )} */}
+
+
+
+            <Table striped bordered hover>
+                <thead>   
+                    <tr>
+                    <th>#</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Username</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                    <td>1</td>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                    </tr>
+                </tbody>
+            </Table>
+
         </div>    
     );
 }

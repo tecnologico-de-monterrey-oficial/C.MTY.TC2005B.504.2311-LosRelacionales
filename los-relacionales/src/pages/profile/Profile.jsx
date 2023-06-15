@@ -74,32 +74,26 @@ function MiPerfil() {
       <div className="tipo_dimension">
         {currentDimension && currentDimension.dimension && (
         <h1>{currentDimension.dimension}</h1>
+        
       )}
         {/* <p>El riesgo social se refiere a las situaciones
           que pueden afectar negativamente nuestra seguridad
           y bienestar en la sociedad.</p> */}
+
+        {
+          currentDimension && (
+            <ButtonGroup aria-label="Basic example">
+              <Button onClick={() => handleChangeState("pruebas")} variant="secondary">Pruebas</Button>
+              <Button onClick={() => handleChangeState("historial")} variant="secondary">Historial</Button>
+              <Button onClick={() => handleChangeState("apoyo")} variant="secondary">Apoyo</Button>
+            </ButtonGroup>
+          )
+        }
+
       </div>
       <br />
-      <ButtonGroup aria-label="Basic example">
-        <Button onClick={() => handleChangeState("pruebas")} variant="secondary">Pruebas</Button>
-        <Button onClick={() => handleChangeState("historial")} variant="secondary">Historial</Button>
-        <Button onClick={() => handleChangeState("apoyo")} variant="secondary">Apoyo</Button>
-      </ButtonGroup>
+      
       <h2>Titulo temporal</h2>
-
-      {/* <img
-        alt=""
-        src={cerebro}
-        height="200"
-        className="imagen_prueba"
-      />
-      <br />
-      <Link to="/PruebaGijon">Tomar prueba</Link>
-      <br />
-      <Link to="/PruebaGijon2">Tomar prueba2</Link>
-      <p>El test de Gijón es un test de valoración funcional que se utiliza para evaluar la capacidad funcional de una persona mayor.</p> */}
-
-
 
       {currentState == "pruebas" && currentDimension && currentDimension.dimension_id && (
           <PruebaPorDimension id={currentDimension.dimension_id} />
