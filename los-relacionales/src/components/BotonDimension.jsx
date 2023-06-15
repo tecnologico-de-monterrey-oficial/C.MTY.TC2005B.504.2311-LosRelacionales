@@ -19,7 +19,7 @@ function BotonDimension( { id, func }) {
     return (
         <div className="botonDimension">
             {!isFetching && dimension && (
-                <Button variant="secondary" size="lg" onClick={() => func(dimension.dimension)}>
+                <Button variant="secondary" onClick={() => func(dimension.dimension)}>
                 {dimension.dimension}
                 </Button>
             )}

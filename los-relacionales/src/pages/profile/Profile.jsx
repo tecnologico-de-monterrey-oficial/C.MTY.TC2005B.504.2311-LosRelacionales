@@ -75,7 +75,7 @@ function MiPerfil() {
         <Button variant="secondary">Historial</Button>
         <Button variant="secondary">Apoyo</Button>
       </ButtonGroup>
-      <h2>Test de Gijón</h2>
+      <h2>Titulo temporal</h2>
 
       {/* <img
         alt=""
