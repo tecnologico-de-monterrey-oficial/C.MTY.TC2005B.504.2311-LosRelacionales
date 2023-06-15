@@ -34,9 +34,10 @@ const pamTestApi = createApi({
                             url: 'add-pam-test',
                             method: 'POST',
                             body: {
+                                test_id: pamTest.pam_id,
+                                test_result: pamTest.test_result,
                                 pam_id: pamTest.pam_id,
                                 test_date: pamTest.test_date,
-                                is_completed: pamTest.is_completed,
                             },
                         };
                     }
@@ -48,9 +49,10 @@ const pamTestApi = createApi({
                             url: `edit-pam-test/${pamTest.id}`,
                             method: 'POST',
                             body: {
+                                test_id: pamTest.pam_id,
+                                test_result: pamTest.test_result,
                                 pam_id: pamTest.pam_id,
                                 test_date: pamTest.test_date,
-                                is_completed: pamTest.is_completed,
                             },
                         };
                     }
@@ -71,4 +73,4 @@ const pamTestApi = createApi({
 export const {useFetchpamTestByIdQuery, useFetchpamTestByPamIdQuery,
     useAddPamTestMutation, useEditPamTestMutation, useDeletePamTestMutation} = pamTestApi;
 
-    export default pamTestApi;
+    export {pamTestApi};

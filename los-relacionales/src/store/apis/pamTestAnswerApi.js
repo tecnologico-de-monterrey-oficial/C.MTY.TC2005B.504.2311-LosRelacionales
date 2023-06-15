@@ -69,4 +69,4 @@ const pamTestAnswerApi = createApi({
 export const { useFetchPamTestAnswerByIdQuery, useFetchPamTestAnswerByTestIdQuery,
     useAddPamTestAnswerMutation, useEditPamTestAnswerMutation, useDeletePamTestAnswerMutation } = pamTestAnswerApi;
 
-export default pamTestAnswerApi;
+export {pamTestAnswerApi};

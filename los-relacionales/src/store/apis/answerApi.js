@@ -70,4 +70,4 @@ const answerApi = createApi({
 export const { useFetchAnswerByIdQuery, useFetchAnswerByQuestionIdQuery,
     useAddAnswerMutation, useEditAnswerMutation, useDeleteAnswerMutation } = answerApi;
 
-export default answerApi;
+export {answerApi};

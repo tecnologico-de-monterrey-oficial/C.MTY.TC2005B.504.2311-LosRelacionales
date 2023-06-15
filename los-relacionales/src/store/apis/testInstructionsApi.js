@@ -71,4 +71,4 @@ const testInstructionsApi = createApi({
 export const { useFetchTestInstructionsQuery, useFetchTestInstructionByIdQuery,
     useAddTestInstructionMutation, useEditTestInstructionMutation, useDeleteTestInstructionMutation } = testInstructionsApi;
 
-export default testInstructionsApi;
+export {testInstructionsApi};

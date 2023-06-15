@@ -4,6 +4,7 @@ import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import DimensionFuncional from '../dimensiones/DimensionFuncional';
 import PruebaGijon from '../pruebas/PruebaGijon';
 import Form from 'react-bootstrap/Form';
+import React, { useEffect , useState} from 'react';
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from "react-redux";
@@ -34,6 +35,9 @@ function Profile() {
   const [person, setPerson] = useState([]);
   const [personID, setPersonID] = useState();
   const [stage, setStage] = useState(0);
+import { useSelector } from "react-redux";
+import { useFetchDimensionsQuery } from '../../store';
+import BotonDimension from '../../components/BotonDimension';
 
   const dispatch = useDispatch();
   const user = useSelector((state) => state.auth.user);
@@ -125,6 +129,18 @@ function Profile() {
     setStage(2);
     dispatch(resetPerson());
   };
+
+  const [dimensionsArray, setDimensionsArray] = React.useState(null);
+  const {data: dimensionsData, isFetching: isFetchingDimensions, isError: isErrorDimensions} = useFetchDimensionsQuery();
+
+  useEffect(() => {
+    if (dimensionsData) {
+      console.log(dimensionsData.dimensions);
+      setDimensionsArray(dimensionsData.dimensions);
+    }
+  }, [dimensionsData]);
+
+
 
   return (
     <div className='perfil'>

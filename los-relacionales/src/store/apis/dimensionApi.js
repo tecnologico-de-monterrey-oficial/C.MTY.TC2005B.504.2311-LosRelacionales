@@ -66,4 +66,4 @@ const dimensionApi = createApi({
 
 export const { useFetchDimensionsQuery, useFetchDimensionByIdQuery,
     useAddDimensionMutation, useEditDimensionMutation, useDeleteDimensionMutation } = dimensionApi;
-export default dimensionApi;
+export { dimensionApi };

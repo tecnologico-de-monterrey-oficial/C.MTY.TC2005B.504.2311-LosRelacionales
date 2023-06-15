@@ -81,4 +81,4 @@ const questionApi = createApi({
 export const { useFetchQuestionsQuery, useFetchQuestionByIdQuery, useFetchQuestionByTestIdQuery,
     useAddQuestionMutation, useEditQuestionMutation, useDeleteQuestionMutation } = questionApi;
 
-export default questionApi;
+export {questionApi};
