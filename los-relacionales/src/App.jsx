@@ -4,12 +4,9 @@ import NavigationBar from './components/NavigationBar'
 import Inicio from './pages/inicio/Inicio'
 import PAMs from './pages/pams/PAMs';
 import PAM from './pages/pam/PAM';
-import Profile from './pages/profile/Profile';
+import Registro from './pages/profile/Registro';
 import Footer from './components/Footer'
 import Protected from './components/Protected';
-import DimensionFuncional from './pages/dimensiones/DimensionFuncional';
-import DimensionAfectiva from './pages/dimensiones/DimensionAfectiva';
-import DimensionDFisico from './pages/dimensiones/DimensionDFisico';
 import PruebaGijon from './pages/pruebas/PruebaGijon';
 import PruebaGijon2 from './pages/pruebas/PruebaGijon2';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
@@ -48,13 +45,10 @@ function App() {
               element={
                 <Protected
                   isLoggedIn={isLogged}>
-                  <Profile />
+                  <Registro />
                 </Protected>
               }
             />
-          <Route path="/DimensionFuncional" element={<DimensionFuncional/>} />
-          <Route path="/DimensionAfectiva" element={<DimensionAfectiva/>} />
-          <Route path="/DimensionDFisico" element={<DimensionDFisico/>} />
           <Route path="/PruebaGijon" element={<PruebaGijon/>} />
           <Route path="/PruebaGijon2" element={<PruebaGijon2/>} />
           </Routes>
