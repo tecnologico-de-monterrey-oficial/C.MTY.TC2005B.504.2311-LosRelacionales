@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react'
 import './HistorialPorDimension.css';
 import Button from 'react-bootstrap/Button';
-import { useFetchpamTestByPamIdQuery } from '../store';
+import { useFetchPamTestByPamIdQuery } from '../store';
 import Table from 'react-bootstrap/Table';
 
 
 function HistorialPorDimension( { id }) {
 
-    const {data: storyData, isFetching, isError } = useFetchpamTestByPamIdQuery(id);
+    const {data: storyData, isFetching, isError } = useFetchPamTestByPamIdQuery(id);
     
     const [pamTestArray, setPamTestArray] = React.useState(null);
 
