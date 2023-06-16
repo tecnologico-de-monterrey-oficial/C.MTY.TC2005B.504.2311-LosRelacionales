@@ -1,22 +1,49 @@
 import React, { useEffect } from 'react'
 import './HistorialPorDimension.css';
 import Button from 'react-bootstrap/Button';
-import { useFetchPamTestByPamIdQuery } from '../store';
+import { 
+    useFetchPamTestByPamIdQuery,
+    useFetchTestByDimensionIdQuery, 
+    useFetchColorFromPamTestQuery,
+} from '../store';
 import Table from 'react-bootstrap/Table';
 
 
-function HistorialPorDimension( { id }) {
+function HistorialPorDimension( { idPam, idDimension }) {
 
-    const {data: storyData, isFetching, isError } = useFetchPamTestByPamIdQuery(id);
-    
+    //console.log("idPam: " + idPam);
+
+    const [isFetching, setIsFetching] = React.useState(true);
     const [pamTestArray, setPamTestArray] = React.useState(null);
+    const [colorArray, setColorArray] = React.useState(null);
+    const {data: storyData, isFetching: isFetchingPamTest, isError } = useFetchPamTestByPamIdQuery(idPam);
+    const {data: testDimensionData, isFetching: isFetchingTestDimension, isError: isErrorTestDimension } = useFetchTestByDimensionIdQuery(idDimension);
+    // const {data: colorData, isFetching: isFetchingColor, isError: isErrorColor} = useFetchColorFromPamTestQuery(idDimension);
+
+    useEffect(() => {
+        if (!isFetchingPamTest && !isFetchingTestDimension && storyData && testDimensionData && pamTestArray) {
+
+            setIsFetching(false);
+            // console.log("1:");
+            // console.log(testDimensionData.tests.filter((test_dimension) => test_dimension.test_id == 12).length > 0);
+            // console.log(pamTestArray);
+            // console.log(testDimensionData.tests);
+            // console.log("2:");
+            // console.log(pamTestArray.filter((pam_test) => {testDimensionData.tests.filter((test_dimension) => test_dimension.test_id == pam_test.test_id).length > 0}));
+        }
+    }, [storyData, testDimensionData]);
+    
 
     useEffect(() => {
         if (storyData) {
-            setPamTestArray(storyData.pam_tests);
-            console.log(storyData.pam_tests);
+            setPamTestArray([...storyData.pam_tests].reverse());
         }
     }, [storyData]);
+
+    const getColor = (pam_test) => {
+        return useFetchColorFromPamTestQuery(pam_test.pam_test_id).data;
+    }
+    
 
     return (
         <div className="historial">
@@ -34,18 +61,21 @@ function HistorialPorDimension( { id }) {
                         </tr>
                     </thead>
                     <tbody>
-                        {pamTestArray.map((pam_test) => (
+                        {pamTestArray
+                        //.reverse()
+                        //.filter((pam_test) => {testDimensionData.tests.filter((test_dimension) => test_dimension.test_id === pam_test.test_id).length > 0})
+                        .map((pam_test) => (
                             <tr>
-                            <td>{pam_test.test_id}</td>
-                            <td>{pam_test.test_date}</td>
-                            <td>{pam_test.test_result}</td>
+                                <td>{pam_test.test_id}</td>
+                                <td>{pam_test.test_date}</td>
+                                <td>{getColor(pam_test)}</td>
                             </tr>
                         ))}
                     </tbody>
                 </Table>
 
             )}
-
+            
         </div>    
     );
 }
