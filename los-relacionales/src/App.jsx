@@ -6,7 +6,6 @@ import PAMs from './pages/pams/PAMs';
 import PAM from './pages/pam/PAM';
 import Registro from './pages/profile/Registro';
 import Footer from './components/Footer'
-import Protected from './components/Protected';
 import PruebaGijon from './pages/pruebas/PruebaGijon';
 import PruebaGijon2 from './pages/pruebas/PruebaGijon2';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
@@ -32,7 +31,11 @@ function App() {
             <Route path="/" element={<Inicio />} />
             <Route path="/pams" element={<PAMs />} />
             <Route path="/pam" element={<PAM />} />
-            <Route path="/profile" element={ <Registro />} />
+            {isLogged ? (
+              <Route path="/profile" element={<Registro />} />
+            ) : (
+              <Route path="/profile" element={<Inicio />} />
+            )}
             <Route path="/PruebaGijon" element={<PruebaGijon />} />
             <Route path="/PruebaGijon2" element={<PruebaGijon2 />} />
           </Routes>
