@@ -6,9 +6,6 @@ import PAMs from './pages/pams/PAMs';
 import PAM from './pages/pam/PAM';
 import Registro from './pages/profile/Registro';
 import Footer from './components/Footer'
-import Protected from './components/Protected';
-import PruebaGijon from './pages/pruebas/PruebaGijon';
-import PruebaGijon2 from './pages/pruebas/PruebaGijon2';
 import Prueba from './pages/pruebas/Prueba';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useSelector } from 'react-redux';
@@ -31,27 +28,9 @@ function App() {
           <NavigationBar />
           <Routes>
             <Route path="/" element={<Inicio />} />
-            <Route
-              path="/pams"
-              element={
-                <Protected
-                  isLoggedIn={isLogged}>
-                  <PAMs />
-                </Protected>
-              }
-            />
+            <Route path="/pams" element={<PAMs />} />
             <Route path="/pam" element={<PAM />} />
-            <Route
-              path="/profile"
-              element={
-                <Protected
-                  isLoggedIn={isLogged}>
-                  <Registro />
-                </Protected>
-              }
-            />
-          <Route path="/PruebaGijon" element={<PruebaGijon/>} />
-          <Route path="/PruebaGijon2" element={<PruebaGijon2/>} />
+            <Route path="/profile" element={ <Registro />} />
           <Route path="/pruebas/:id" element={<Prueba/>} />
           </Routes>
         </BrowserRouter>
