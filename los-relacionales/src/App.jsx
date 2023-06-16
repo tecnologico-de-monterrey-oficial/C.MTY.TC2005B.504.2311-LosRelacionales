@@ -9,6 +9,7 @@ import Footer from './components/Footer'
 import Protected from './components/Protected';
 import PruebaGijon from './pages/pruebas/PruebaGijon';
 import PruebaGijon2 from './pages/pruebas/PruebaGijon2';
+import Prueba from './pages/pruebas/Prueba';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
@@ -51,6 +52,7 @@ function App() {
             />
           <Route path="/PruebaGijon" element={<PruebaGijon/>} />
           <Route path="/PruebaGijon2" element={<PruebaGijon2/>} />
+          <Route path="/pruebas/:id" element={<Prueba/>} />
           </Routes>
         </BrowserRouter>
       </div>
