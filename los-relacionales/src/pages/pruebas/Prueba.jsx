@@ -5,7 +5,9 @@ import { Link } from 'react-router-dom';
 import { useSelector } from "react-redux";
 import { useFetchDimensionsQuery } from '../../store';
 import { useFetchTestByDimensionIdQuery } from '../../store';
-import { useFetchQuestionsByTestIdQuery } from '../../store';
+import { 
+    useFetchQuestionByTestIdQuery, useFetchAnswerByQuestionIdQuery 
+} from '../../store';
 import RespuestaPrueba from '../../components/RespuestaPrueba';
 import { useFetchTestWeightByIdQuery } from '../../store';
 import cerebro from '../../assets/cerebro.png';
@@ -16,8 +18,8 @@ function Prueba(test_id){
     const {data: dimensionsData, isFetching: isFetchingDimensions, isError: isErrorDimensions} = useFetchDimensionsQuery();
     const [questionsArray, setQuestionsArray] = React.useState(null);
     const [answerArray, setAnswerArray] = React.useState(null);
-  const { data: questionsData, isFetching: isFetchingQuestions, isError: isErrorQuestions } = useFetchQuestionsByTestIdQuery(test_id);
-  const { data: answersData, isFetching: isFetchingAnswers, isError: isErrorAnswers } = useFetchAnswersByQuestionIdQuery(question_id);
+  const { data: questionsData, isFetching: isFetchingQuestions, isError: isErrorQuestions } = useFetchQuestionByTestIdQuery(test_id);
+  const { data: answersData, isFetching: isFetchingAnswers, isError: isErrorAnswers } = useFetchAnswerByQuestionIdQuery(question_id);
     const {data: weightData, isFetching: isFetchingWeight, isError: isErrorWeight} = useFetchTestWeightByIdQuery(id);
     useEffect(() => {
         if (dimensionsData) {
