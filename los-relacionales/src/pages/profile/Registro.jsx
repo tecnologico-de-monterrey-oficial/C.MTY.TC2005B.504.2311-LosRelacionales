@@ -4,7 +4,7 @@ import Form from 'react-bootstrap/Form';
 import Profile from './Profile';
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from "react-redux";
-import { useFetchPersonByEmailQuery, useFetchPamByPersonIdQuery, useFetchPamGroupByParentIdQuery, useFetchDimensionsQuery } from '../../store';
+import { useFetchPersonByEmailQuery, useFetchPamByPersonIdQuery, useFetchPamGroupByParentIdQuery, useFetchDimensionsQuery, changePerson } from '../../store';
 import {
   changeFirstName,
   changeLastName,
@@ -88,7 +88,35 @@ function Registro() {
 
   useEffect(() => {
     if (dataPam) {
-      if (dataPam.pam.length > 0) setStage(2);
+      if (dataPam.pam.length > 0) {
+        storeState(
+          {
+            first_name: person[0].first_name,
+            last_name: person[0].last_name,
+            gender_id: person[0].gender_id,
+            role_id: person[0].role_id,
+            phone: person[0].phone,
+            email: person[0].email,
+            country: person[0].country,
+            state: person[0].state,
+            city: person[0].city,
+            address_1: person[0].address_1,
+            address_2: person[0].address_2,
+            zip_code: person[0].zip_code,
+            birth_date: dataPam.pam[0].birth_date,
+            deceased_date: dataPam.pam[0].deceased_date,
+            guardian_id: dataPam.pam[0].guardian_id,
+            doctor_id: dataPam.pam[0].doctor_id,
+            belongs_to_archdiocese: dataPam.pam[0].belongs_to_archdiocese,
+            pam_group_id: dataPam.pam[0].pam_group_id,
+            diocese_id: dataPam.pam[0].diocese_id,
+            zone_id: dataPam.pam[0].zone_id,
+            deanery_id: dataPam.pam[0].deanery_id,
+            parish_id: dataPam.pam[0].parish_id,
+          }
+        );
+        setStage(2);
+      }
     }
   }, [dataPam]);
 
@@ -120,7 +148,34 @@ function Registro() {
       pam_group_id: parish_id,
     });
     setStage(2);
-    dispatch(resetPerson());
+    storeState({
+      first_name: person[0].first_name,
+      last_name: person[0].last_name,
+      gender_id: person[0].gender_id,
+      role_id: person[0].role_id,
+      phone: person[0].phone,
+      email: person[0].email,
+      country: person[0].country,
+      state: person[0].state,
+      city: person[0].city,
+      address_1: person[0].address_1,
+      address_2: person[0].address_2,
+      zip_code: person[0].zip_code,
+      birth_date: dataPam.pam[0].birth_date,
+      deceased_date: dataPam.pam[0].deceased_date,
+      guardian_id: dataPam.pam[0].guardian_id,
+      doctor_id: dataPam.pam[0].doctor_id,
+      belongs_to_archdiocese: dataPam.pam[0].belongs_to_archdiocese,
+      pam_group_id: dataPam.pam[0].pam_group_id,
+      diocese_id: dataPam.pam[0].diocese_id,
+      zone_id: dataPam.pam[0].zone_id,
+      deanery_id: dataPam.pam[0].deanery_id,
+      parish_id: dataPam.pam[0].parish_id,
+    });
+  };
+
+  const storeState = (person) => {
+    dispatch(changePerson(person));
   };
 
   const [dimensionsArray, setDimensionsArray] = useState(null);
