@@ -46,7 +46,6 @@ function Profile() {
 
   const {data: personData, isFetching: isFetchingPerson, isError: isErrorPerson} = useFetchPersonByEmailQuery(user.email);
   const {data: pamData, isFetching: isFetchingPam, isError: isErrorPam} = useFetchPamByPersonIdQuery(personData.person[0].person_id);
-  
 
   return (
 
