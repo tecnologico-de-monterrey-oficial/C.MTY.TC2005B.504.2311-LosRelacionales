@@ -5,7 +5,7 @@ import { useFetchTestWeightByIdQuery } from "../store";
 import { useEditAnswerMutation } from "../store";   
 
 
-function RespuestaPrueba() {
+function RespuestaPrueba(id) {
 const [editAnswerMutation] = useEditAnswerMutation(); 
 
 const editAnswer = async () => {

@@ -1,7 +1,7 @@
 import { useFetchTestInstructionByIdQuery } from "../store";
 import React, { useEffect } from "react";
 
-function InstruccionesPrueba() {
+function InstruccionesPrueba(id) {
     const [currentTestInstruction, setCurrentTestInstruction] = React.useState(null);
     const { data: testInstructionData, isFetching, isError } = useFetchTestInstructionByIdQuery(id);
 
