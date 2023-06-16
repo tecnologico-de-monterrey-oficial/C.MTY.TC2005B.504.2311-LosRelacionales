@@ -7,6 +7,8 @@ import PAM from './pages/pam/PAM';
 import Registro from './pages/profile/Registro';
 import Footer from './components/Footer'
 import Prueba from './pages/pruebas/Prueba';
+import PruebaGijon from './pages/pruebas/PruebaGijon';
+import PruebaGijon2 from './pages/pruebas/PruebaGijon2';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';

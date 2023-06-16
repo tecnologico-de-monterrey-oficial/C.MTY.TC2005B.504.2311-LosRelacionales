@@ -1,10 +1,13 @@
 import './Searcher.css';
 import Table from 'react-bootstrap/Table';
-import { useFetchPersonsByRoleIdQuery } from '../../store';
+import { useFetchPamPersonByRoleIdQuery } from '../../store';
+import { useEffect } from 'react';
+
 
 export default function Searcher() {
-    const { data, error, isFetching } = useFetchPersonsByRoleIdQuery(1);
+    const { data, error, isFetching } = useFetchPamPersonByRoleIdQuery({ role: 1,name: ' ' });
 
+    console.log(data);
 
     return (
         <div>
@@ -17,24 +20,26 @@ export default function Searcher() {
                             <th>Apellidos</th>
                             <th>Fecha de Nacimiento</th>
                             <th>Sexo</th>
-                            <th className='last'>Decanato</th>
+                            <th className='last'>Parroquia</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    {/* { <tbody>
                         {isFetching && (
                             <tr>
                                 <td colSpan="5">Loading...</td>
                             </tr>
                         )}
-                        {!isFetching && data.person.map((person) => (
-                            <tr key={person.person_id}>
-                                <td>{person.first_name}</td>
-                                <td>{person.last_name}</td>
-                                <td>{person.birth_date}</td>
+                        {!isFetching && data.pam.map((pam) => (
+                            <tr key={pam.person_id}>
+                                <td>{pam.first_name}</td>
+                                <td>{pam.last_name}</td>
+                                <td>{pam.birth_date.substring(0, 10)}</td>
+                                {pam.gender_id === 1 ? <td>Femenino</td> : <td>Masculino</td>}
+                                <td>{pam.group_name}</td>
                             </tr>
                         ))
                         }
-                    </tbody>
+                    </tbody> } */}
                 </Table>
             </div>
         </div>

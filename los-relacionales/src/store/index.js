@@ -137,7 +137,7 @@ export {
 
 export {
     useFetchPamsQuery, useFetchPamsByIdQuery, useFetchPamsByGroupQuery, useFetchPamsByDoctorQuery,
-    useFetchPamByPersonIdQuery, useAddPamMutation, useEditPamMutation, useDeletePamMutation
+    useFetchPamByPersonIdQuery, useAddPamMutation, useEditPamMutation, useDeletePamMutation, useFetchPamPersonByRoleIdQuery
 } from "./apis/pamsApi";
 
 export {
