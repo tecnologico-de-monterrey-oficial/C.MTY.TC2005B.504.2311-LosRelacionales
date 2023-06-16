@@ -7,6 +7,7 @@ const pamTestAnswerApi = createApi({
     }),
     endpoints(builder) {
         return {
+
             fetchPamTestAnswerById: builder.query({
                 providesTags: ["pamTestAnswer"],
                 query: (id) => {
@@ -17,16 +18,18 @@ const pamTestAnswerApi = createApi({
                     }
                 }
             }),
-            fetchPamTestAnswerByTestId: builder.query({
+
+            fetchDescriptionFromPamTestAnswer: builder.query({
                 providesTags: ["pamTestAnswer"],
                 query: (id) => {
                     return {
-                        url: `get-pam-test-answer-by-test/${id}`,
+                        url: `get-description-from-pam-test/${id}`,
                         params: {},
                         method: 'GET',
                     }
                 }
             }),
+
             addPamTestAnswer: builder.mutation({
                 invalidatesTags: ["pamTestAnswer"],
                 query: (pamTestAnswer) => {

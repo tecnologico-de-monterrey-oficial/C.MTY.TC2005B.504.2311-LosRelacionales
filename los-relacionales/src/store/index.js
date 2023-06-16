@@ -192,7 +192,8 @@ export {
     useAddPamTestAnswerMutation, useEditPamTestAnswerMutation, useDeletePamTestAnswerMutation
 } from "./apis/pamTestAnswerApi";
 
-export {useFetchPamTestByIdQuery, useFetchPamTestByPamIdQuery,
+export {useFetchPamTestByIdQuery, useFetchPamTestByPamIdQuery, 
+    useFetchColorFromPamTestQuery, useFetchDescriptionFromPamTestQuery,
     useAddPamTestMutation, useEditPamTestMutation, useDeletePamTestMutation
 } from "./apis/pamTestApi";
 

@@ -27,6 +27,28 @@ const pamTestApi = createApi({
                         }
                     }
                 }),
+                fetchColorFromPamTest: builder.query({
+                    providesTags: ["pamTest"],
+                    query: (id) => {
+                        return {
+                            url: `get-color-from-pam-test/${id}`,
+                            params: {},
+                            method: 'GET',
+                        }
+                    }
+                }),
+
+                fetchDescriptionFromPamTest: builder.query({
+                    providesTags: ["pamTest"],
+                    query: (id) => {
+                        return {
+                            url: `get-description-from-pam-test/${id}`,
+                            params: {},
+                            method: 'GET',
+                        }
+                    }
+                }),
+
                 addPamTest: builder.mutation({
                     invalidatesTags: ["pamTest"],
                     query: (pamTest) => {
@@ -42,6 +64,7 @@ const pamTestApi = createApi({
                         };
                     }
                 }),
+
                 editPamTest: builder.mutation({
                     invalidatesTags: ["pamTest"],
                     query: (pamTest) => {
@@ -57,6 +80,7 @@ const pamTestApi = createApi({
                         };
                     }
                 }),
+                
                 deletePamTest: builder.mutation({
                     invalidatesTags: ["pamTest"],
                     query: (id) => {
@@ -70,7 +94,7 @@ const pamTestApi = createApi({
         },
     });
 
-export const {useFetchPamTestByIdQuery, useFetchPamTestByPamIdQuery,
+export const {useFetchPamTestByIdQuery, useFetchPamTestByPamIdQuery, useFetchColorFromPamTestQuery, useFetchDescriptionFromPamTestQuery,
     useAddPamTestMutation, useEditPamTestMutation, useDeletePamTestMutation} = pamTestApi;
 
     export {pamTestApi};
