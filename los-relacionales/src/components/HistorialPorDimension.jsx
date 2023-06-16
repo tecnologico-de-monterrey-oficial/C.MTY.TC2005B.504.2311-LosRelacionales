@@ -40,11 +40,6 @@ function HistorialPorDimension( { idPam, idDimension }) {
         }
     }, [storyData]);
 
-    const getColor = (pam_test) => {
-        return useFetchColorFromPamTestQuery(pam_test.pam_test_id).data;
-    }
-    
-
     return (
         <div className="historial">
 
@@ -68,7 +63,7 @@ function HistorialPorDimension( { idPam, idDimension }) {
                             <tr>
                                 <td>{pam_test.test_id}</td>
                                 <td>{pam_test.test_date}</td>
-                                <td>{getColor(pam_test)}</td>
+                                <td>{pam_test.test_result}</td>
                             </tr>
                         ))}
                     </tbody>
