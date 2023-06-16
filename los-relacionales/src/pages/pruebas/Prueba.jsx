@@ -7,6 +7,9 @@ import { useFetchDimensionsQuery } from '../../store';
 import { useFetchTestByDimensionIdQuery } from '../../store';
 import { useFetchQuestionsByTestIdQuery } from '../../store';
 import RespuestaPrueba from '../../components/RespuestaPrueba';
+import { useFetchTestWeightByIdQuery } from '../../store';
+import cerebro from '../../assets/cerebro.png';
+import TextoPrueba from '../../components/TextoPrueba';
 
 function Prueba(test_id){
     const [currentDimension, setCurrentDimension] = React.useState(null);
@@ -15,7 +18,7 @@ function Prueba(test_id){
     const [answerArray, setAnswerArray] = React.useState(null);
   const { data: questionsData, isFetching: isFetchingQuestions, isError: isErrorQuestions } = useFetchQuestionsByTestIdQuery(test_id);
   const { data: answersData, isFetching: isFetchingAnswers, isError: isErrorAnswers } = useFetchAnswersByQuestionIdQuery(question_id);
-
+    const {data: weightData, isFetching: isFetchingWeight, isError: isErrorWeight} = useFetchTestWeightByIdQuery(id);
     useEffect(() => {
         if (dimensionsData) {
           setCurrentDimension(dimensionsData.dimension[0]);
@@ -34,6 +37,12 @@ function Prueba(test_id){
         }
       }, [answersData]);
 
+      useEffect(() => {
+        if (weightData) {
+            setWeight(weightData.weight[0]);
+        }
+    }, [weightData]);
+
     return(
     <div>
         <div className="dimensionPrueba">
@@ -42,6 +51,9 @@ function Prueba(test_id){
             console.Log(currentDimension.dimension_id),
             <h1>{currentDimension.dimension}</h1>
             )}
+        </div>
+        <div>
+            <TextoPrueba/>
         </div>
         <div className="testsList">
         {questionsArray && (
@@ -64,6 +76,19 @@ function Prueba(test_id){
           </Form>
         )}
       </div>
+      <div className="Weight">
+        {weight && weight.weight && (
+            <p>Peso</p>)}
+        </div>
+        <div className="imagenn">
+        <img
+            alt=""
+            src={cerebro}
+            height="200"
+            className="imagen_prueba"
+          />
+          <RespuestaPrueba/>
+          </div>
     </div>
     );
 }
