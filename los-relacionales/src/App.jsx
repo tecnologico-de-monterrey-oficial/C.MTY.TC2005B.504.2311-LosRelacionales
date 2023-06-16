@@ -7,6 +7,7 @@ import PAM from './pages/pam/PAM';
 import Registro from './pages/profile/Registro';
 import Footer from './components/Footer'
 import Prueba from './pages/pruebas/Prueba';
+import Prueba2 from './pages/pruebas/Prueba2';
 import PruebaGijon from './pages/pruebas/PruebaGijon';
 import PruebaGijon2 from './pages/pruebas/PruebaGijon2';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';

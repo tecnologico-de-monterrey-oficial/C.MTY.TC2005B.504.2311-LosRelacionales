@@ -53,6 +53,17 @@ import {
     setRole,
 } from "./slices/authSlice";
 
+import {
+    testReducer,
+    changeTestId,
+    changeDimensionId,
+    changeTestName,
+    changeSelfTest,
+    changeTest,
+    resetTest,
+} from "./slices/testSlice";
+
+
 const store = configureStore({
     reducer: {
         auth: authReducer,
@@ -75,6 +86,7 @@ const store = configureStore({
         [testApi.reducerPath]: testApi.reducer,
         [testInstructionsApi.reducerPath]: testInstructionsApi.reducer,
         [testWeightsApi.reducerPath]: testWeightsApi.reducer,
+        test: testReducer,
     },
     middleware: (getDefaultMiddleware) => {
         return getDefaultMiddleware({
@@ -133,6 +145,12 @@ export {
     changeParishId,
     changePerson,
     resetPerson,
+    changeTestId,
+    changeDimensionId,
+    changeTestName,
+    changeSelfTest,
+    changeTest,
+    resetTest,
 };
 
 export {

@@ -131,7 +131,7 @@ function PruebaGijon() {
         <p>Puntaje: {resultado}</p>
       </div>
       <br />
-      <Link to="/MiPerfil">Regresar</Link>
+      <Link to="/Profile">Regresar</Link>
     </div>
   );
 }
