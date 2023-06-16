@@ -2,14 +2,31 @@ import React, { useEffect } from "react";
 import { useFetchAnswerByQuestionIdQuery } from "../store";
 import { useFetchQuestionByTestIdQuery } from "../store";
 import { useFetchTestWeightByIdQuery } from "../store";
+import { useEditAnswerMutation } from "../store";   
+
 
 function RespuestaPrueba() {
+const [editAnswerMutation] = useEditAnswerMutation(); 
+
+const editAnswer = async () => {
+    try {
+      const editedAnswer = await editAnswerMutation({
+        id: answer.id, 
+      });
+      console.log("Respuesta editada:", editedAnswer);
+    } catch (error) {
+      console.error("Error al editar la respuesta:", error);
+      
+    }
+  };
+
 const {data: answerData, isFetching, isError } = useFetchAnswerByQuestionIdQuery(id)
 const [answer, setAnswer] = React.useState(null);
-const [questionsArray, setQuestionsArray] = React.useState(null);
+//const [questionsArray, setQuestionsArray] = React.useState(null);
 
 const {data: questionData, isFetching: isFetchingQuestion, isError: isErrorQuestion} = useFetchQuestionByTestIdQuery(id);
 const [question, setQuestion] = React.useState(null);
+//const [answerArray, setAnswerArray] = React.useState(null);
 
 const {data: weightData, isFetching: isFetchingWeight, isError: isErrorWeight} = useFetchTestWeightByIdQuery(id);
 const [weight, setWeight] = React.useState(null);
@@ -25,6 +42,10 @@ useEffect(() => {
         setWeight(weightData.weight[0]);
     }
 }, [weightData]);
+
+useEffect(() => {
+    setQuestionsArray(questionData.questions);
+}, [questionData]);
 
 useEffect(() => {
     if (answerData) {
@@ -46,6 +67,9 @@ useEffect(() => {
             <p>Peso</p>)}
 
     </div>
+    <div className="BotonEnviar">
+  <button onClick={editAnswer}>Enviar</button>
+</div>
     </div>
   );
 }
