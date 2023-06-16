@@ -130,6 +130,6 @@ const personsApi = createApi({
 export const {
     useFetchPersonsQuery, useFetchPersonByIdQuery, useFetchPersonsByRoleIdQuery, useFetchPersonByEmailQuery,
     useAddPersonMutation, useEditPersonMutation, useDeletePersonMutation, useFetchPersonByNameQuery,
-    useFetchPersonByGenderId
+    useFetchPersonByGenderIdQuery
 } = personsApi;
 export { personsApi };
