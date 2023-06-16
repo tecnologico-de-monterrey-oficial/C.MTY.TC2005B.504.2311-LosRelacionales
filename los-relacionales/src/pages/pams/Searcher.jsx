@@ -1,18 +1,42 @@
 import './Searcher.css';
 import Table from 'react-bootstrap/Table';
 import { useFetchPamPersonByRoleIdQuery } from '../../store';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { Form } from 'react-bootstrap';
 
 
 export default function Searcher() {
-    const { data, error, isFetching } = useFetchPamPersonByRoleIdQuery({ role: 1,name: ' ' });
+    const [name, setName] = useState('');
+    const [search, setSearch] = useState('%20');
+    const { data, error, isFetching } = useFetchPamPersonByRoleIdQuery(search);
 
     console.log(data);
+
+const handleSearch = (e) => {
+    if (e !== '') {
+        setName(e);
+        setSearch(e);
+    }else{
+        setSearch('%20');
+        setName('');
+    }
+};
 
     return (
         <div>
             <div className='searcher'>
                 <h4>Búsqueda de Persona Adulta Mayor</h4>
+                <Form>
+            <Form.Group className="mb-3" controlId="formName">
+              <Form.Label>Buscar por nombre</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder ="Escribe aquí"
+                value={name}
+                onChange={(e) => handleSearch(e.target.value)}
+              />
+            </Form.Group>
+            </Form>
                 <Table striped hover>
                     <thead>
                         <tr className='header-row'>
@@ -23,7 +47,7 @@ export default function Searcher() {
                             <th className='last'>Parroquia</th>
                         </tr>
                     </thead>
-                    {/* { <tbody>
+                    { <tbody>
                         {isFetching && (
                             <tr>
                                 <td colSpan="5">Loading...</td>
@@ -39,7 +63,7 @@ export default function Searcher() {
                             </tr>
                         ))
                         }
-                    </tbody> } */}
+                    </tbody> } 
                 </Table>
             </div>
         </div>

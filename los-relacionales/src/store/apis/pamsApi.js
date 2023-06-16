@@ -55,9 +55,9 @@ const pamsApi = createApi({
 
             fetchPamPersonByRoleId: builder.query({
                 providesTags: ["Pams"],
-                query: (arg) => {
+                query: (name) => {
                     return {
-                        url: `/get-pam-person-by-role/${arg.role}/${arg.name}`,
+                        url: `/get-pam-person-by-role/${name}`,
                         method: 'GET',
                     };
                 },
