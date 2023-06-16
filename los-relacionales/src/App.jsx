@@ -6,7 +6,6 @@ import PAMs from './pages/pams/PAMs';
 import PAM from './pages/pam/PAM';
 import Registro from './pages/profile/Registro';
 import Footer from './components/Footer'
-import Protected from './components/Protected';
 import PruebaGijon from './pages/pruebas/PruebaGijon';
 import PruebaGijon2 from './pages/pruebas/PruebaGijon2';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
