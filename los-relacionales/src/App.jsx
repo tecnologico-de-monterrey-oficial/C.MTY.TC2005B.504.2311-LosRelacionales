@@ -8,6 +8,7 @@ import Registro from './pages/profile/Registro';
 import Footer from './components/Footer'
 import PruebaGijon from './pages/pruebas/PruebaGijon';
 import PruebaGijon2 from './pages/pruebas/PruebaGijon2';
+import Prueba from './pages/pruebas/Prueba';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
@@ -32,8 +33,16 @@ function App() {
             <Route path="/pams" element={<PAMs />} />
             <Route path="/pam" element={<PAM />} />
             <Route path="/profile" element={ <Registro />} />
-            <Route path="/PruebaGijon" element={<PruebaGijon />} />
-            <Route path="/PruebaGijon2" element={<PruebaGijon2 />} />
+            <Route
+              path="/profile"
+              element={
+                <Protected
+                  isLoggedIn={isLogged}>
+                  <Registro />
+                </Protected>
+              }
+            />
+          <Route path="/pruebas/:id" element={<Prueba/>} />
           </Routes>
         </BrowserRouter>
       </div>
