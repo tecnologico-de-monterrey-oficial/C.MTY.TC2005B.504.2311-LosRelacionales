@@ -52,6 +52,16 @@ const pamsApi = createApi({
                     };
                 },
             }),
+
+            fetchPamPersonByRoleId: builder.query({
+                providesTags: ["Pams"],
+                query: (arg) => {
+                    return {
+                        url: `/get-pam-person-by-role/${arg.role}/${arg.name}`,
+                        method: 'GET',
+                    };
+                },
+            }),
             addPam: builder.mutation({
                 invalidatesTags: ["Pams"],
                 query: (pam) => {
@@ -102,6 +112,6 @@ const pamsApi = createApi({
 });
 
 export const {
-    useFetchPamsQuery, useFetchPamsByIdQuery, useFetchPamsByGroupQuery, useFetchPamsByDoctorQuery, useFetchPamByPersonIdQuery, useAddPamMutation, useEditPamMutation, useDeletePamMutation
+    useFetchPamsQuery, useFetchPamsByIdQuery, useFetchPamsByGroupQuery, useFetchPamsByDoctorQuery, useFetchPamByPersonIdQuery, useAddPamMutation, useEditPamMutation, useDeletePamMutation, useFetchPamPersonByRoleIdQuery
 } = pamsApi;
 export { pamsApi };
