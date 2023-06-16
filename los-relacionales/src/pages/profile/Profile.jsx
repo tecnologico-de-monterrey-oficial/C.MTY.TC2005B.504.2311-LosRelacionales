@@ -1,6 +1,9 @@
 import "./Profile.css";
 import Button from "react-bootstrap/Button";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
+import Container from "react-bootstrap/esm/Container";
+import Row from "react-bootstrap/esm/Row";
+import Col from "react-bootstrap/esm/Col";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -88,56 +91,54 @@ function Profile() {
   }, [personData]);
 
   return (
-    <div className="container">
+    <div className="profile">
       {!isFetchingPam && (
         <>
-          <h1>Mi Perfil</h1>
-          <div>
-            {user && (
-              <div>
-                <p>Username: {user.displayName}</p>
-                <p>Email: {user.email}</p>
-              </div>
-            )}
-          </div>
+          <Container>
+            <Row>
+              <Col xs={12} md={6}>
+                <h1>Mi Perfil</h1>
+                <div>
+                  {user && (
+                    <div>
+                      <p>Nombre de usuario: {user.displayName}</p>
+                      <p>Correo electrónico: {user.email}</p>
+                    </div>
+                  )}
+                </div>
+              </Col>
+              <Col xs={12} md={6}>
+                <div className="dimensiones">
+                  <h2>Mis Dimensiones</h2>
+                  {dimensionsArray &&
+                    !isFetchingDimensions &&
+                    !isErrorDimensions &&
+                    dimensionsArray.map((dimension) => (
+                      <BotonDimension
+                        key={dimension.dimension_id}
+                        id={dimension.dimension_id}
+                        func={() => handleDimensionClick(dimension)}
+                      />
+                    ))}
+                </div>
+              </Col>
+            </Row>
+          </Container>
 
-          <div className="perfil">
-            <div className="perfil_contenido">
-              <img
-                alt=""
-                src={fotoperfil}
-                height="200"
-                className="imagen_perfil"
-              />
-              <p className="imagen_perfil_text">Juanito Perez</p>
-            </div>
-            <div className="dimensiones">
-              <h2>Mis Dimensiones:</h2>
-              {dimensionsArray &&
-                !isFetchingDimensions &&
-                !isErrorDimensions &&
-                dimensionsArray.map((dimension) => (
-                  <BotonDimension
-                    key={dimension.dimension_id}
-                    id={dimension.dimension_id}
-                    func={() => handleDimensionClick(dimension)}
-                  />
-                ))}
-            </div>
-          </div>
-          <div className="tipo_dimension">
+          <div className="component">
             {currentDimension && currentDimension.dimension && (
               <h1>{currentDimension.dimension}</h1>
             )}
             {/* <p>El riesgo social se refiere a las situaciones
-          que pueden afectar negativamente nuestra seguridad
-          y bienestar en la sociedad.</p> */}
+            que pueden afectar negativamente nuestra seguridad
+            y bienestar en la sociedad.</p> */}
 
             {currentDimension && (
               <ButtonGroup aria-label="Basic example">
                 <Button
                   onClick={() => handleChangeState("pruebas")}
                   variant="secondary"
+                  className="first"
                 >
                   Pruebas
                 </Button>
@@ -150,33 +151,32 @@ function Profile() {
                 <Button
                   onClick={() => handleChangeState("apoyo")}
                   variant="secondary"
+                  className="last"
                 >
                   Apoyo
                 </Button>
               </ButtonGroup>
             )}
+            <br />
+
+            {currentState == "pruebas" &&
+              currentDimension &&
+              currentDimension.dimension_id && (
+                  <PruebaPorDimension id={currentDimension.dimension_id} />
+              )}
+
+            {currentState == "historial" &&
+              currentDimension &&
+              currentDimension.dimension_id && (
+                  <HistorialPorDimension idPam={pamData.pam[0].pam_id} idDimension={currentDimension.dimension_id} />
+              )}
+
+            {currentState == "apoyo" &&
+              currentDimension &&
+              currentDimension.dimension_id && (
+                  <ApoyoPorDimension id={currentDimension.dimension_id} />
+              )}
           </div>
-          <br />
-
-          <h2>Titulo temporal</h2>
-
-          {currentState == "pruebas" &&
-            currentDimension &&
-            currentDimension.dimension_id && (
-              <PruebaPorDimension id={currentDimension.dimension_id} />
-            )}
-
-          {currentState == "historial" &&
-            currentDimension &&
-            currentDimension.dimension_id && (
-              <HistorialPorDimension idPam={pamData.pam[0].pam_id} idDimension={currentDimension.dimension_id} />
-            )}
-
-          {currentState == "apoyo" &&
-            currentDimension &&
-            currentDimension.dimension_id && (
-              <ApoyoPorDimension id={currentDimension.dimension_id} />
-            )}
         </>
       )}
     </div>

@@ -4,9 +4,9 @@ import Button from 'react-bootstrap/Button';
 import { useFetchDimensionByIdQuery } from '../store';
 
 
-function BotonDimension( { id, func }) {
-    const {data: dimensionData, isFetching, isError } = useFetchDimensionByIdQuery(id);
-    
+function BotonDimension({ id, func }) {
+    const { data: dimensionData, isFetching, isError } = useFetchDimensionByIdQuery(id);
+
     const [dimension, setDimension] = React.useState(null);
 
     useEffect(() => {
@@ -19,11 +19,11 @@ function BotonDimension( { id, func }) {
     return (
         <div className="botonDimension">
             {!isFetching && dimension && (
-                <Button variant="secondary" onClick={() => func(dimension.dimension)}>
-                {dimension.dimension}
+                <Button onClick={() => func(dimension.dimension)}>
+                    {dimension.dimension}
                 </Button>
             )}
-        </div>    
+        </div>
     );
 }
 export default BotonDimension;

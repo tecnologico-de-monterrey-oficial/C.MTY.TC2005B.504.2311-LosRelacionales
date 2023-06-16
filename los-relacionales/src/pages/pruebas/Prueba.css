@@ -1,0 +1,23 @@
+.test {
+    margin: 3%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.questions {
+    background-color: #efe3cb92;
+    margin: 2%;
+    padding: 2%;
+    border-radius: 4px;
+}
+
+.btn {
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #efe3cb;
+}
+
+.question {
+    margin-bottom: 2rem;
+}
+

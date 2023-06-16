@@ -1,11 +1,6 @@
-.botonDimension {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .botonDimension .btn {
-    font-size: 16px;
-    height: 45px;
-    width: 345px; /* Cambia el valor según el ancho deseado */
-  }
+.botonDimension .btn {
+  width: 25rem;
+  height: 100%;
+  padding: 1rem;
+  border-radius: 4px;
+}
