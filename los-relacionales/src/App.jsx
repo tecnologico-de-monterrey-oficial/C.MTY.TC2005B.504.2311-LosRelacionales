@@ -30,27 +30,11 @@ function App() {
           <NavigationBar />
           <Routes>
             <Route path="/" element={<Inicio />} />
-            <Route
-              path="/pams"
-              element={
-                <Protected
-                  isLoggedIn={isLogged}>
-                  <PAMs />
-                </Protected>
-              }
-            />
+            <Route path="/pams" element={<PAMs />} />
             <Route path="/pam" element={<PAM />} />
-            <Route
-              path="/profile"
-              element={
-                <Protected
-                  isLoggedIn={isLogged}>
-                  <Registro />
-                </Protected>
-              }
-            />
-          <Route path="/PruebaGijon" element={<PruebaGijon/>} />
-          <Route path="/PruebaGijon2" element={<PruebaGijon2/>} />
+            <Route path="/profile" element={ <Registro />} />
+            <Route path="/PruebaGijon" element={<PruebaGijon />} />
+            <Route path="/PruebaGijon2" element={<PruebaGijon2 />} />
           </Routes>
         </BrowserRouter>
       </div>

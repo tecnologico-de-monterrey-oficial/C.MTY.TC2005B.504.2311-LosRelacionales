@@ -250,16 +250,16 @@ function Registro() {
                 onChange={(e) => dispatch(changeBirthDate(e.target.value))}
               />
             </Form.Group>
-            <Form.Group className="mb-3" controlId="formBelongsToArchdiocese"
-              value={belongs_to_archdiocese}
-              onChange={(e) => {
-                dispatch(changeBelongsToArchdiocese(e.target.value))
-                setShowDiocese(e.target.value)
-              }}
-            >
+            <Form.Group className="mb-3" controlId="formBelongsToArchdiocese" value={belongs_to_archdiocese}>
               <Form.Label>¿Asistes a alguna iglesia católica?</Form.Label>
-              <Form.Check type='radio' name='dioc' label='Sí' value={true} />
-              <Form.Check type='radio' name='dioc' label='No' value={false} />
+              <Form.Check type='radio' name='dioc' label='Sí' value={true} onClick={() => {
+                dispatch(changeBelongsToArchdiocese(true));
+                setShowDiocese(true)
+              }} />
+              <Form.Check type='radio' name='dioc' label='No' value={false} onClick={() => {
+                dispatch(changeBelongsToArchdiocese(false));
+                setShowDiocese(false);
+              }} />
             </Form.Group>
 
             {showDiocese && (
