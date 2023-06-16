@@ -143,7 +143,7 @@ export {
 export {
     useFetchPersonsQuery, useFetchPersonByIdQuery, useFetchPersonsByRoleIdQuery, useFetchPersonByEmailQuery,
     useAddPersonMutation, useEditPersonMutation, useDeletePersonMutation, useFetchPersonByNameQuery,
-    useFetchPersonByGenderId
+    useFetchPersonByGenderIdQuery
 } from "./apis/personsApi";
 
 export {

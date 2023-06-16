@@ -58,8 +58,8 @@ function Profile() {
       <div>
         {user &&
           <div>
-            <p>Username: {user.displayName}</p>
-            <p>Email: {user.email}</p>
+            <p>Nombre: {user.displayName}</p>
+            <p>Correo electrónico: {user.email}</p>
           </div>
         }
       </div>

@@ -47,7 +47,7 @@ function NavigationBar() {
                   <Nav.Link as={Link} to="/pam">PAM</Nav.Link>
                 </>
               }
-              {isLogged &&
+              {isLogged && personRole == 1 &&
                 <Nav.Link as={Link} to="/profile">Mi perfil</Nav.Link>
               }
             </Nav>
