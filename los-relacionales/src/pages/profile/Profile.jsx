@@ -4,7 +4,7 @@ import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import React, { useEffect , useState} from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from "react-redux";
-import { useFetchDimensionsQuery } from '../../store';
+
 
 import BotonDimension from '../../components/BotonDimension';
 import PruebaPorDimension from '../../components/PruebaPorDimension';
@@ -14,6 +14,13 @@ import ApoyoPorDimension from '../../components/ApoyoPorDimension';
 
 import fotoperfil from '../../assets/fotoperfil.jpg';
 import cerebro from '../../assets/cerebro.png';
+
+
+import { 
+  useFetchDimensionsQuery,
+  useFetchPersonByEmailQuery,
+  useFetchPamByPersonIdQuery,
+} from '../../store';
 
 function Profile() {
   const user = useSelector((state) => state.auth.user);
@@ -37,9 +44,14 @@ function Profile() {
     }
   }, [dimensionsData]);
 
+  const {data: personData, isFetching: isFetchingPerson, isError: isErrorPerson} = useFetchPersonByEmailQuery(user.email);
+  const {data: pamData, isFetching: isFetchingPam, isError: isErrorPam} = useFetchPamByPersonIdQuery(personData.person[0].person_id);
+  
+
   return (
 
     <div className="container">
+      
       <h1>Mi Perfil</h1>
       <div>
         {user &&

@@ -14,6 +14,7 @@ function HistorialPorDimension( { id }) {
     useEffect(() => {
         if (storyData) {
             setPamTestArray(storyData.pam_tests);
+            console.log(storyData.pam_tests);
         }
     }, [storyData]);
 
@@ -22,7 +23,7 @@ function HistorialPorDimension( { id }) {
 
             <h2>Historial</h2>
 
-            {/* {!isFetching && pamTestArray && (
+            {!isFetching && pamTestArray && (
 
                 <Table striped bordered hover>
                     <thead>   
@@ -33,7 +34,6 @@ function HistorialPorDimension( { id }) {
                         </tr>
                     </thead>
                     <tbody>
-
                         {pamTestArray.map((pam_test) => (
                             <tr>
                             <td>{pam_test.test_id}</td>
@@ -44,7 +44,7 @@ function HistorialPorDimension( { id }) {
                     </tbody>
                 </Table>
 
-            )} */}
+            )}
 
         </div>    
     );
