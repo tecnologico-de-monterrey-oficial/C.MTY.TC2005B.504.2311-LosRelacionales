@@ -9,7 +9,7 @@ import {
 } from '../../store';
 import Axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
-
+import './Prueba.css'
 
 function Pruebas2() {
   const [addPamTest] = useAddPamTestMutation();
