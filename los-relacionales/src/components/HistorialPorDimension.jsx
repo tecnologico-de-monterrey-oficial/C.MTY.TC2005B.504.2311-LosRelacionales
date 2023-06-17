@@ -16,6 +16,7 @@ function HistorialPorDimension( { idPam, idDimension }) {
     const [pamTestArray, setPamTestArray] = React.useState(null);
     const [testsByDimensionArray, setTestsByDimensionArray] = React.useState(null);
     const [mappedColor, setMappedColor] = React.useState(new Map());
+    const [mapSize, setMapSize] = React.useState(0);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -43,22 +44,24 @@ function HistorialPorDimension( { idPam, idDimension }) {
         if (pamTestArray && testsByDimensionArray) {
 
             mapColors();
-
-            console.log(pamTestArray);
-            console.log(testsByDimensionArray);
+            //console.log(pamTestArray);
+            //console.log(testsByDimensionArray);
         }
+
+        //mapColors();
     }, [pamTestArray, testsByDimensionArray]);
 
     useEffect(() => {
         if (pamTestArray && mappedColor.size === pamTestArray.length) {
             setIsLoading(false);
         }
-    }, [mappedColor]);
+    }, [mapSize]);
 
     const mapColors = async () => {
         for (const pam_test of pamTestArray) {
             const color = await getColorFromPamTest(pam_test.pam_test_id);
             mappedColor.set(pam_test.pam_test_id, color);
+            setMapSize(mappedColor.size);
           }
         setMappedColor(mappedColor);
     }
@@ -67,7 +70,6 @@ function HistorialPorDimension( { idPam, idDimension }) {
         try {
             const colorReq = Axios.get(`http://10.14.255.53:3010/get-color-from-test/${idPamTest}`);
             const colorResp = await colorReq;
-            console.log("Color: " + colorResp.data.color);
 
             if (colorResp.data.color === "Verde") {
                 return "#40eb34";

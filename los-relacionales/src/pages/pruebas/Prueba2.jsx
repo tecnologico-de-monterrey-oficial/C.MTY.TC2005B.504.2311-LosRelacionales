@@ -15,14 +15,15 @@ function Pruebas2() {
   const id = urlString.split("/")[4];
   const intid = parseInt(id);
 
-const pamId = useSelector((state) => state.person.pam_id);
+  const pamId = useSelector((state) => state.person.pam_id);
+  let insertedId = 0;
 //   addPamTest({test_id: intid, test_result: 0 ,pam_id: pamId, test_date: new Date().toISOString().substring(0, 10)});  
 // const {data: pamTestData, isFetching: FetchingPamTest} = useFetchPamTestByPamIdQuery(pamId);
 // var pamTestId = 0;
 //   {
 //     FetchingPamTest ? <div><h1>Loading...</h1></div> : pamTestId = pamTestData.pam_tests[0].pam_test_id
 //   }
-  const [addPamTestAnswer] = useAddPamTestAnswerMutation();
+  //const [addPamTestAnswer] = useAddPamTestAnswerMutation();
   const [questionId, setQuestionId] = useState(0);
   const [answerArray, setAnswerArray] = useState([]);
   const [questionArray, setQuestionArray] = useState([]);
@@ -32,47 +33,81 @@ const pamId = useSelector((state) => state.person.pam_id);
   const { data: answerData, isFetching: FetchingAnswer } = useFetchAnswerByQuestionIdQuery(questionId);
     
     
-    let answerIndex = 0;
+  let answerIndex = 0;
 
-useEffect(() => {
-  if (questionData) {
-    setQuestionNumber(questionData.questions.length);
-  }
-}, [questionData]);
+  useEffect(() => {
+    if (questionData) {
+      setQuestionNumber(questionData.questions.length);
+    }
+  }, [questionData]);
 
-useEffect(() => {
-  if (answerData) {
-    setAnswerArray(answerData.answer);
-  }
-}, [answerData]);
+  useEffect(() => {
+    if (answerData) {
+      setAnswerArray(answerData.answer);
+    }
+  }, [answerData]);
 
-useEffect(() => {
-  if (questionData) {
-    setQuestionArray(questionData.questions.map((question) => (
-      question.question_id
-    ))
-    );
-  }
-}, [questionData]);
+  useEffect(() => {
+    if (questionData) {
+      setQuestionArray(questionData.questions.map((question) => (
+        question.question_id
+      ))
+      );
+    }
+  }, [questionData]);
 
   const HandleAnswer = (answerId) => {
-  console.log(answerId);
-  console.log(questionId);
-  answerIndex = questionArray.indexOf(questionId);
-  console.log(answerIndex);
-  answers[answerIndex] = answerId;
-  console.log(answers);
+    console.log(answerId);
+    console.log(questionId);
+    answerIndex = questionArray.indexOf(questionId);
+    console.log(answerIndex);
+    answers[answerIndex] = answerId;
+    console.log(answers);
   }
 
+  const addPamTestAnswer = async (answerId) => {
+    try {
+      const pamTestAnswerData = {
+        pam_test_id: insertedId,
+        answer_id: answerId
+      };
+  
+      const pamTestAnswerResp = await Axios.post("http://localhost:3010/add-pam-test-answer", pamTestAnswerData);
+      console.log(pamTestAnswerResp);
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
-const handleSubmit = () => {
+const handleSubmit = async () => {
 
-  answers.forEach((answer) => {
-    addPamTestAnswer({ pamTestId: pamTestId, answerId: answer });
-    console.log(answer);
-    console.log(pamTestId);
-  });
+  try {
+    const pamTestData = {
+      test_id: intid,
+      test_result: 0,
+      pam_id: pamId,
+      test_date: new Date().toISOString().substring(0, 10)
+    };
+
+    const pamTestResp = await Axios.post("http://localhost:3010/add-pam-test-retrieve", pamTestData);
+    console.log(pamTestResp);
+    insertedId = pamTestResp.data.inserted_id;
+
+    answers.forEach((answer) => {
+      Axios.post("http://10.14.255.53:3010/add-pam-test-answer", { pamTestId: insertedId, answerId: answer});
+      console.log("Respuesta agregada con exito: ");
+      console.log(answer);
+    });
+
+
+  } catch (error) {
+    console.log(error);
+  }
+
 }
+
+
+
 
   return (
     <div className='questions'>
