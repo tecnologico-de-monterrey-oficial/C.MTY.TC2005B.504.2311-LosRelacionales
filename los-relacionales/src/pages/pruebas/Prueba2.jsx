@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Dropdown from 'react-bootstrap/Dropdown';
 import ListGroup from 'react-bootstrap/ListGroup';
 import { useAddPamTestMutation, useAddPamTestAnswerMutation, useFetchAnswerByQuestionIdQuery, useFetchQuestionByTestIdQuery,
@@ -14,6 +14,7 @@ function Pruebas2() {
   const urlString = window.location.href;
   const id = urlString.split("/")[4];
   const intid = parseInt(id);
+  const navigate = useNavigate();
 
   const pamId = useSelector((state) => state.person.pam_id);
   let insertedId = 0;
@@ -72,42 +73,38 @@ function Pruebas2() {
         answer_id: answerId
       };
   
-      const pamTestAnswerResp = await Axios.post("http://localhost:3010/add-pam-test-answer", pamTestAnswerData);
+      const pamTestAnswerResp = await Axios.post("http://10.14.255.53:3010/add-pam-test-answer", pamTestAnswerData);
       console.log(pamTestAnswerResp);
     } catch (error) {
       console.log(error);
     }
   }
 
-const handleSubmit = async () => {
+  const handleSubmit = async () => {
 
-  try {
-    const pamTestData = {
-      test_id: intid,
-      test_result: 0,
-      pam_id: pamId,
-      test_date: new Date().toISOString().substring(0, 10)
-    };
+    try {
+      const pamTestData = {
+        test_id: intid,
+        test_result: 0,
+        pam_id: pamId,
+        test_date: new Date().toISOString().substring(0, 10)
+      };
 
-    const pamTestResp = await Axios.post("http://localhost:3010/add-pam-test-retrieve", pamTestData);
-    console.log(pamTestResp);
-    insertedId = pamTestResp.data.inserted_id;
+      const pamTestResp = await Axios.post("http://localhost:3010/add-pam-test-retrieve", pamTestData);
+      console.log(pamTestResp);
+      insertedId = pamTestResp.data.inserted_id;
 
-    answers.forEach((answer) => {
-      Axios.post("http://10.14.255.53:3010/add-pam-test-answer", { pamTestId: insertedId, answerId: answer});
-      console.log("Respuesta agregada con exito: ");
-      console.log(answer);
-    });
+      answers.forEach((answer) => {
+        addPamTestAnswer(answer);
+      });
 
+      navigate('/profile');
 
-  } catch (error) {
-    console.log(error);
+    } catch (error) {
+      console.log(error);
+    }
+
   }
-
-}
-
-
-
 
   return (
     <div className='questions'>
