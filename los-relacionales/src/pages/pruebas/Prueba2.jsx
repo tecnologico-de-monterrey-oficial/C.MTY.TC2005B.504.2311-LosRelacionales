@@ -13,14 +13,15 @@ function Pruebas2() {
   const [addPamTest] = useAddPamTestMutation();
   const urlString = window.location.href;
   const id = urlString.split("/")[4];
+  const intid = parseInt(id);
 
 const pamId = useSelector((state) => state.person.pam_id);
-addPamTest({test_id: id, test_result: 0 ,pam_id: pamId, test_date: new Date().toISOString().substring(0, 10)});
-const {data: pamTestData, isFetching: FetchingPamTest} = useFetchPamTestByPamIdQuery(pamId);
-var pamTestId = 0;
-  {
-    FetchingPamTest ? <div><h1>Loading...</h1></div> : pamTestId = pamTestData.pam_tests[0].pam_test_id
-  }
+//   addPamTest({test_id: intid, test_result: 0 ,pam_id: pamId, test_date: new Date().toISOString().substring(0, 10)});  
+// const {data: pamTestData, isFetching: FetchingPamTest} = useFetchPamTestByPamIdQuery(pamId);
+// var pamTestId = 0;
+//   {
+//     FetchingPamTest ? <div><h1>Loading...</h1></div> : pamTestId = pamTestData.pam_tests[0].pam_test_id
+//   }
   const [addPamTestAnswer] = useAddPamTestAnswerMutation();
   const [questionId, setQuestionId] = useState(0);
   const [answerArray, setAnswerArray] = useState([]);
