@@ -13,6 +13,8 @@ function HistorialPorDimension( { idPam, idDimension }) {
 
     const [mappedColor, setMappedColor] = React.useState(new Map());
     const [colorMapSize, setColorMapSize] = React.useState(0);
+    const [mappedName, setMappedName] = React.useState(new Map());
+    const [nameMapSize, setNameMapSize] = React.useState(0);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -43,7 +45,8 @@ function HistorialPorDimension( { idPam, idDimension }) {
     useEffect(() => {
 
         if (pamTestArray && testsByDimensionArray && testArray) {
-
+            //console.log(testArray);
+            mapNames();
             mapColors();
         }
 
@@ -51,10 +54,21 @@ function HistorialPorDimension( { idPam, idDimension }) {
     }, [pamTestArray, testsByDimensionArray, testArray]);
 
     useEffect(() => {
-        if (pamTestArray && mappedColor.size === pamTestArray.length) {
+        if (pamTestArray && mappedColor.size === pamTestArray.length && mappedName.size > 0) {
             setIsLoading(false);
         }
     }, [colorMapSize]);
+
+
+    const mapNames = async () => {
+
+        for (const test of testArray) {
+            const name = test.test_name;
+            mappedName.set(test.test_id, name);
+            setNameMapSize(mappedName.size);
+            }
+        setMappedName(mappedName);
+    }
 
     const mapColors = async () => {
         for (const pam_test of pamTestArray) {
@@ -108,7 +122,7 @@ function HistorialPorDimension( { idPam, idDimension }) {
                         //.filter((pam_test) => {testDimensionData.tests.filter((test_dimension) => test_dimension.test_id === pam_test.test_id).length > 0})
                         .map((pam_test) => (
                             <tr>
-                                <td>{testArray[pam_test.test_id-1].test}</td>
+                                <td>{mappedName.get(pam_test.test_id)}</td>
                                 <td>{pam_test.test_date.substring(0, 10)}</td>
                                 <td>{pam_test.test_result}</td>
                                 <td style={{background:`${mappedColor.get(pam_test.pam_test_id)}`}}></td>
