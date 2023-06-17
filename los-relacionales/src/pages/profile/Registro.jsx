@@ -91,6 +91,8 @@ function Registro() {
       if (dataPam.pam.length > 0) {
         storeState(
           {
+            pam_id: dataPam.pam[0].pam_id,
+            person_id: person[0].person_id,
             first_name: person[0].first_name,
             last_name: person[0].last_name,
             gender_id: person[0].gender_id,
@@ -149,6 +151,8 @@ function Registro() {
     });
     setStage(2);
     storeState({
+      pam_id: dataPam.pam[0].pam_id,
+      person_id: person[0].person_id,
       first_name: person[0].first_name,
       last_name: person[0].last_name,
       gender_id: person[0].gender_id,

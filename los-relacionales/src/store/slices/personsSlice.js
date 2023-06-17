@@ -3,6 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 const personSlice = createSlice({
     name: "person",
     initialState: {
+        "pam_id": "",
+        "person_id": "",
         "first_name": "",
         "last_name": "",
         "gender_id": "",
@@ -27,6 +29,12 @@ const personSlice = createSlice({
         "parish_id": 1,
     },
     reducers: {
+        changePamId(state, action) {
+            state.pam_id = action.payload;
+        },
+        changePersonId(state, action) {
+            state.person_id = action.payload;
+        },
         changeFirstName(state, action) {
             state.first_name = action.payload;
         },
@@ -94,6 +102,8 @@ const personSlice = createSlice({
             state.parish_id = action.payload;
         },
         changePerson(state, action) {
+            state.pam_id = action.payload.pam_id;
+            state.person_id = action.payload.person_id;
             state.first_name = action.payload.first_name;
             state.last_name = action.payload.last_name;
             state.gender_id = action.payload.gender_id;
@@ -118,6 +128,8 @@ const personSlice = createSlice({
             state.parish_id = action.payload.parish_id;
         },
         resetPerson(state) {
+            state.pam_id = "";
+            state.person_id = "";
             state.first_name = "";
             state.last_name = "";
             state.gender_id = "";
@@ -145,6 +157,8 @@ const personSlice = createSlice({
 });
 
 export const {
+    changePamId,
+    changePersonId,
     changeFirstName,
     changeLastName,
     changeGenderId,
