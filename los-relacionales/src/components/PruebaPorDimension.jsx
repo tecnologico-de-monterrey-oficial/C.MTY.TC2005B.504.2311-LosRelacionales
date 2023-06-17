@@ -44,7 +44,7 @@ function PruebaPorDimension({ id }) {
                     testArray.map((test) => (
                         <Link to={`/pruebas/${test.test_id}`}>
                             <Button key={test.test_id} variant="secondary" size="lg">
-                                {test.test_name}
+                                {test.test_name} <span>{test.self_test ? '' : '  <- No autoaplicable'} </span>
                             </Button>
                         </Link>
                     ))
