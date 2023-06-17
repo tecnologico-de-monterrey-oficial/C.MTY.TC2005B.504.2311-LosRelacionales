@@ -121,6 +121,9 @@ function Profile() {
                         func={() => handleDimensionClick(dimension)}
                       />
                     ))}
+                    <Link to={`/stats`}>
+                      <Button>Estadísticas</Button>
+                    </Link>
                 </div>
               </Col>
             </Row>
