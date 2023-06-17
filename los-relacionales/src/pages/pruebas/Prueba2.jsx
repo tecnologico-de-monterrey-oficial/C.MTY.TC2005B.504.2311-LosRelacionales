@@ -86,7 +86,7 @@ const handleSubmit = () => {
       <div className='answer'>
           <ListGroup>
         {answerArray && answerArray.map((answer) => (
-          <ListGroup.Item action onClick={() => HandleAnswer(answer.answer_id)}>
+          <ListGroup.Item action variant='secondary' onClick={() => HandleAnswer(answer.answer_id)}>
             {answer.answer}
           </ListGroup.Item>
         ))}

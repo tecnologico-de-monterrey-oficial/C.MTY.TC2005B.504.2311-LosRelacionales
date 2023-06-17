@@ -38,7 +38,6 @@ function PruebaPorDimension({ id }) {
     return (
 
         <>
-
             <div className="tests-list">
                 {!isLoading && (
 
@@ -51,7 +50,6 @@ function PruebaPorDimension({ id }) {
                     ))
                 )}
             </div>
-
         </>
         
     );

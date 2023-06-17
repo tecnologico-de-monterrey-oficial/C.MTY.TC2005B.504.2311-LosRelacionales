@@ -72,6 +72,7 @@ function Profile() {
 
   const handleDimensionClick = (dimension) => {
     setCurrentDimension(dimension);
+    setCurrentState("");
   };
 
   const handleChangeState = (state) => {
