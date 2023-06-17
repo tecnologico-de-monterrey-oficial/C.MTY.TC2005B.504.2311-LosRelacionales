@@ -1,0 +1,39 @@
+.historial {
+    padding: 2rem;
+    background-color: #f4f4f4; /* A light gray background */
+}
+
+.historial h2 {
+    color: #6c757d; /* Change heading color for contrast */
+    text-align: center; /* Center align the heading */
+    margin-bottom: 1rem; /* Add some space below the heading */
+}
+
+.historial table {
+    margin-top: 2rem; /* Add some space above the table */
+}
+
+.historial .table-striped tbody tr:nth-of-type(odd) {
+    background-color: #efe3cb; /* Use the main color for every other row for better readability */
+}
+
+.historial .botonRecomendacion {
+    background-color: #efe3cb; /* Use the main color for the button */
+    color: #6c757d; /* Change button text color for contrast */
+}
+
+.historial .botonRecomendacion:hover {
+    background-color: #d6c5a8; /* Darken the button color slightly when hovered */
+}
+
+.historial .botonRecomendacion:active {
+    background-color: #bfad85; /* Darken the button color more when active (clicked) */
+}
+
+.historial .modal-content {
+    background-color: #efe3cb; /* Use the main color for the modal */
+}
+
+.historial .modal-header, .historial .modal-footer {
+    border-color: #d6c5a8; /* Use a darker color for the modal header and footer borders */
+}

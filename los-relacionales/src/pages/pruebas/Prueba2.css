@@ -1,0 +1,49 @@
+body {
+    background-color: #f4f4f4; /* Light gray background for the entire page */
+}
+
+h1 {
+    text-align: center; /* Center the heading */
+    color: #6c757d; /* Dark gray color for the heading */
+    padding: 2rem; /* Padding around the heading */
+}
+
+.questions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+}
+
+.questions .btn-secondary {
+    background-color: #efe3cb; /* Use the main color for the buttons */
+    color: #6c757d; /* Dark gray text color for the buttons for contrast */
+    margin-bottom: 1rem; /* Add some space between the buttons */
+}
+
+.questions .btn-secondary:hover {
+    background-color: #d6c5a8; /* Darken the button color slightly when hovered */
+}
+
+.questions .btn-secondary:active {
+    background-color: #bfad85; /* Darken the button color more when active (clicked) */
+}
+
+.questions .answer {
+    width: 100%; /* Make the answers list take up the full width of its container */
+    margin-top: 2rem; /* Add some space above the answers list */
+}
+
+.questions .answer .list-group-item {
+    background-color: #efe3cb; /* Use the main color for the list items */
+    color: #6c757d; /* Dark gray text color for the list items for contrast */
+    margin-bottom: 0.5rem; /* Add some space between the list items */
+}
+
+.questions .answer .list-group-item:hover {
+    background-color: #d6c5a8; /* Darken the list item color slightly when hovered */
+}
+
+.questions .button {
+    margin-top: 2rem; /* Add some space above the button */
+}
