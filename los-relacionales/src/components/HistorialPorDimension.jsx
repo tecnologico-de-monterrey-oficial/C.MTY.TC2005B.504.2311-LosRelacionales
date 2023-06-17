@@ -83,7 +83,7 @@ function HistorialPorDimension( { idPam, idDimension }) {
     const mapRecommendations = async () => {
         for (const pam_test of pamTestArray) {
             const recommendationObj = await getRecommFromPamTest(pam_test.pam_test_id);
-            console.log(recommendationObj);
+            //console.log(recommendationObj);
 
             if (!recommendationObj) {
                 mappedRecommendation.set(pam_test.pam_test_id, "No hay recomendación en la base de datos");
@@ -174,6 +174,7 @@ function HistorialPorDimension( { idPam, idDimension }) {
                             }
                             return 0;
                          })
+                        .slice(0, 30)
                         //.reverse()
                         //.filter((pam_test) => {testDimensionData.tests.filter((test_dimension) => test_dimension.test_id === pam_test.test_id).length > 0})
                         .map((pam_test) => (
