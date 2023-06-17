@@ -18,6 +18,8 @@ import { testInstructionsApi } from './apis/testInstructionsApi';
 import { testWeightsApi } from './apis/testWeightsApi';
 import {
     personReducer,
+    changePamId,
+    changePersonId,
     changeFirstName,
     changeLastName,
     changeGenderId,
@@ -43,6 +45,7 @@ import {
     changePerson,
     resetPerson,
 } from "./slices/personsSlice";
+
 // TODO import PAMs and Persons Slices
 import {
     authReducer,
@@ -122,6 +125,8 @@ export {
     logout,
     setRole,
     changeFirstName,
+    changePamId,
+    changePersonId,
     changeLastName,
     changeGenderId,
     changeRoleId,

@@ -37,7 +37,7 @@ const pamTestAnswerApi = createApi({
                         url: 'add-pam-test-answer',
                         method: 'POST',
                         body: {
-                            pam_test_result_id: pamTestAnswer.pam_test_result_id,
+                            pam_test_id: pamTestAnswer.pam_test_id,
                             answer_id: pamTestAnswer.answer_id,
                         },
                     };

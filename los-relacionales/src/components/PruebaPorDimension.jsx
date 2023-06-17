@@ -16,6 +16,7 @@ function PruebaPorDimension({ id }) {
         }
     }, [testData]);
 
+
     return (
         <div className="tests-list">
             {!isFetching && testArray && (
