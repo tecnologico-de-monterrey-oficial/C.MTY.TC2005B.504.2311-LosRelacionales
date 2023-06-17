@@ -1,4 +1,31 @@
-.tests-list .btn {
-    background-color: #efe3cb;
-    margin: 2rem;
+.tests-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    background-color: #f4f4f4; /* A light gray background */
+}
+
+.tests-list .btn-secondary {
+    background-color: #efe3cb; /* Change button color to match main color */
+    color: #6c757d; /* Change text color for contrast */
+    border-radius: 5px; /* Make the buttons slightly rounded */
+    padding: 10px 20px; /* Padding around the button text */
+    margin-bottom: 1rem; /* Space between buttons */
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out; /* Animation for button color and text color change */
+}
+
+.tests-list .btn-secondary:hover {
+    background-color: #d6c5a8; /* Darken the button color slightly when hovered */
+    color: #6c757d; /* Keep text color the same when hovered */
+}
+
+.tests-list .btn-secondary:active {
+    background-color: #bfad85; /* Darken the button color more when active (clicked) */
+    color: #6c757d; /* Keep text color the same when active (clicked) */
+}
+
+.tests-list .btn-secondary span {
+    font-style: italic; /* Make the 'No autoaplicable' text italic */
+    font-size: 0.9em; /* Reduce the font size of the 'No autoaplicable' text slightly */
 }

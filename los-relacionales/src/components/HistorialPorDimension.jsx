@@ -5,7 +5,7 @@ import Table from 'react-bootstrap/Table';
 import Modal from 'react-bootstrap/Modal';
 import Axios from 'axios';
 
-function HistorialPorDimension( { idPam, idDimension }) {
+function HistorialPorDimension({ idPam, idDimension }) {
 
     const [showModal, setShowModal] = useState(false);
     const [selectedItem, setSelectedItem] = useState(null);
@@ -25,7 +25,7 @@ function HistorialPorDimension( { idPam, idDimension }) {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const pamTestReq = Axios.get(`http://10.14.255.53:3010/get-pam-test-by-pam/${idPam}`);      
+                const pamTestReq = Axios.get(`http://10.14.255.53:3010/get-pam-test-by-pam/${idPam}`);
                 const pamTestResp = await pamTestReq;
                 setPamTestArray(pamTestResp.data.pam_tests);
 
@@ -42,10 +42,10 @@ function HistorialPorDimension( { idPam, idDimension }) {
                 setRecommendationArray(recommResp.data.recommendations);
 
             } catch (error) {
-              console.error('Error fetching data:', error);
+                console.error('Error fetching data:', error);
             }
         };
-      
+
         fetchData();
 
     }, []);
@@ -62,10 +62,10 @@ function HistorialPorDimension( { idPam, idDimension }) {
     }, [pamTestArray, testsByDimensionArray, testArray, recommendationArray]);
 
     useEffect(() => {
-        if (pamTestArray && 
-            mappedColor.size === pamTestArray.length && 
-            mappedRecommendation.size === pamTestArray.length && 
-            mappedName.size > 0 && 
+        if (pamTestArray &&
+            mappedColor.size === pamTestArray.length &&
+            mappedRecommendation.size === pamTestArray.length &&
+            mappedName.size > 0 &&
             mappedRecommendation.size > 0) {
             setIsLoading(false);
         }
@@ -76,7 +76,7 @@ function HistorialPorDimension( { idPam, idDimension }) {
         for (const test of testArray) {
             const name = test.test_name;
             mappedName.set(test.test_id, name);
-            }
+        }
         setMappedName(mappedName);
     }
 
@@ -91,9 +91,9 @@ function HistorialPorDimension( { idPam, idDimension }) {
                 mappedRecommendation.set(pam_test.pam_test_id, recommendationObj.recommendation);
             }
 
-            
+
             setRecommendationMapSize(mappedRecommendation.size);
-          }
+        }
         setMappedRecommendation(mappedRecommendation);
     }
 
@@ -102,7 +102,7 @@ function HistorialPorDimension( { idPam, idDimension }) {
             const color = await getColorFromPamTest(pam_test.pam_test_id);
             mappedColor.set(pam_test.pam_test_id, color);
             setColorMapSize(mappedColor.size);
-          }
+        }
         setMappedColor(mappedColor);
     }
 
@@ -118,7 +118,7 @@ function HistorialPorDimension( { idPam, idDimension }) {
             console.error('Error fetching data:', error);
         }
     };
-    
+
     const getColorFromPamTest = async (idPamTest) => {
         try {
             const colorReq = Axios.get(`http://10.14.255.53:3010/get-color-from-test/${idPamTest}`);
@@ -154,62 +154,62 @@ function HistorialPorDimension( { idPam, idDimension }) {
             {!isLoading && (
 
                 <Table striped bordered hover>
-                    <thead>   
+                    <thead>
                         <tr>
-                        <th>Prueba</th>
-                        <th>Fecha de Realización</th>
-                        <th>Resultado</th>
-                        <th>Color</th>
-                        <th>Recomendación</th>
+                            <th>Prueba</th>
+                            <th>Fecha de Realización</th>
+                            <th>Resultado</th>
+                            <th>Color</th>
+                            <th>Recomendación</th>
                         </tr>
                     </thead>
                     <tbody>
                         {pamTestArray
-                        .sort(function(x, y) {
-                            if (x.test_date < y.test_date) {
-                               return 1;
-                            }
-                            if (x.test_date > y.test_date) {
-                               return -1;
-                            }
-                            return 0;
-                         })
-                        .slice(0, 30)
-                        //.reverse()
-                        //.filter((pam_test) => {testDimensionData.tests.filter((test_dimension) => test_dimension.test_id === pam_test.test_id).length > 0})
-                        .map((pam_test) => (
-                            <tr>
-                                <td>{mappedName.get(pam_test.test_id)}</td>
-                                <td>{pam_test.test_date.substring(0, 10)}</td>
-                                <td>{pam_test.test_result}</td>
-                                <td style={{background:`${mappedColor.get(pam_test.pam_test_id)}`}}></td>
-                                <td>
-                                    <Button className={"botonRecomendacion"} key={`boton${pam_test.pam_test_id}`}
-                                    onClick={() => handleShowModal(pam_test)}>
-                                        Recomendación
-                                    </Button>
-
-                                    <Modal show={showModal && selectedItem === pam_test} onHide={handleCloseModal}>
-                                        <Modal.Header closeButton>
-                                        <Modal.Title>{"Recomendación"}</Modal.Title>
-                                        </Modal.Header>
-                                        <Modal.Body>{`${mappedRecommendation.get(pam_test.pam_test_id)}`}</Modal.Body>
-                                        <Modal.Footer>
-                                        <Button variant="secondary" onClick={handleCloseModal}>
-                                            Cerrar
+                            .sort(function (x, y) {
+                                if (x.test_date < y.test_date) {
+                                    return 1;
+                                }
+                                if (x.test_date > y.test_date) {
+                                    return -1;
+                                }
+                                return 0;
+                            })
+                            .slice(0, 30)
+                            //.reverse()
+                            //.filter((pam_test) => {testDimensionData.tests.filter((test_dimension) => test_dimension.test_id === pam_test.test_id).length > 0})
+                            .map((pam_test) => (
+                                <tr>
+                                    <td>{mappedName.get(pam_test.test_id)}</td>
+                                    <td>{pam_test.test_date.substring(0, 10)}</td>
+                                    <td>{pam_test.test_result}</td>
+                                    <td style={{ background: `${mappedColor.get(pam_test.pam_test_id)}` }}></td>
+                                    <td>
+                                        <Button className={"botonRecomendacion"} key={`boton${pam_test.pam_test_id}`}
+                                            onClick={() => handleShowModal(pam_test)}>
+                                            Recomendación
                                         </Button>
-                                        </Modal.Footer>
-                                    </Modal>
 
-                                </td>
-                            </tr>
-                        ))}
+                                        <Modal show={showModal && selectedItem === pam_test} onHide={handleCloseModal}>
+                                            <Modal.Header closeButton>
+                                                <Modal.Title>{"Recomendación"}</Modal.Title>
+                                            </Modal.Header>
+                                            <Modal.Body>{`${mappedRecommendation.get(pam_test.pam_test_id)}`}</Modal.Body>
+                                            <Modal.Footer>
+                                                <Button variant="secondary" onClick={handleCloseModal}>
+                                                    Cerrar
+                                                </Button>
+                                            </Modal.Footer>
+                                        </Modal>
+
+                                    </td>
+                                </tr>
+                            ))}
                     </tbody>
                 </Table>
 
             )}
-            
-        </div>    
+
+        </div>
     );
 }
 export default HistorialPorDimension;
