@@ -1,13 +1,20 @@
 import './ApoyoPorDimension.css';
+import { Unity, useUnityContext } from "react-unity-webgl";
+import React from "react";
 
-function ApoyoPorDimension( { id }) {
-
+const  unityProvider  = () => {
     return (
-        <div className="apoyo">
-
-            <h2>Apoyo</h2>
-
-        </div>    
+        <div>
+            <iframe
+                src="/WebGL/SerpientesyEscaleras/index.html"
+                title="WebGL Application"
+                width="1260"
+                height="750"
+            />
+        </div>
     );
 }
-export default ApoyoPorDimension;
+    
+
+export default unityProvider;
+
