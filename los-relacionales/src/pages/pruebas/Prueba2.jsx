@@ -25,6 +25,9 @@ function Pruebas2() {
 //     FetchingPamTest ? <div><h1>Loading...</h1></div> : pamTestId = pamTestData.pam_tests[0].pam_test_id
 //   }
   //const [addPamTestAnswer] = useAddPamTestAnswerMutation();
+  const [curTest, setCurTest] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [showPrueba, setShowPrueba] = useState(false);
   const [questionId, setQuestionId] = useState(0);
   const [answerArray, setAnswerArray] = useState([]);
   const [questionArray, setQuestionArray] = useState([]);
@@ -32,6 +35,36 @@ function Pruebas2() {
   const [answers, setAnswers] = useState([QuestionNumber]);
   const { data: questionData, isFetching: FetchingQuestion , isError } = useFetchQuestionByTestIdQuery(id);
   const { data: answerData, isFetching: FetchingAnswer } = useFetchAnswerByQuestionIdQuery(questionId);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const testReq = Axios.get(`http://10.14.255.53:3010/get-test/${intid}`);      
+        const testResp = await testReq;
+        setCurTest(testResp.data.test[0]);
+
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+  
+    fetchData();
+
+  }, []);
+
+  useEffect(() => {
+    if (curTest) {
+
+      if (curTest.self_test === 1) {
+        setShowPrueba(true);
+      } else {
+        setShowPrueba(false);
+      }
+
+      setIsLoading(false);
+
+    }
+  }, [curTest]);
     
     
   let answerIndex = 0;
@@ -107,29 +140,44 @@ function Pruebas2() {
   }
 
   return (
-    <div className='questions'>
-      {FetchingQuestion || FetchingAnswer ?
-        <div><h1>Loading...</h1></div> :
-        questionData && questionData.questions.map((question) => (
-          <Button key={question.question_id} variant="secondary" size="lg" onClick={() => setQuestionId(question.question_id)}>
-            {question.question}</Button>
-        ))
-      }
-      <div className='answer'>
-          <ListGroup>
-        {answerArray && answerArray.map((answer) => (
-          <ListGroup.Item action variant='secondary' onClick={() => HandleAnswer(answer.answer_id)}>
-            {answer.answer}
-          </ListGroup.Item>
-        ))}
-        </ListGroup>
+    <>
+
+    {!isLoading && (
+      <>
+      {!showPrueba ? (
+        <h1> Esta prueba no es autoaplicable </h1>
+      ) : (
+        <div className='questions'>
+          {FetchingQuestion || FetchingAnswer ?
+            <div><h1>Loading...</h1></div> :
+            questionData && questionData.questions.map((question) => (
+              <Button key={question.question_id} variant="secondary" size="lg" onClick={() => setQuestionId(question.question_id)}>
+                {question.question}</Button>
+            ))
+          }
+          <div className='answer'>
+              <ListGroup>
+            {answerArray && answerArray.map((answer) => (
+              <ListGroup.Item action variant='secondary' onClick={() => HandleAnswer(answer.answer_id)}>
+                {answer.answer}
+              </ListGroup.Item>
+            ))}
+            </ListGroup>
+            </div>  
+          <div className='button'>
+            <Button variant="secondary" size="lg" onClick={() => handleSubmit()}>
+              Submit
+            </Button>
+            </div>
         </div>  
-      <div className='button'>
-        <Button variant="secondary" size="lg" onClick={() => handleSubmit()}>
-          Submit
-        </Button>
-        </div>
-    </div>
+      )
+    }
+    </>
+
+  )}
+
+    
+    </>
   );
 }
 

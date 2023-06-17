@@ -14,7 +14,6 @@ function HistorialPorDimension( { idPam, idDimension }) {
     const [mappedColor, setMappedColor] = React.useState(new Map());
     const [colorMapSize, setColorMapSize] = React.useState(0);
     const [mappedName, setMappedName] = React.useState(new Map());
-    const [nameMapSize, setNameMapSize] = React.useState(0);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -22,7 +21,6 @@ function HistorialPorDimension( { idPam, idDimension }) {
                 const pamTestReq = Axios.get(`http://10.14.255.53:3010/get-pam-test-by-pam/${idPam}`);      
                 const pamTestResp = await pamTestReq;
                 setPamTestArray(pamTestResp.data.pam_tests);
-
 
                 const testDimensionReq = Axios.get(`http://10.14.255.53:3010/get-tests-by-dimension/${idDimension}`);
                 const testDimensionResp = await testDimensionReq;
@@ -45,7 +43,6 @@ function HistorialPorDimension( { idPam, idDimension }) {
     useEffect(() => {
 
         if (pamTestArray && testsByDimensionArray && testArray) {
-            //console.log(testArray);
             mapNames();
             mapColors();
         }
@@ -65,7 +62,6 @@ function HistorialPorDimension( { idPam, idDimension }) {
         for (const test of testArray) {
             const name = test.test_name;
             mappedName.set(test.test_id, name);
-            setNameMapSize(mappedName.size);
             }
         setMappedName(mappedName);
     }
@@ -118,6 +114,15 @@ function HistorialPorDimension( { idPam, idDimension }) {
                     </thead>
                     <tbody>
                         {pamTestArray
+                        .sort(function(x, y) {
+                            if (x.test_date < y.test_date) {
+                               return 1;
+                            }
+                            if (x.test_date > y.test_date) {
+                               return -1;
+                            }
+                            return 0;
+                         })
                         //.reverse()
                         //.filter((pam_test) => {testDimensionData.tests.filter((test_dimension) => test_dimension.test_id === pam_test.test_id).length > 0})
                         .map((pam_test) => (
