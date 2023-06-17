@@ -32,7 +32,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Inicio />} />
             <Route path="/pams" element={<PAMs />} />
-            <Route path="/pam" element={<PAM />} />
+            <Route path="/pam/edit/:id" element={<PAM />} />
             {isLogged ? (
               <Route path="/profile" element={<Registro />} />
             ) : (
