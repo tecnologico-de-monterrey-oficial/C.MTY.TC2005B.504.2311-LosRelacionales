@@ -1,0 +1,46 @@
+.pam {
+    margin: 3%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.data {
+    background-color: #efe3cb;
+    margin: 8%;
+    margin-top: 3rem;
+    padding: 2rem;
+    border-radius: 8px;
+}
+
+.data .mb-3 {
+    background-color: #f5f1e5;
+    margin: 2rem;
+    border-radius: 8px;
+    margin-bottom: 2.5rem !important;
+    padding: 2rem;
+}
+
+.data .form-label {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.data .form-control,
+.data .form-select {
+    width: 70%;
+    background-color: #f5f1e5;
+    border: none;
+    border-radius: 0%;
+    border-bottom: rgb(158, 156, 156);
+    border-bottom-style: solid;
+}
+
+.btn-container {
+    display: flex;
+    justify-content: center;
+}
+
+.data .btn {
+    background-color: #bfb192;
+    color: white;
+}

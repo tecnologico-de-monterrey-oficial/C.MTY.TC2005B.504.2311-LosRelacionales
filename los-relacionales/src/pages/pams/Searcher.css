@@ -1,7 +1,9 @@
 .searcher {
-    background-color: #EFE3CB;
-    margin: 4rem;
-    padding: 2rem;
+    background-color: #efe3cb88;
+    margin: 2%;
+    margin-left: 5%;
+    margin-right: 5%;
+    padding: 2%;
     border-radius: 8px;
 }
 
@@ -22,5 +24,18 @@ h3 {
 }
 
 .table th{
+    background-color: #F3F6F9;
+}
+
+.searcher td .btn {
+    background-color: #efe3cbd8;
+    margin-right: 2rem;
+    padding: 3rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    font-size: 1rem;
+}
+
+.searcher td .btn:hover {
     background-color: #F3F6F9;
 }
