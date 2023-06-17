@@ -153,7 +153,7 @@ function Pruebas2() {
               {FetchingQuestion || FetchingAnswer ?
                 <div><h1>Loading...</h1></div> :
                 questionData && questionData.questions.map((question) => (
-                  <Button key={question.question_id} variant="secondary" size="lg" onClick={() => setQuestionId(question.question_id)}>
+                  <Button className='question' key={question.question_id} variant="secondary" size="lg" onClick={() => setQuestionId(question.question_id)}>
                     {question.question}</Button>
                 ))
               }

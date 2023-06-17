@@ -62,3 +62,20 @@ h1 {
     width: 100%; /* Make the submit button full width */
     transition: background-color 0.2s ease; /* Smooth transition on hover */
 }
+
+.questions .question {
+    margin-right: 1rem;
+}
+
+.answer .list-group-item {
+    background-color: #efe3cbc4;
+    color: #6c757d;
+    padding: 10px 15px; /* Increase padding for better readability */
+    transition: background-color 0.2s ease; /* Smooth transition on hover */
+}
+
+.button {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+}
