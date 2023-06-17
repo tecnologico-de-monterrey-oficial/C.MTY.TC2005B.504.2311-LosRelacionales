@@ -1,3 +1,4 @@
+import './PruebaGijon.css';
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
@@ -65,8 +66,8 @@ function PruebaGijon() {
   };
 
   return (
-    <div>
-      <h1>Prueba de Gijón</h1>
+    <div className='test'>
+      <h1>Prueba de Gijón caca</h1>import 
       <div>
         <p>Pregunta 1: Situación familiar</p>
         <select

@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
-import './PruebaGijon2.css';
-import { Link } from 'react-router-dom';    
+import { Link } from 'react-router-dom';
 
 function PruebaGijon() {
   const [respuestas, setRespuestas] = useState({
@@ -48,8 +47,8 @@ function PruebaGijon() {
   };
 
   return (
-    <div>
-      <h1>Prueba de Gijón</h1>
+    <div className='test'>
+      <h1>Prueba de Gijón caca</h1>
       <div>
         <p>Pregunta 1: Situación familiar</p>
         <div>
