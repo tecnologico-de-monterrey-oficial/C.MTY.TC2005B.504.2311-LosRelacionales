@@ -1,11 +1,5 @@
 import React, { useEffect } from 'react'
 import './HistorialPorDimension.css';
-import Button from 'react-bootstrap/Button';
-import { 
-    useFetchPamTestByPamIdQuery,
-    useFetchTestByDimensionIdQuery, 
-    useFetchColorFromPamTestQuery,
-} from '../store';
 import Table from 'react-bootstrap/Table';
 
 import Axios from 'axios';
@@ -15,8 +9,10 @@ function HistorialPorDimension( { idPam, idDimension }) {
     const [isLoading, setIsLoading] = React.useState(true);
     const [pamTestArray, setPamTestArray] = React.useState(null);
     const [testsByDimensionArray, setTestsByDimensionArray] = React.useState(null);
+    const [testArray, setTestArray] = React.useState(null);
+
     const [mappedColor, setMappedColor] = React.useState(new Map());
-    const [mapSize, setMapSize] = React.useState(0);
+    const [colorMapSize, setColorMapSize] = React.useState(0);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -30,38 +26,41 @@ function HistorialPorDimension( { idPam, idDimension }) {
                 const testDimensionResp = await testDimensionReq;
                 setTestsByDimensionArray(testDimensionResp.data.tests);
 
+
+                const testReq = Axios.get(`http://10.14.255.53:3010/get-tests`);
+                const testResp = await testReq;
+                setTestArray(testResp.data.tests);
+
             } catch (error) {
               console.error('Error fetching data:', error);
             }
-          };
+        };
       
-          fetchData();
+        fetchData();
 
     }, []);
 
     useEffect(() => {
 
-        if (pamTestArray && testsByDimensionArray) {
+        if (pamTestArray && testsByDimensionArray && testArray) {
 
             mapColors();
-            //console.log(pamTestArray);
-            //console.log(testsByDimensionArray);
         }
 
         //mapColors();
-    }, [pamTestArray, testsByDimensionArray]);
+    }, [pamTestArray, testsByDimensionArray, testArray]);
 
     useEffect(() => {
         if (pamTestArray && mappedColor.size === pamTestArray.length) {
             setIsLoading(false);
         }
-    }, [mapSize]);
+    }, [colorMapSize]);
 
     const mapColors = async () => {
         for (const pam_test of pamTestArray) {
             const color = await getColorFromPamTest(pam_test.pam_test_id);
             mappedColor.set(pam_test.pam_test_id, color);
-            setMapSize(mappedColor.size);
+            setColorMapSize(mappedColor.size);
           }
         setMappedColor(mappedColor);
     }
@@ -109,7 +108,7 @@ function HistorialPorDimension( { idPam, idDimension }) {
                         //.filter((pam_test) => {testDimensionData.tests.filter((test_dimension) => test_dimension.test_id === pam_test.test_id).length > 0})
                         .map((pam_test) => (
                             <tr>
-                                <td>{pam_test.test_id}</td>
+                                <td>{testArray[pam_test.test_id-1].test}</td>
                                 <td>{pam_test.test_date.substring(0, 10)}</td>
                                 <td>{pam_test.test_result}</td>
                                 <td style={{background:`${mappedColor.get(pam_test.pam_test_id)}`}}></td>

@@ -90,7 +90,7 @@ function Pruebas2() {
         test_date: new Date().toISOString().substring(0, 10)
       };
 
-      const pamTestResp = await Axios.post("http://localhost:3010/add-pam-test-retrieve", pamTestData);
+      const pamTestResp = await Axios.post("http://10.14.255.53:3010/add-pam-test-retrieve", pamTestData);
       console.log(pamTestResp);
       insertedId = pamTestResp.data.inserted_id;
 
