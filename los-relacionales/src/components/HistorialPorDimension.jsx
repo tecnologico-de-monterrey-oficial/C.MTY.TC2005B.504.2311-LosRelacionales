@@ -11,8 +11,6 @@ import Table from 'react-bootstrap/Table';
 
 function HistorialPorDimension( { idPam, idDimension }) {
 
-    //console.log("idPam: " + idPam);
-
     const [isFetching, setIsFetching] = React.useState(true);
     const [pamTestArray, setPamTestArray] = React.useState(null);
     const [colorArray, setColorArray] = React.useState(null);
@@ -53,6 +51,7 @@ function HistorialPorDimension( { idPam, idDimension }) {
                         <th>Prueba</th>
                         <th>Fecha de Realización</th>
                         <th>Resultado</th>
+                        <th>Color</th>
                         </tr>
                     </thead>
                     <tbody>
