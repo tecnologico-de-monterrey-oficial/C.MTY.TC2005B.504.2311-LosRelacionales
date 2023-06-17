@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { Link } from 'react-router-dom';
 import { useAddPamTestMutation } from '../../store';
-// import Axios from 'axios';
+import Axios from 'axios';
 
 function PruebaGijon() {
 
