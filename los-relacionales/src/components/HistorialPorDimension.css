@@ -1,5 +1,5 @@
 .historial {
-    padding: 1.5rem;
+    padding: 2em;
     background-color: #f4f4f4; /* A light gray background */
 }
 
@@ -13,10 +13,9 @@
     margin-top: 2rem; /* Add some space above the table */
 }
 
-.historial table td {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.historial .table .td {
+    text-align: center;
+    vertical-align: middle;
 }
 
 .historial .table-striped tbody tr:nth-of-type(odd) {
@@ -27,6 +26,8 @@
     font-size: 1rem;
     background-color: #efe3cb; /* Use the main color for the button */
     color: #6c757d; /* Change button text color for contrast */
+    padding-left: 2rem;
+    padding-right: 2rem;
 }
 
 .historial .botonRecomendacion:hover {
