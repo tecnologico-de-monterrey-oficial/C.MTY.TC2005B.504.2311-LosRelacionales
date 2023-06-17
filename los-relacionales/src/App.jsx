@@ -14,6 +14,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 
+import WebGLComponent from './components/ApoyoPorDimension';
+
 function App() {
   const { user } = useSelector((state) => state.auth);
   const [isLogged, setIsLogged] = useState(false);
@@ -41,6 +43,7 @@ function App() {
             <Route path="/PruebaGijon" element={<PruebaGijon />} />
             <Route path="/PruebaGijon2" element={<PruebaGijon2 />} />
           <Route path="/pruebas/:id" element={<Pruebas2/>} />
+          <Route path="/ApoyoPorDimension" element={<WebGLComponent/>} />
           </Routes>
         </BrowserRouter>
       </div>
