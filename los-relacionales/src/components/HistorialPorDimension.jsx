@@ -8,42 +8,89 @@ import {
 } from '../store';
 import Table from 'react-bootstrap/Table';
 
+import Axios from 'axios';
 
 function HistorialPorDimension( { idPam, idDimension }) {
 
-    const [isFetching, setIsFetching] = React.useState(true);
+    const [isLoading, setIsLoading] = React.useState(true);
     const [pamTestArray, setPamTestArray] = React.useState(null);
-    const [colorArray, setColorArray] = React.useState(null);
-    const {data: storyData, isFetching: isFetchingPamTest, isError } = useFetchPamTestByPamIdQuery(idPam);
-    const {data: testDimensionData, isFetching: isFetchingTestDimension, isError: isErrorTestDimension } = useFetchTestByDimensionIdQuery(idDimension);
-    // const {data: colorData, isFetching: isFetchingColor, isError: isErrorColor} = useFetchColorFromPamTestQuery(idDimension);
+    const [testsByDimensionArray, setTestsByDimensionArray] = React.useState(null);
+    const [mappedColor, setMappedColor] = React.useState(new Map());
 
     useEffect(() => {
-        if (!isFetchingPamTest && !isFetchingTestDimension && storyData && testDimensionData && pamTestArray) {
+        const fetchData = async () => {
+            try {
+                const pamTestReq = Axios.get(`http://10.14.255.53:3010/get-pam-test-by-pam/${idPam}`);      
+                const pamTestResp = await pamTestReq;
+                setPamTestArray(pamTestResp.data.pam_tests);
 
-            setIsFetching(false);
-            // console.log("1:");
-            // console.log(testDimensionData.tests.filter((test_dimension) => test_dimension.test_id == 12).length > 0);
-            // console.log(pamTestArray);
-            // console.log(testDimensionData.tests);
-            // console.log("2:");
-            // console.log(pamTestArray.filter((pam_test) => {testDimensionData.tests.filter((test_dimension) => test_dimension.test_id == pam_test.test_id).length > 0}));
-        }
-    }, [storyData, testDimensionData]);
-    
+
+                const testDimensionReq = Axios.get(`http://10.14.255.53:3010/get-tests-by-dimension/${idDimension}`);
+                const testDimensionResp = await testDimensionReq;
+                setTestsByDimensionArray(testDimensionResp.data.tests);
+
+            } catch (error) {
+              console.error('Error fetching data:', error);
+            }
+          };
+      
+          fetchData();
+
+    }, []);
 
     useEffect(() => {
-        if (storyData) {
-            setPamTestArray([...storyData.pam_tests].reverse());
+
+        if (pamTestArray && testsByDimensionArray) {
+
+            mapColors();
+
+            console.log(pamTestArray);
+            console.log(testsByDimensionArray);
         }
-    }, [storyData]);
+    }, [pamTestArray, testsByDimensionArray]);
+
+    useEffect(() => {
+        if (pamTestArray && mappedColor.size === pamTestArray.length) {
+            setIsLoading(false);
+        }
+    }, [mappedColor]);
+
+    const mapColors = async () => {
+        for (const pam_test of pamTestArray) {
+            const color = await getColorFromPamTest(pam_test.pam_test_id);
+            mappedColor.set(pam_test.pam_test_id, color);
+          }
+        setMappedColor(mappedColor);
+    }
+
+    const getColorFromPamTest = async (idPamTest) => {
+        try {
+            const colorReq = Axios.get(`http://10.14.255.53:3010/get-color-from-test/${idPamTest}`);
+            const colorResp = await colorReq;
+            console.log("Color: " + colorResp.data.color);
+
+            if (colorResp.data.color === "Verde") {
+                return "#40eb34";
+
+            } else if (colorResp.data.color === "Amarillo") {
+                return "#f2ef13";
+
+            } else if (colorResp.data.color === "Rojo") {
+                return "#f21313";
+            }
+
+            //return colorResp.data.color;
+        } catch (error) {
+            console.error('Error fetching data:', error);
+        }
+    };
 
     return (
         <div className="historial">
 
             <h2>Historial</h2>
 
-            {!isFetching && pamTestArray && (
+            {!isLoading && (
 
                 <Table striped bordered hover>
                     <thead>   
@@ -61,8 +108,9 @@ function HistorialPorDimension( { idPam, idDimension }) {
                         .map((pam_test) => (
                             <tr>
                                 <td>{pam_test.test_id}</td>
-                                <td>{pam_test.test_date}</td>
+                                <td>{pam_test.test_date.substring(0, 10)}</td>
                                 <td>{pam_test.test_result}</td>
+                                <td style={{background:`${mappedColor.get(pam_test.pam_test_id)}`}}></td>
                             </tr>
                         ))}
                     </tbody>
