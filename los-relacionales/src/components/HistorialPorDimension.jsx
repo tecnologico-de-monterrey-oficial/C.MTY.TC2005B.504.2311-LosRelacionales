@@ -4,6 +4,7 @@ import Button from 'react-bootstrap/Button';
 import Table from 'react-bootstrap/Table';
 import Modal from 'react-bootstrap/Modal';
 import Axios from 'axios';
+import { Link } from 'react-router-dom';
 
 function HistorialPorDimension( { idPam, idDimension }) {
 
@@ -209,6 +210,9 @@ function HistorialPorDimension( { idPam, idDimension }) {
 
             )}
             
+            <Link to="/stats">
+            <Button>Estadisticas</Button>
+            </Link>
         </div>    
     );
 }
