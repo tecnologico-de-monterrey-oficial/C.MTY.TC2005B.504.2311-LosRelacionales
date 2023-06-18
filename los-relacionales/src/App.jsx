@@ -8,8 +8,6 @@ import Registro from './pages/profile/Registro';
 import Footer from './components/Footer'
 import Prueba from './pages/pruebas/Prueba';
 import Pruebas2 from './pages/pruebas/Prueba2';
-import PruebaGijon from './pages/pruebas/PruebaGijon';
-import PruebaGijon2 from './pages/pruebas/PruebaGijon2';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
@@ -40,8 +38,6 @@ function App() {
             ) : (
               <Route path="/profile" element={<Inicio />} />
             )}
-            <Route path="/PruebaGijon" element={<PruebaGijon />} />
-            <Route path="/PruebaGijon2" element={<PruebaGijon2 />} />
           <Route path="/pruebas/:id" element={<Pruebas2/>} />
           <Route path="/ApoyoPorDimension" element={<WebGLComponent/>} />
           </Routes>
